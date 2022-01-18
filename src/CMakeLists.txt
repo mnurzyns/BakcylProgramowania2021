@@ -6,7 +6,6 @@ set(PROJECT_SOURCES
 )
 
 add_subdirectory(core)
-add_subdirectory(json)
 add_subdirectory(mail)
 add_subdirectory(proxy)
 add_subdirectory(sap)
@@ -21,7 +20,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     Threads::Threads
     ${QtLib}
     CoreLib
-    JsonLib
     MailLib
     ProxyLib
     SapLib

@@ -7,7 +7,6 @@ include(${CMAKE_BASE_LIST_DIR}/cmake/add_ut.cmake)
 set_property(GLOBAL PROPERTY ALL_TESTS_LIST)
 
 add_subdirectory(core)
-add_subdirectory(json)
 add_subdirectory(mail)
 add_subdirectory(proxy)
 add_subdirectory(sap)
