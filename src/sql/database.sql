@@ -14,3 +14,11 @@ CREATE TABLE Products_Instances (
 	quantity int DEFAULT 0
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE Products_History (
+	id int NOT NULL AUTO_INCREMENT,
+	productID int NOT NULL,
+	lastUpdate date NOT NULL,
+	quantity int DEFAULT 0
+	PRIMARY KEY(id)
+);
