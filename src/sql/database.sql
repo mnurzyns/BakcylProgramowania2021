@@ -22,3 +22,9 @@ CREATE TABLE Products_History (
 	quantity int DEFAULT 0
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE Locations(
+	id int NOT NULL AUTO_INCREMENT,
+	name text,
+	PRIMARY KEY(id)
+);
