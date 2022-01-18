@@ -6,3 +6,11 @@ CREATE TABLE Products (
 	description text,
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE Products_Instances (
+	id int NOT NULL AUTO_INCREMENT,
+	locationID int NOT NULL,
+	productID int NOT NULL,
+	quantity int DEFAULT 0
+	PRIMARY KEY(id)
+);
