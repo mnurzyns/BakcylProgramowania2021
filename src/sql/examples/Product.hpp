@@ -4,30 +4,32 @@
 namespace bakcyl::sql {
 	class Product {
 	private:
-		unsigned long long productId;
+		std::uint64_t productId;
 		std::string name;
 		std::string description;
 		std::string categories;
-		unsigned int minQuantity;
-		unsigned int maxQuantity;
+		std::uint32_t currentQuantity;
+		std::uint32_t minQuantity;
+		std::uint32_t maxQuantity;
 	public:
 		Product();
 		~Product();
 
 		//Getters
-		unsigned long long getProductId();
+		std::uint64_t getProductId();
 		std::string getName();
 		std::string getDescription();
 		std::string getCategories();
-		unsigned int getMinQuantity();
-		unsigned int getMaxQuantity();
+		std::uint32_t getCurrentQuantity();
+		std::uint32_t getMinQuantity();
+		std::uint32_t getMaxQuantity();
 
 		//Setters
-		void setProductId(unsigned long long value);
+		void setProductId(std::uint64_t value);
 		void setName(std::string value);
 		void setDescription(std::string value);
 		void setCategories(std::string value);
-		void setMinQuantity(unsigned int value);
-		void setMaxQuantity(unsigned int value);
+		void setMinQuantity(std::uint32_t value);
+		void setMaxQuantity(std::uint32_t value);
 	};
 }
