@@ -1,5 +1,4 @@
-#ifndef TESTCLASS_H
-#define TESTCLASS_H
+#pragma once
 
 namespace bakcyl::gui {
 
@@ -11,4 +10,3 @@ public:
 
 }
 
-#endif // TESTCLASS_H
