@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION ${CMAKE_REQUIRED_VERSION})
 
 set(PROJECT_SOURCES
         main.cpp
-        gui/qml.qrc
+        gui/resources/qml.qrc
 )
 
 add_subdirectory(core)
