@@ -5,6 +5,7 @@ set(PROJECT_SOURCES
         gui/resources/qml.qrc
 )
 
+add_subdirectory(gui)
 add_subdirectory(core)
 add_subdirectory(mail)
 add_subdirectory(proxy)
@@ -19,6 +20,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME}
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     Threads::Threads
     ${QtLib}
+    GuiLib
     CoreLib
     MailLib
     ProxyLib
