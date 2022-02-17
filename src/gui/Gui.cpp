@@ -2,7 +2,7 @@
 
 namespace bakcyl::gui {
 
-testclass::testclass()
+Gui::Gui()
 {
 
 }

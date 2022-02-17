@@ -2,10 +2,10 @@
 
 namespace bakcyl::gui {
 
-class testclass
+class Gui
 {
 public:
-    testclass();
+    Gui();
 };
 
 }
