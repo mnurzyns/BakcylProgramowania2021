@@ -12,7 +12,7 @@ public:
 	std::string message;
     };
 
-    void DemandIndicator();
+    unsigned short DemandIndicator(int quality, std::time_t date);
 
 };
 
