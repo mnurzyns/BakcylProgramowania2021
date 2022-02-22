@@ -13,6 +13,8 @@ public:
     };
 
     unsigned short DemandIndicator(int quality, std::time_t date);
+    void GetDataforemailtoserver(struct Dataforemail* data);
+    void SendDataforemailtoserver(struct Dataforemail* data);
 
 };
 
