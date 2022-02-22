@@ -9,6 +9,8 @@ public:
     explicit SearchboxController(QObject *parent = nullptr);
 
 signals:
-    void SearchboxCall();
+
+public slots:
+    void SeachButtonPressed();
 
 };

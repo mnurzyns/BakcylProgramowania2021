@@ -7,7 +7,7 @@ SearchboxController::SearchboxController(QObject *parent)
 
 }
 
-void SearchboxController::SearchboxCall()
+void SearchboxController::SeachButtonPressed()
 {
     qDebug() << "Searchbox button called";
 }
