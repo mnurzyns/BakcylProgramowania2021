@@ -6,5 +6,26 @@ Window {
     height: 480
     visible: true
     title: qsTr("Hello World")
+
+    Column {
+        id: testCol
+        anchors.fill: parent
+        anchors.margins: 5
+        spacing: 3
+
+        Rectangle {
+            id: frame
+            width: parent.width
+            height: 25
+            border.color: 'gray'
+            border.width: 1
+
+            TextInput {
+                id: inputProductName
+                anchors.fill: parent
+                anchors.margins: 4
+            }
+        }
+    }
 }
 
