@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `bakcyl` DEFAULT CHARACTER SET utf8mb4 COLLATE utf
 USE `bakcyl`;
 
 CREATE TABLE IF NOT EXISTS `locations` (
-  `locationId` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `locationId` text COLLATE utf8mb4_bin NOT NULL,
   `categories` longtext COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`locationId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -18,14 +18,14 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 CREATE TABLE IF NOT EXISTS `productsInstances` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `locationId` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `instanceId` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `locationId` text COLLATE utf8mb4_bin NOT NULL,
   `productId` bigint(20) unsigned NOT NULL,
-  `quantity` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  `quantity` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`instanceId`),
   UNIQUE KEY `INSTANCE UNIQUE KEY` (`locationId`,`productId`),
   KEY `locationId` (`locationId`),
   KEY `productId` (`productId`),
   CONSTRAINT `locationId` FOREIGN KEY (`locationId`) REFERENCES `locations` (`locationId`),
   CONSTRAINT `productId` FOREIGN KEY (`productId`) REFERENCES `products` (`productId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
