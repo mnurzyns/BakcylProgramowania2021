@@ -31,6 +31,8 @@ Window {
         Button {
             id: searchButton
             text: "search"
+
+            onClicked: searchController.SeachButtonPressed()
         }
     }
 }
