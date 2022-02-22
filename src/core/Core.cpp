@@ -14,7 +14,8 @@ Core::Core()
 	void GetDataforemailtoserver(struct Dataforemail* data) {
 		// data.email_address_recipient = ;
 		// data.product_name = ;
-		// data.message = ;
+		// data.message = "An order for the product <<product_name>> with the id <<product_id>> is needed.
+		//	 The product demand indicator is << demand_indicator >>" ;
 	}
 
 	void SendDataforemailtoserver(struct Dataforemail* data) {
