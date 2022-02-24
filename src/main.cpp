@@ -14,12 +14,9 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
 
+    qmlRegisterType<SearchboxController>("Searchbox", 1, 0, "SearchboxController");
+
     engine.load(QUrl(QString("qrc:/main.qml")));
-
-    SearchboxController searchboxController;
-
-    QQmlContext* rootContext = engine.rootContext();
-    rootContext->setContextProperty("searchController", &searchboxController);
 
     return app.exec();
 }
