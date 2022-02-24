@@ -15,7 +15,6 @@ signals:
 
 public slots:
     void setSearchboxText( QString );
-    void seachButtonPressed();
 
 private:
     QString m_searchboxText;

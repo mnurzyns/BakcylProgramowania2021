@@ -8,11 +8,6 @@ SearchboxController::SearchboxController(QObject *parent)
 
 }
 
-void SearchboxController::seachButtonPressed()
-{
-    qDebug() << "Searchbox button called";
-}
-
 QString SearchboxController::getSearchboxText()
 {
     return m_searchboxText;
