@@ -37,7 +37,14 @@ Window {
             id: searchButton
             text: "search"
 
-            onClicked: searchController.SeachButtonPressed()
+            onClicked: searchController.setSearchboxText(
+                           inputProductName.text
+                           )
+        }
+
+        Text {
+            id: testSearchText
+            text: searchController.searchboxText
         }
     }
 }
