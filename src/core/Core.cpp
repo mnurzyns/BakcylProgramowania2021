@@ -1,4 +1,7 @@
 #include "core/Core.hpp"
+// #include "common/product.hpp"
+// #include "common/productInstance.hpp"
+// Uncomment after adding the common section in the project structure
 
 namespace bakcyl::core {
 
