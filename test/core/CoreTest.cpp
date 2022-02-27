@@ -9,5 +9,10 @@ TEST(CoreTest, itLives)
     Core();
 }
 
+TEST(CoreTest, demandIndicatorShouldBe0)
+{
+    EXPECT_EQ(DemandIndicator(12,0), 0);
+}
+
 }
 }
