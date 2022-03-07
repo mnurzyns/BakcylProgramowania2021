@@ -1,25 +1,25 @@
 #pragma once
 #include <vector>
 #include <string>
-
+#include <Product.hpp>
+#include <ProductInstance.hpp>
+ 
 namespace bakcyl::sql 
 {
+    class Sql {
+        public:
+            Sql();
 
-class Sql {
-public:
-    Sql();
-    //Products queries
-    std::vector<Product> selectAllProducts();
-    Product selectProduct(std::uint64_t productId);
-    std::vector<Product> selectProductsBeginningWith(std::string sequence);
-    std::vector<Product> selectProductsContaining(std::string sequence);
-    void insertProducts(std::vector<Product>& products);
-    void updateProducts(std::vector<int> ids, std::vector<Product>& newData);
+            std::vector<Product> getAllProducts() const;
+            Product getProduct(const std::uint64_t& productId) const;
+            std::vector<Product> getProductsBeginningWith(const std::string& sequence) const;
+            std::vector<Product> getProductsContaining(const std::string& sequence) const;
+            std::vector<Product> getProductsEndingWith(const std::string& sequence) const;
+            void insertProducts(const std::vector<Product>& products);
+            void updateProducts(const std::vector<Product>& newData);
 
-    //Instances queries
-    std::vector<ProductInstance> selectAllInstances();
-    void insertInstance(ProductInstance& instance);
-    void updateInstance(ProductInstance& newData);
+            std::vector<ProductInstance> getAllInstances() const;
+            void insertInstance(const ProductInstance& instance);
+            void updateInstance(const ProductInstance& newData);
+    };
 };
-
-}
