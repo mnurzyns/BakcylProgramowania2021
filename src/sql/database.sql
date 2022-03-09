@@ -2,30 +2,30 @@ CREATE DATABASE IF NOT EXISTS `bakcyl` DEFAULT CHARACTER SET utf8mb4 COLLATE utf
 USE `bakcyl`;
 
 CREATE TABLE IF NOT EXISTS `locations` (
-  `locationId` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `id` text COLLATE utf8mb4_bin NOT NULL,
   `categories` longtext COLLATE utf8mb4_bin DEFAULT NULL,
-  PRIMARY KEY (`locationId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 CREATE TABLE IF NOT EXISTS `products` (
-  `productId` bigint(20) unsigned NOT NULL COMMENT 'Barcode',
+  `id` bigint(20) unsigned NOT NULL COMMENT 'Barcode',
   `name` text COLLATE utf8mb4_bin NOT NULL,
   `description` longtext COLLATE utf8mb4_bin DEFAULT NULL,
   `categories` longtext COLLATE utf8mb4_bin NOT NULL,
-  `minQuantity` int(11) unsigned NOT NULL DEFAULT '1',
-  `maxQuantity` int(11) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`productId`)
+  `minQuantity` int(10) unsigned NOT NULL DEFAULT '1',
+  `maxQuantity` int(10) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 CREATE TABLE IF NOT EXISTS `productsInstances` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `locationId` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `locationId` text COLLATE utf8mb4_bin NOT NULL,
   `productId` bigint(20) unsigned NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `quantity` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `INSTANCE UNIQUE KEY` (`locationId`,`productId`),
   KEY `locationId` (`locationId`),
   KEY `productId` (`productId`),
-  CONSTRAINT `locationId` FOREIGN KEY (`locationId`) REFERENCES `locations` (`locationId`),
-  CONSTRAINT `productId` FOREIGN KEY (`productId`) REFERENCES `products` (`productId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  CONSTRAINT `locationId` FOREIGN KEY (`locationId`) REFERENCES `locations` (`id`),
+  CONSTRAINT `productId` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
