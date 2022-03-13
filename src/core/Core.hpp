@@ -8,16 +8,15 @@ class Core{
 public:
     Core();
 
-    struct Dataforemail {
-            std::string email_address_recipient;
-            std::string product_name;
+    struct EmailData {
+            std::string emailAddressRecipient;
+            std::string productName;
             std::string message;
-            short demand_indicator;
     };
 
-    unsigned short DemandIndicator(const int quality, std::time_t date);
-    void GetDataforemailtoserver(const struct Dataforemail &data);
-    void SendDataforemailtoserver(const struct Dataforemail &data);
+    std::uint8_t CalculateDemandIndicator(const std::uint16_t &quality, std::time_t &date);
+    void GetEmailDatatoserver(const EmailData &data);
+    void SendEmailDatatoserver(const EmailData &data);
 
 };
 

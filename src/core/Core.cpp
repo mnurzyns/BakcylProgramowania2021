@@ -1,22 +1,18 @@
 #include "core/Core.hpp"
-// #include "common/product.hpp"
-// #include "common/productInstance.hpp"
-// Uncomment after adding the common section in the project structure
 
 namespace bakcyl::core {
 
 Core::Core()
 {
-	struct Dataforemail email_data;
 
 }
 
-    unsigned short DemandIndicator(const int &quality, std::time_t &date)
+    std::uint8_t CalculateDemandIndicator(const std::uint16_t &quality, std::time_t &date)
     {
         return 0;
     }
 
-    void GetDataforemailtoserver(const struct Dataforemail &data)
+    void GetEmailDatatoserver(const struct EmailData &data)
     {
         // data.email_address_recipient = ;
         // data.product_name = ;
@@ -24,7 +20,7 @@ Core::Core()
         //	 The product demand indicator is << demand_indicator >>" ;
     }
 
-    void SendDataforemailtoserver(const struct Dataforemail &data)
+    void SendEmailDatatoserver(const struct EmailData &data)
     {
         // data.email_address_recipient;
         // data.product_name;
