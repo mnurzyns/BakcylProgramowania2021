@@ -32,20 +32,20 @@ Frame {
             width: parent.width
 
             Text {
-                text: "id: NA"
+                text: "ID: " + model.ProductId
                 horizontalAlignment: Text.AlignHCenter
                 font.bold: true
                 font.pointSize: 12
             }
 
             Text {
-                text: "Name of Product"
+                text: model.ProductName
                 horizontalAlignment: Text.AlignHCenter
                 font.pointSize: 11
             }
 
             Text {
-                text: "The description of the product, (can be longer)"
+                text: model.ProductDesc
                 horizontalAlignment: Text.AlignHCenter
                 color: "#383737"
                 font.pointSize: 9
