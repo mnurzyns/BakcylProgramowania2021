@@ -47,5 +47,10 @@ Window {
             text: searchController.searchboxText
         }
     }
+
+    ProductList {
+        anchors.centerIn: parent
+
+    }
 }
 
