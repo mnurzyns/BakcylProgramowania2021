@@ -10,7 +10,24 @@ Frame {
         implicitWidth: Window.width * 0.95
         clip: true
 
-        model: 15
+        model: ListModel {
+            ListElement {
+                ProductId: "1"
+                ProductName: "Exmample 1"
+                ProductDesc: "The description of the product, (can be longer)"
+            }
+            ListElement {
+                ProductId: "2"
+                ProductName: "Exmample 2"
+                ProductDesc: "The description of the product, (can be longer)"
+            }
+            ListElement {
+                ProductId: "3"
+                ProductName: "Exmample 3"
+                ProductDesc: "The description of the product, (can be longer)"
+            }
+        }
+
         delegate: RowLayout {
             width: parent.width
 
