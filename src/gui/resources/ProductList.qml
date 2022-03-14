@@ -9,6 +9,7 @@ Frame {
         implicitHeight: 250
         implicitWidth: Window.width * 0.95
         clip: true
+        spacing: 1
 
         model: ListModel {
             ListElement {
@@ -32,6 +33,9 @@ Frame {
             width: parent.width
 
             Text {
+                Layout.alignment: Qt.AlignLeft
+                Layout.minimumWidth: parent.width * 0.07
+
                 text: "ID: " + model.ProductId
                 horizontalAlignment: Text.AlignHCenter
                 font.bold: true
@@ -45,6 +49,8 @@ Frame {
             }
 
             Text {
+                Layout.alignment: Qt.AlignRight
+
                 text: model.ProductDesc
                 horizontalAlignment: Text.AlignHCenter
                 color: "#383737"
