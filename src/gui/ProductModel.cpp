@@ -12,7 +12,8 @@ int ProductModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid())
         return 0;
 
-    // FIXME: Implement me!
+    // Hardcoded information about number of elements
+    return 10;
 }
 
 bool ProductModel::hasChildren(const QModelIndex &parent) const
@@ -36,7 +37,20 @@ QVariant ProductModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    // FIXME: Implement me!
+    // Return placeholder data
+    if(role == IdRole)
+    {
+        return QVariant(index.row());
+    }
+    if(role == NameRole)
+    {
+        return QVariant(QStringLiteral("Test name"));
+    }
+    if(role == DescriptionRole)
+    {
+        return QVariant(QStringLiteral("Example description of product"));
+    }
+
     return QVariant();
 }
 
