@@ -10,6 +10,12 @@ class ProductModel : public QAbstractListModel
 public:
     explicit ProductModel(QObject *parent = nullptr);
 
+    enum {
+        IdRole,
+        NameRole,
+        DescriptionRole
+    };
+
     // Basic functionality:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
