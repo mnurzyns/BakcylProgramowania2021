@@ -3,7 +3,7 @@
 #include <QtQuickControls2/QtQuickControls2>
 #include <QQmlContext>
 
-#include "gui/searchboxcontroller.hpp"
+#include <gui/searchboxcontroller.hpp>
 
 int main(int argc, char *argv[])
 {
