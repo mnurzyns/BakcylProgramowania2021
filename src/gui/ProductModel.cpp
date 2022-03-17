@@ -39,3 +39,14 @@ QVariant ProductModel::data(const QModelIndex &index, int role) const
     // FIXME: Implement me!
     return QVariant();
 }
+
+QHash<int, QByteArray> ProductModel::roleNames() const
+{
+    QHash<int, QByteArray> names;
+
+    names[IdRole] = "ID";
+    names[NameRole] = "Name";
+    names[DescriptionRole] = "Description";
+
+    return names;
+}
