@@ -4,6 +4,7 @@
 #include <QQmlContext>
 
 #include <gui/searchboxcontroller.hpp>
+#include <gui/ProductModel.hpp>
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     qmlRegisterType<SearchboxController>("Searchbox", 1, 0, "SearchboxController");
+    qmlRegisterType<ProductModel>("Product", 1, 0, "ProductModel");
 
     engine.load(QUrl(QString("qrc:/main.qml")));
 
