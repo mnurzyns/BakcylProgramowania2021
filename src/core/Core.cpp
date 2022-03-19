@@ -7,12 +7,12 @@ Core::Core()
 
 }
 
-    std::uint8_t CalculateDemandIndicator(const std::uint16_t &quality, std::time_t &date)
+    std::uint8_t Core::CalculateDemandIndicator(const std::uint16_t &quality, std::time_t &date)
     {
         return 0;
     }
 
-    void GetEmailDatatoserver(const struct EmailData &data)
+    void Core::GetEmailDatatoserver(const struct EmailData &data)
     {
         // data.email_address_recipient = ;
         // data.product_name = ;
@@ -20,7 +20,7 @@ Core::Core()
         //	 The product demand indicator is << demand_indicator >>" ;
     }
 
-    void SendEmailDatatoserver(const struct EmailData &data)
+    void Core::SendEmailDatatoserver(const struct EmailData &data)
     {
         // data.email_address_recipient;
         // data.product_name;

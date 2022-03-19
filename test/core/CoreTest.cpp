@@ -11,7 +11,8 @@ TEST(CoreTest, itLives)
 
 TEST(CoreTest, demandIndicatorShouldBeZero)
 {
-    EXPECT_EQ(CalculateDemandIndicator(12,0), 0);
+    Core core;
+    EXPECT_EQ(core.CalculateDemandIndicator(12,0), 0);
 }
 
 }
