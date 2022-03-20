@@ -7,24 +7,21 @@ Core::Core()
 
 }
 
-    std::uint8_t Core::calculateDemandIndicator(const std::uint16_t &quality, std::time_t date)
+    std::uint8_t Core::calculateDemandIndicator(const std::uint16_t &quality, const std::time_t &date)
     {
         return 0;
     }
 
-    void Core::getEmailDatatoserver(const struct EmailData &data)
+    void Core::getEmailDataToServer(const struct EmailData &data)
     {
         // data.email_address_recipient = ;
         // data.product_name = ;
-        // data.message = "An order for the product <<product_name>> with the id <<product_id>> is needed.
-        //	 The product demand indicator is << demand_indicator >>" ;
+        // data.message = "An order for the product <<product_name>> with the id <<product_id>> is needed."
     }
 
-    void Core::sendEmailDatatoserver(const struct EmailData &data)
+    Core::EmailData Core::sendEmailDataToServer(const struct EmailData &data)
     {
-        // data.email_address_recipient;
-        // data.product_name;
-        // data.message;
+        return data;
     }
 
 }

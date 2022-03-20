@@ -14,9 +14,9 @@ public:
             std::string message;
     };
 
-    std::uint8_t calculateDemandIndicator(const std::uint16_t &quality, std::time_t date);
-    void getEmailDatatoserver(const EmailData &data);
-    void sendEmailDatatoserver(const EmailData &data);
+    std::uint8_t calculateDemandIndicator(const std::uint16_t &quality, const std::time_t &date);
+    void getEmailDataToServer(const EmailData &data);
+    EmailData sendEmailDataToServer(const EmailData &data);
 
 };
 
