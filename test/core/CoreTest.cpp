@@ -12,7 +12,7 @@ TEST(CoreTest, itLives)
 TEST(CoreTest, demandIndicatorShouldBeZero)
 {
     Core core;
-    EXPECT_EQ(core.CalculateDemandIndicator(12,0), 0);
+    EXPECT_EQ(core.calculateDemandIndicator(12,0), 0);
 }
 
 }
