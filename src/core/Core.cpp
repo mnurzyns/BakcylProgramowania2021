@@ -12,14 +12,13 @@ Core::Core()
         return 0;
     }
 
-    void Core::getEmailDataToServer(const struct EmailData &data)
+    void Core::getEmailDataToServer(EmailData &data)
     {
-        // data.email_address_recipient = ;
-        // data.product_name = ;
-        // data.message = "An order for the product <<product_name>> with the id <<product_id>> is needed."
+        // data.productName = ;
+        data.message = "An order for the product " + data.productName + " is needed.";
     }
 
-    Core::EmailData Core::sendEmailDataToServer(const struct EmailData &data)
+    Core::EmailData Core::sendEmailDataToServer(const EmailData &data)
     {
         return data;
     }
