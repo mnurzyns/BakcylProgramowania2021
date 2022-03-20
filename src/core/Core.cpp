@@ -11,11 +11,11 @@ Core::Core()
     }
     std::uint32_t Core::getProductMinQuantity(const std::uint64_t &id) const
     {
-        return Core::minQuantity;
+        return minQuantity;
     }
     std::uint32_t Core::getProductMaxQuantity(const std::uint64_t &id) const
     {
-        return Core::maxQuantity;
+        return maxQuantity;
     }
     std::uint8_t Core::changeProductQuantity(const std::uint64_t &id, const std::string &option, const std::uint32_t &quantity)
     {
