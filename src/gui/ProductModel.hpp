@@ -1,5 +1,4 @@
-#ifndef PRODUCTMODEL_H
-#define PRODUCTMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 
@@ -31,5 +30,3 @@ public:
 
 private:
 };
-
-#endif // PRODUCTMODEL_H
