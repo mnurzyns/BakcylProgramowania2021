@@ -4,22 +4,37 @@
 namespace bakcyl::core::test {
 namespace {
 
+class CoreTest : public ::testing::Test
+{
+public:
+    Core core;
+};
+
 TEST(CoreTest, itLives)
 {
     Core();
 }
 
-TEST(CoreTest, changeProductQuantityShouldReturn2)
+TEST_F(CoreTest, changeProductQuantityShouldReturn2)
 {
-    Core core;
-    EXPECT_EQ(core.changeProductQuantity(0,"",1), 2);
+    EXPECT_EQ(core.changeProductQuantity("",1), Core::MethodResult::WRONG_PARAM);
+    EXPECT_EQ(core.changeProductQuantity("INCREASE",1), Core::MethodResult::WRONG_PARAM);
+    EXPECT_EQ(core.changeProductQuantity("DECREASE",1), Core::MethodResult::WRONG_PARAM);
+    EXPECT_EQ(core.changeProductQuantity("add",1), Core::MethodResult::WRONG_PARAM);
 }
 
-TEST(CoreTest, changeProductQuantityShouldReturn1)
+TEST_F(CoreTest, changeProductQuantityShouldReturn1)
 {
-    Core core;
-    EXPECT_EQ(core.changeProductQuantity(0,"increase",1), 1);
-    EXPECT_EQ(core.changeProductQuantity(0,"decrease",1), 1);
+    EXPECT_EQ(core.changeProductQuantity("increase",1), Core::MethodResult::ERROR);
+    EXPECT_EQ(core.changeProductQuantity("decrease",1), Core::MethodResult::ERROR);
+    EXPECT_EQ(core.changeProductQuantity("increase",97), Core::MethodResult::ERROR);
+    EXPECT_EQ(core.changeProductQuantity("decrease",1009), Core::MethodResult::ERROR);
+}
+
+TEST_F(CoreTest, changeProductQuantityShouldReturn0)
+{
+    EXPECT_EQ(core.changeProductQuantity("increase",0), Core::MethodResult::SUCCESS);
+    EXPECT_EQ(core.changeProductQuantity("decrease",0), Core::MethodResult::SUCCESS);
 }
 
 }
