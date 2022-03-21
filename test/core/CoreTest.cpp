@@ -9,5 +9,11 @@ TEST(CoreTest, itLives)
     Core();
 }
 
+TEST(CoreTest, demandIndicatorShouldBeZero)
+{
+    Core core;
+    EXPECT_EQ(core.calculateDemandIndicator(12,0), 0);
+}
+
 }
 }
