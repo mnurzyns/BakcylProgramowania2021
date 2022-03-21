@@ -4,7 +4,9 @@ set(GUI_SOURCES
     Gui.hpp
     Gui.cpp
     searchboxcontroller.hpp
-    searchboxcontroller.cpp)
+    searchboxcontroller.cpp
+    ProductModel.hpp
+    ProductModel.cpp)
 
 add_library(GuiLib ${GUI_SOURCES})
 target_link_libraries(GuiLib PRIVATE

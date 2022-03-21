@@ -3,6 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.3
 import Searchbox 1.0
+import Product 1.0
 
 Frame {
     ListView {
@@ -11,23 +12,7 @@ Frame {
         clip: true
         spacing: 1
 
-        model: ListModel {
-            ListElement {
-                ProductId: "1"
-                ProductName: "Exmample 1"
-                ProductDesc: "The description of the product, (can be longer)"
-            }
-            ListElement {
-                ProductId: "2"
-                ProductName: "Exmample 2"
-                ProductDesc: "The description of the product, (can be longer)"
-            }
-            ListElement {
-                ProductId: "3"
-                ProductName: "Exmample 3"
-                ProductDesc: "The description of the product, (can be longer)"
-            }
-        }
+        model: ProductModel { }
 
         delegate: RowLayout {
             width: parent.width
@@ -36,14 +21,14 @@ Frame {
                 Layout.alignment: Qt.AlignLeft
                 Layout.minimumWidth: parent.width * 0.07
 
-                text: "ID: " + model.ProductId
+                text: "ID: " + model.ID
                 horizontalAlignment: Text.AlignHCenter
                 font.bold: true
                 font.pointSize: 12
             }
 
             Text {
-                text: model.ProductName
+                text: model.Name
                 horizontalAlignment: Text.AlignHCenter
                 font.pointSize: 11
             }
@@ -51,7 +36,7 @@ Frame {
             Text {
                 Layout.alignment: Qt.AlignRight
 
-                text: model.ProductDesc
+                text: model.Description
                 horizontalAlignment: Text.AlignHCenter
                 color: "#383737"
                 font.pointSize: 9

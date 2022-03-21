@@ -15,6 +15,11 @@ TEST(CoreTest, itLives)
     Core();
 }
 
+TEST_F(CoreTest, demandIndicatorShouldBeZero)
+{
+    EXPECT_EQ(core.calculateDemandIndicator(12,0), 0);
+}
+  
 TEST_F(CoreTest, changeProductQuantityShouldReturnWrongParam)
 {
     EXPECT_EQ(core.changeProductQuantity("",1), Core::MethodResult::WRONG_PARAM);
