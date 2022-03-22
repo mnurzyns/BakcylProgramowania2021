@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <QtSql>
 #include "sql/Product.hpp"
 #include "sql/ProductInstance.hpp"
  
