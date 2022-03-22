@@ -14,6 +14,8 @@ Frame {
 
         model: ProductModel { }
 
+        Loader { id: productPageLoader }
+
         delegate: RowLayout {
             width: parent.width
 
