@@ -6,7 +6,7 @@ Core::Core()
 {
 
 }
-  
+
     std::uint8_t Core::calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date)
     {
         return 0;
@@ -66,6 +66,80 @@ Core::Core()
         {
             return MethodResult::WRONG_PARAM;
         }
+    }
+
+    Core::MethodResult Core::createProduct(common::Product &product)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+
+    }
+    common::ProductInstance Core::getProduct(const std::uint32_t &productID)
+    {
+        common::ProductInstance product;
+        //A call to a proxy
+        return product;
+    }
+    Core::MethodResult Core::updateProduct(const std::uint32_t &productID, common::Product &updatedProduct)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    Core::MethodResult Core::deleteProduct(const std::uint32_t &productID)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    Core::MethodResult Core::createProductInstance(common::ProductInstance &instance)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    common::ProductInstance Core::getProductInstance(const std::string &locationID)
+    {
+        common::ProductInstance product;
+        //A call to a proxy
+        return product;
+    }
+    common::ProductInstance Core::getProductInstance(const std::uint32_t &instanceID)
+    {
+        common::ProductInstance product;
+        //A call to a proxy
+        return product;
+    }
+    Core::MethodResult Core::updateProductInstance(const std::uint32_t &instanceID, common::ProductInstance &updatedInstance)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    Core::MethodResult Core::deleteProductInstance(const std::uint32_t &instanceID)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    Core::MethodResult Core::createLocation(const std::string &locationID)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    Core::MethodResult Core::updateLocation(const std::string &locationID, const std::string &updatedLocation)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    Core::MethodResult Core::deleteLocation(const std::string &locationID)
+    {
+        MethodResult result;
+        result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
     }
 
 }
