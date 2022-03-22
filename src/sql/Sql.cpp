@@ -6,7 +6,7 @@ namespace bakcyl::sql {
 	
     };
     
-    std::vector<Product>& Sql::getAllProducts() const {
+    std::vector<Product> Sql::getAllProducts() const {
         std::vector<Product> products;
 
         {
