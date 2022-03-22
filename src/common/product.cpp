@@ -37,7 +37,7 @@ namespace bakcyl::common
 		return maxQuantity;
 	}
 
-	void Product::setId(const std::uint64_t value)
+	void Product::setId(const std::uint64_t & value)
 	{
 		id = value;
 	}
@@ -57,17 +57,17 @@ namespace bakcyl::common
 		categories = value;
 	}
 
-	void Product::setCurrentQuantity(const std::uint32_t value)
+	void Product::setCurrentQuantity(const std::uint32_t & value)
 	{
 		currentQuantity = value;
 	}
 
-	void Product::setMinQuantity(const std::uint32_t value)
+	void Product::setMinQuantity(const std::uint32_t & value)
 	{
 		minQuantity = value;
 	}
 
-	void Product::setMaxQuantity(const std::uint32_t value)
+	void Product::setMaxQuantity(const std::uint32_t & value)
 	{
 		maxQuantity = value;
 	}
