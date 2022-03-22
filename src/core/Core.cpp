@@ -1,4 +1,4 @@
-#include "core/Core.hpp"
+#include "Core.hpp"
 
 namespace bakcyl::core {
 
@@ -70,8 +70,9 @@ Core::Core()
 
     Core::MethodResult Core::createProduct(common::Product &product)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
 
     }
     common::ProductInstance Core::getProduct(const std::uint32_t productID)
@@ -82,18 +83,21 @@ Core::Core()
     }
     Core::MethodResult Core::updateProduct(const std::uint32_t productID, common::Product &updatedProduct)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
     Core::MethodResult Core::deleteProduct(const std::uint32_t productID)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
     Core::MethodResult Core::createProductInstance(common::ProductInstance &instance)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
     common::ProductInstance Core::getProductInstance(const std::string &locationID)
     {
@@ -109,28 +113,33 @@ Core::Core()
     }
     Core::MethodResult Core::updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
     Core::MethodResult Core::deleteProductInstance(const std::uint32_t instanceID)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
     Core::MethodResult Core::createLocation(const std::string &locationID)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
     Core::MethodResult Core::updateLocation(const std::string &locationID, const std::string &updatedLocation)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
     Core::MethodResult Core::deleteLocation(const std::string &locationID)
     {
-        //Method with a proxy
-        return MethodResult::SUCCESS;
+        MethodResult result;
+        result = MethodResult::SUCCESS; //Method with a proxy
+        return result;
     }
 
 }

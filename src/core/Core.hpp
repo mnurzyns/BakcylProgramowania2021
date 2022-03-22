@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <ctime>
-#include "common/product.hpp"
-#include "common/productInstance.hpp"
+#include "../common/product.hpp"
+#include "../common/productInstance.hpp"
 
 namespace bakcyl::core {
 
