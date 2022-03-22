@@ -22,6 +22,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME}
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     Threads::Threads
     ${QtLib}
+    ${QtSqlLib}	
     GuiLib
     CoreLib
     MailLib

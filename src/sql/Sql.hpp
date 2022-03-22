@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include <string>
-#include <Product.hpp>
-#include <ProductInstance.hpp>
+#include "sql/Product.hpp"
+#include "sql/ProductInstance.hpp"
  
 namespace bakcyl::sql 
 {
