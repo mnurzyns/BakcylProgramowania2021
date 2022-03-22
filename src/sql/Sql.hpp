@@ -8,7 +8,7 @@ namespace bakcyl::sql
 {
     class Sql {
         public:
-            Sql();  
+            Sql();
 
             std::vector<Product> getAllProducts() const;
             Product getProduct(const std::uint64_t& productId) const;
