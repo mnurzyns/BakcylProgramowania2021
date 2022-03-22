@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <ctime>
-#include "../common/product.hpp"
-#include "../common/productInstance.hpp"
+#include "common/product.hpp"
+#include "common/productInstance.hpp"
 
 namespace bakcyl::core {
 
@@ -37,15 +37,15 @@ public:
     MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity);
 
     MethodResult createProduct(common::Product &product);
-    common::ProductInstance getProduct(const std::uint32_t productID);
-    MethodResult updateProduct(const std::uint32_t productID, common::Product &updatedProduct);
-    MethodResult deleteProduct(const std::uint32_t productID);
+    common::ProductInstance getProduct(const std::uint32_t &productID);
+    MethodResult updateProduct(const std::uint32_t &productID, common::Product &updatedProduct);
+    MethodResult deleteProduct(const std::uint32_t &productID);
 
     MethodResult createProductInstance(common::ProductInstance &instance);
     common::ProductInstance getProductInstance(const std::string &locationID);
-    common::ProductInstance getProductInstance(const std::uint32_t instanceID);
-    MethodResult updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance);
-    MethodResult deleteProductInstance(const std::uint32_t instanceID);
+    common::ProductInstance getProductInstance(const std::uint32_t &instanceID);
+    MethodResult updateProductInstance(const std::uint32_t &instanceID, common::ProductInstance &updatedInstance);
+    MethodResult deleteProductInstance(const std::uint32_t &instanceID);
 
     MethodResult createLocation(const std::string &locationID);
     MethodResult updateLocation(const std::string &locationID, const std::string &updatedLocation);

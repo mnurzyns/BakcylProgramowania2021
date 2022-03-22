@@ -1,4 +1,4 @@
-#include "Core.hpp"
+#include "core/Core.hpp"
 
 namespace bakcyl::core {
 
@@ -71,74 +71,74 @@ Core::Core()
     Core::MethodResult Core::createProduct(common::Product &product)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
 
     }
-    common::ProductInstance Core::getProduct(const std::uint32_t productID)
+    common::ProductInstance Core::getProduct(const std::uint32_t &productID)
     {
         common::ProductInstance product;
-        //Method with a proxy
+        //A call to a proxy
         return product;
     }
-    Core::MethodResult Core::updateProduct(const std::uint32_t productID, common::Product &updatedProduct)
+    Core::MethodResult Core::updateProduct(const std::uint32_t &productID, common::Product &updatedProduct)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
-    Core::MethodResult Core::deleteProduct(const std::uint32_t productID)
+    Core::MethodResult Core::deleteProduct(const std::uint32_t &productID)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::createProductInstance(common::ProductInstance &instance)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     common::ProductInstance Core::getProductInstance(const std::string &locationID)
     {
         common::ProductInstance product;
-        //Method with a proxy
+        //A call to a proxy
         return product;
     }
-    common::ProductInstance Core::getProductInstance(const std::uint32_t instanceID)
+    common::ProductInstance Core::getProductInstance(const std::uint32_t &instanceID)
     {
         common::ProductInstance product;
-        //Method with a proxy
+        //A call to a proxy
         return product;
     }
-    Core::MethodResult Core::updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance)
+    Core::MethodResult Core::updateProductInstance(const std::uint32_t &instanceID, common::ProductInstance &updatedInstance)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
-    Core::MethodResult Core::deleteProductInstance(const std::uint32_t instanceID)
+    Core::MethodResult Core::deleteProductInstance(const std::uint32_t &instanceID)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::createLocation(const std::string &locationID)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::updateLocation(const std::string &locationID, const std::string &updatedLocation)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::deleteLocation(const std::string &locationID)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //Method with a proxy
+        result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
 
