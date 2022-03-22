@@ -8,8 +8,12 @@
 namespace bakcyl::sql 
 {
     class Sql {
+        private:
+            QSqlDatabase database;
+
         public:
             Sql();
+            ~Sql();
 
             std::vector<Product> getAllProducts() const;
             Product getProduct(const std::uint64_t& productId) const;
