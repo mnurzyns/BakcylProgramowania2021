@@ -12,9 +12,6 @@ namespace bakcyl::common {
 		std::uint32_t minQuantity;
 		std::uint32_t maxQuantity;
 	public:
-		Product();
-		~Product();
-
 		std::uint64_t getId() const;
 		std::string getName() const;
 		std::string getDescription() const;
@@ -23,13 +20,13 @@ namespace bakcyl::common {
 		std::uint32_t getMinQuantity() const;
 		std::uint32_t getMaxQuantity() const;
 
-		void setId(const std::uint64_t value);
+		void setId(const std::uint64_t & value);
 		void setName(const std::string & value);
 		void setDescription(const std::string & value);
 		void setCategories(const std::string & value);
-		void setMinQuantity(const std::uint32_t value);
-		void setMaxQuantity(const std::uint32_t value);
-		void setCurrentQuantity(const std::uint32_t value);
+		void setMinQuantity(const std::uint32_t & value);
+		void setMaxQuantity(const std::uint32_t & value);
+		void setCurrentQuantity(const std::uint32_t & value);
 
 	};
 }

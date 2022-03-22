@@ -22,7 +22,7 @@ namespace bakcyl::common
         return quantity;
     }
 
-    void ProductInstance::setId(const std::uint32_t value)
+    void ProductInstance::setId(const std::uint32_t & value)
     {
         id = value;
     }
@@ -32,12 +32,12 @@ namespace bakcyl::common
         locationId = value;
     }
 
-    void ProductInstance::setProductId(const std::uint64_t value)
+    void ProductInstance::setProductId(const std::uint64_t & value)
     {
         productId = value;
     }
 
-    void ProductInstance::setQuantity(const std::uint32_t value)
+    void ProductInstance::setQuantity(const std::uint32_t & value)
     {
         quantity = value;
     }
