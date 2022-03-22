@@ -14,6 +14,11 @@ Frame {
 
         model: ProductModel { }
 
+        Loader {
+            id: productPageLoader
+            property int productId : 0
+        }
+
         delegate: RowLayout {
             width: parent.width
 
@@ -40,6 +45,17 @@ Frame {
                 horizontalAlignment: Text.AlignHCenter
                 color: "#383737"
                 font.pointSize: 9
+            }
+
+            Button {
+                text: "inspect"
+
+                onClicked: {
+                    productPageLoader.source = ""
+
+                    productPageLoader.productId = model.ID
+                    productPageLoader.source = "ProductWindow.qml"
+                }
             }
         }
     }
