@@ -2,28 +2,26 @@
 
 namespace bakcyl::common
 {
-	//Getters
 	std::uint32_t ProductInstance::getId() const
 	{
 		return id;
 	}
 
-    std::string ProductInstance::getLocationId() const 
+    std::string ProductInstance::getLocationId() const
     {
         return locationId;
     }
 
-    std::uint64_t ProductInstance::getProductId() const 
+    std::uint64_t ProductInstance::getProductId() const
     {
         return productId;
     }
 
-    std::uint32_t ProductInstance::getQuantity() const 
+    std::uint32_t ProductInstance::getQuantity() const
     {
         return quantity;
     }
 
-    //Setters
     void ProductInstance::setId(const std::uint32_t & value)
     {
         id = value;

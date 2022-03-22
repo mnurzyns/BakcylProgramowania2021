@@ -2,7 +2,6 @@
 
 namespace bakcyl::common
 {
-	//Getters
 	std::uint64_t Product::getId() const
 	{
 		return id;
@@ -38,7 +37,6 @@ namespace bakcyl::common
 		return maxQuantity;
 	}
 
-	//Setters
 	void Product::setId(const std::uint64_t & value)
 	{
 		id = value;
