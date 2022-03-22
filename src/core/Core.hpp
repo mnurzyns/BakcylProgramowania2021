@@ -27,8 +27,6 @@ public:
         WRONG_PARAM
     };
 
-    //Product product;
-
     std::uint32_t currentQuantity;
     std::uint32_t minQuantity;
     std::uint32_t maxQuantity;
@@ -38,15 +36,15 @@ public:
     std::uint32_t getProductMaxQuantity() const;
     MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity);
 
-    MethodResult createProduct(Product &product);
-    ProductInstance getProduct(const std::uint32_t productID);
-    MethodResult updateProduct(const std::uint32_t productID, Product &updatedProduct);
+    MethodResult createProduct(common::Product &product);
+    common::ProductInstance getProduct(const std::uint32_t productID);
+    MethodResult updateProduct(const std::uint32_t productID, common::Product &updatedProduct);
     MethodResult deleteProduct(const std::uint32_t productID);
 
-    MethodResult createProductInstance(ProductInstance &instance);
-    ProductInstance getProductInstance(const std::string &locationID);
-    ProductInstance getProductInstance(const std::uint32_t instanceID);
-    MethodResult updateProductInstance(const std::uint32_t instanceID, ProductInstance &updatedInstance);
+    MethodResult createProductInstance(common::ProductInstance &instance);
+    common::ProductInstance getProductInstance(const std::string &locationID);
+    common::ProductInstance getProductInstance(const std::uint32_t instanceID);
+    MethodResult updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance);
     MethodResult deleteProductInstance(const std::uint32_t instanceID);
 
     MethodResult createLocation(const std::string &locationID);

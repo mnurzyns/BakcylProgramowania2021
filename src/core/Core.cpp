@@ -68,18 +68,19 @@ Core::Core()
         }
     }
 
-    Core::MethodResult Core::createProduct(Product &product)
+    Core::MethodResult Core::createProduct(common::Product &product)
     {
         //Method with a proxy
         return MethodResult::SUCCESS;
 
     }
-    ProductInstance Core::getProduct(const std::uint32_t productID)
+    common::ProductInstance Core::getProduct(const std::uint32_t productID)
     {
+        common::ProductInstance product;
         //Method with a proxy
-        return ProductInstance product;
+        return product;
     }
-    Core::MethodResult Core::updateProduct(const std::uint32_t productID, Product &updatedProduct)
+    Core::MethodResult Core::updateProduct(const std::uint32_t productID, common::Product &updatedProduct)
     {
         //Method with a proxy
         return MethodResult::SUCCESS;
@@ -89,22 +90,24 @@ Core::Core()
         //Method with a proxy
         return MethodResult::SUCCESS;
     }
-    Core::MethodResult Core::createProductInstance(ProductInstance &instance)
+    Core::MethodResult Core::createProductInstance(common::ProductInstance &instance)
     {
         //Method with a proxy
         return MethodResult::SUCCESS;
     }
-    ProductInstance Core::getProductInstance(const std::string &locationID)
+    common::ProductInstance Core::getProductInstance(const std::string &locationID)
     {
+        common::ProductInstance product;
         //Method with a proxy
-        return ProductInstance product;
+        return product;
     }
-    ProductInstance Core::getProductInstance(const std::uint32_t instanceID)
+    common::ProductInstance Core::getProductInstance(const std::uint32_t instanceID)
     {
+        common::ProductInstance product;
         //Method with a proxy
-        return ProductInstance product;
+        return product;
     }
-    Core::MethodResult Core::updateProductInstance(const std::uint32_t instanceID, ProductInstance &updatedInstance)
+    Core::MethodResult Core::updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance)
     {
         //Method with a proxy
         return MethodResult::SUCCESS;
