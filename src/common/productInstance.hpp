@@ -19,10 +19,10 @@ namespace bakcyl::common {
 		std::uint64_t getProductId() const;
         std::uint32_t getQuantity() const;
 
-		void setId(const std::uint32_t & value);
+		void setId(const std::uint32_t value);
         void setLocationId(const std::string & value);
-        void setProductId(const std::uint64_t & value);
-        void setQuantity(const std::uint32_t & value);
+        void setProductId(const std::uint64_t value);
+        void setQuantity(const std::uint32_t value);
 
 	};
 }
