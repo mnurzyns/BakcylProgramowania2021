@@ -8,17 +8,17 @@ namespace bakcyl::sql
 {
     class Sql {
         public:
-            Sql();
+            Sql();  
 
-            std::vector<Product> getAllProducts() const;
+            std::vector<Product>& getAllProducts() const;
             Product getProduct(const std::uint64_t& productId) const;
-            std::vector<Product> getProductsBeginningWith(const std::string& sequence) const;
-            std::vector<Product> getProductsContaining(const std::string& sequence) const;
-            std::vector<Product> getProductsEndingWith(const std::string& sequence) const;
+            std::vector<Product>& getProductsBeginningWith(const std::string& sequence) const;
+            std::vector<Product>& getProductsContaining(const std::string& sequence) const;
+            std::vector<Product>& getProductsEndingWith(const std::string& sequence) const;
             void insertProducts(const std::vector<Product>& products);
             void updateProducts(const std::vector<Product>& newData);
 
-            std::vector<ProductInstance> getAllInstances() const;
+            std::vector<ProductInstance>& getAllInstances() const;
             void insertInstance(const ProductInstance& instance);
             void updateInstance(const ProductInstance& newData);
     };
