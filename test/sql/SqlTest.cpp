@@ -6,7 +6,7 @@ namespace {
 
 TEST(SqlTest, itLives)
 {
-    Sql();
+    Sql("test", "test", "test", "test");
 }
 
 }

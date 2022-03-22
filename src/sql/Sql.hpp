@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <QSqlDatabase>
 #include "sql/Product.hpp"
 #include "sql/ProductInstance.hpp"
  
@@ -8,7 +9,9 @@ namespace bakcyl::sql
 {
     class Sql {
         public:
-            Sql();
+            QSqlDatabase db;
+
+            Sql(const std::string hostName, const std::string databaseName, const std::string userName, const std::string password);
 
             std::vector<Product> getAllProducts() const;
             Product getProduct(const std::uint64_t& productId) const;
