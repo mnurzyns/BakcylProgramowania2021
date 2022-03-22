@@ -38,20 +38,20 @@ public:
     std::uint32_t getProductMaxQuantity() const;
     MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity);
 
-    void createProduct(Product &product);
+    MethodResult createProduct(Product &product);
     ProductInstance getProduct(const std::uint32_t productID);
-    void updateProduct(const std::uint32_t productID, Product &updatedProduct);
-    void deleteProduct(const std::uint32_t productID);
+    MethodResult updateProduct(const std::uint32_t productID, Product &updatedProduct);
+    MethodResult deleteProduct(const std::uint32_t productID);
 
-    void createProductInstance(ProductInstance &instance) = 0;
+    MethodResult createProductInstance(ProductInstance &instance);
     ProductInstance getProductInstance(const std::string &locationID);
     ProductInstance getProductInstance(const std::uint32_t instanceID);
-    void updateProductInstance(const std::uint32_t instanceID, ProductInstance &updatedInstance);
-    void deleteProductInstance(const std::uint32_t instanceID);
+    MethodResult updateProductInstance(const std::uint32_t instanceID, ProductInstance &updatedInstance);
+    MethodResult deleteProductInstance(const std::uint32_t instanceID);
 
-    void createLocation(const std::string &locationID);
-    void updateLocation(const std::string &locationID, const std::string &updatedLocation);
-    void deleteLocation(const std::string &locationID);
+    MethodResult createLocation(const std::string &locationID);
+    MethodResult updateLocation(const std::string &locationID, const std::string &updatedLocation);
+    MethodResult deleteLocation(const std::string &locationID);
 };
 
 }
