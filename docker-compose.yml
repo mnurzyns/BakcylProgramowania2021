@@ -10,3 +10,5 @@ services:
     depends_on:
       - db
     build: .
+    environment:
+      - WAIT_HOSTS=db:3306
