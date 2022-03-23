@@ -2,8 +2,6 @@ From pknagato4/bakcylprogramowania-base:1.0.0
  
 Label maintainer="patryk.kaczmarek.ext@nokia.com"
 
-COPY . BakcylProgramowania2021/
-
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait
 RUN chmod +x /wait
 
@@ -12,6 +10,7 @@ RUN apt-get update -y && DEBIAN_FRONTEND=noninteractive apt-get install -y \
       libqt5sql5-mysql \
       && rm -rf /var/lib/apt/lists/*
 
+COPY . BakcylProgramowania2021/
 RUN cmake -Bbakcyl-build -HBakcylProgramowania2021
 RUN cmake --build bakcyl-build -j $(cat /proc/cpuinfo | grep processor | wc -l)
 
