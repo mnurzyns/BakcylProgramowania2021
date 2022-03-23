@@ -1,6 +1,0 @@
-{
-    "DockerRun.DisableAutoGenerateConfig": true,
-    "files.associations": {
-        "stdexcept": "cpp"
-    }
-}
