@@ -4,13 +4,14 @@
 
 namespace bakcyl::sql 
 {
-    Sql::Sql() 
+    Sql::Sql(const std::string host, const std::string name, const std::string user, const std::string password) 
     {
-        database = QSqlDatabase::addDatabase("");
-        database.setHostName("");
-        database.setDatabaseName("");
-        database.setUserName("");
-        database.setPassword("");
+        connectionName = QString(name.c_str());
+        database = QSqlDatabase::addDatabase(QString(name.c_str()));
+        database.setHostName(QString(host.c_str()));
+        database.setDatabaseName(QString(name.c_str()));
+        database.setUserName(QString(user.c_str()));
+        database.setPassword(QString(password.c_str()));
 
         if (!database.open()) 
         {
@@ -21,7 +22,7 @@ namespace bakcyl::sql
     Sql::~Sql()
     {
         database.close();
-        QSqlDatabase::removeDatabase("");
+        QSqlDatabase::removeDatabase(connectionName);
     }
     
     std::vector<Product> Sql::getAllProducts() const 

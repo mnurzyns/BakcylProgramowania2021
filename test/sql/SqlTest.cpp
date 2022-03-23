@@ -7,16 +7,16 @@ namespace {
 
 TEST(SqlTest, itLives)
 {
-    Sql();
+    Sql("", "", "", "");
 }
 
-TEST(SqlTest, connectionErrorShouldThrowException)
+TEST(SqlTest, wrongCredentialsShouldThrowException)
 {
     EXPECT_THROW(
     {
         try
         {
-            Sql();
+            Sql("", "", "", "");
         }
         catch(const std::runtime_error& e)
         {

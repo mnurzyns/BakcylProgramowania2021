@@ -10,9 +10,10 @@ namespace bakcyl::sql
     class Sql {
         private:
             QSqlDatabase database;
+            QString connectionName;
 
         public:
-            Sql();
+            Sql(const std::string host, const std::string name, const std::string user, const std::string password);
             ~Sql();
 
             std::vector<Product> getAllProducts() const;
