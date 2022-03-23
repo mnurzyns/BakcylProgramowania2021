@@ -1,5 +1,6 @@
 #include "sql/Sql.hpp"
 #include <QtSql>
+#include <stdexcept>
 
 namespace bakcyl::sql 
 {
@@ -13,7 +14,7 @@ namespace bakcyl::sql
 
         if (!database.open()) 
         {
-            //Error handling
+            throw std::runtime_error("Database connection failed!");
         }
     };
 
