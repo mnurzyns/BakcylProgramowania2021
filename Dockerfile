@@ -13,4 +13,5 @@ RUN cmake --build bakcyl-build -j $(cat /proc/cpuinfo | grep processor | wc -l)
 
 ENV DISPLAY :0
 
-CMD cmake --build bakcyl-build --target BakcylProgramowania2021-run
+CMD mysql -h db -u root < BakcylProgramowania2021/src/sql/database.sql && \
+    cmake --build bakcyl-build --target BakcylProgramowania2021-run
