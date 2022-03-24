@@ -1,14 +1,20 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <QtSql>
 #include "sql/Product.hpp"
 #include "sql/ProductInstance.hpp"
  
 namespace bakcyl::sql 
 {
     class Sql {
+        private:
+            QSqlDatabase database;
+            QString connectionName;
+
         public:
-            Sql();
+            Sql(const std::string host, const std::string name, const std::string user, const std::string password);
+            ~Sql();
 
             std::vector<Product> getAllProducts() const;
             Product getProduct(const std::uint64_t& productId) const;
