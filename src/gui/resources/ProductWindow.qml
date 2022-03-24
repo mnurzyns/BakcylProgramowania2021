@@ -14,6 +14,19 @@ Window {
         id: productData
     }
 
+    Connections {
+        target: productData
+
+        function onProductDataChanged() {
+            productIdField.text = productData.productId
+            productNameField.text = productData.productName
+            productCategoryField.text = productData.productCategory
+            productQuantityField.text = productData.productQuantity
+            productlocationField.text = productData.productLocation
+            productDescriptionField.text = productData.productDescription
+        }
+    }
+
     Column {
         anchors.fill: parent
         anchors.margins: 10
