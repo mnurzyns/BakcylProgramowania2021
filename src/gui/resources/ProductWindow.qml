@@ -34,38 +34,38 @@ Window {
                 leftPadding: 5
 
                 Text {
-                    id: productID
+                    id: productIdField
                     text: "Ex ID"
                     font.pointSize: 15
                     font.bold: true
                 }
 
                 Text {
-                    id: productName
+                    id: productNameField
                     text: "Ex Name"
                     font.pointSize: 15
                 }
 
                 Text {
-                    id: productCategory
+                    id: productCategoryField
                     text: "Ex Category"
                     font.pointSize: 15
                 }
 
                 Text {
-                    id: productQuantity
+                    id: productQuantityField
                     text: "Quantity: Na"
                     font.pointSize: 15
                 }
 
                 Text {
-                    id: productlocation
+                    id: productlocationField
                     text: "Ex location"
                     font.pointSize: 12
                 }
 
                 Text {
-                    id: productDescription
+                    id: productDescriptionField
                     color: "#737373"
                     text: "Ex description"
                     font.pointSize: 10
