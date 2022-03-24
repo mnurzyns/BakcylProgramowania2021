@@ -47,6 +47,18 @@ Window {
                 }
 
                 Text {
+                    id: productCategory
+                    text: "Ex Category"
+                    font.pointSize: 15
+                }
+
+                Text {
+                    id: productQuantity
+                    text: "Quantity: Na"
+                    font.pointSize: 15
+                }
+
+                Text {
                     id: productlocation
                     text: "Ex location"
                     font.pointSize: 12
