@@ -27,6 +27,10 @@ Window {
         }
     }
 
+    Component.onCompleted: {
+        productData.getProductData(productId)
+    }
+
     Column {
         anchors.fill: parent
         anchors.margins: 10
