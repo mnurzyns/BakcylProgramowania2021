@@ -1,4 +1,4 @@
-#include "core/Core.hpp"
+#include "Core.hpp"
 
 namespace bakcyl::core {
 
@@ -99,7 +99,7 @@ Core::Core()
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
-    common::ProductInstance Core::getProductInstance(const std::string &locationID)
+    common::ProductInstance getProductInstanceByLocationID(const std::string &locationID)
     {
         common::ProductInstance product;
         //A call to a proxy

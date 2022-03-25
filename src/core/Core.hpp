@@ -42,7 +42,7 @@ public:
     MethodResult deleteProduct(const std::uint32_t &productID);
 
     MethodResult createProductInstance(common::ProductInstance &instance);
-    common::ProductInstance getProductInstance(const std::string &locationID);
+    common::ProductInstance getProductInstanceByLocationID(const std::string &locationID);
     common::ProductInstance getProductInstance(const std::uint32_t &instanceID);
     MethodResult updateProductInstance(const std::uint32_t &instanceID, common::ProductInstance &updatedInstance);
     MethodResult deleteProductInstance(const std::uint32_t &instanceID);
