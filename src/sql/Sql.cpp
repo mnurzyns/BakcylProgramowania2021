@@ -32,7 +32,7 @@ namespace bakcyl::sql
         QSqlDatabase::removeDatabase(connectionName);
     }
 
-    QString Sql::loadCredentials()
+    QString Sql::loadCredentials() const
     {
         QFile file;
         file.setFileName("credentials.json");

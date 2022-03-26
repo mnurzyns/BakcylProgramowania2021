@@ -11,7 +11,7 @@ namespace bakcyl::sql
         private:
             QSqlDatabase database;
             QString connectionName;
-            QString loadCredentials();
+            QString loadCredentials() const;
 
         public:
             Sql();
