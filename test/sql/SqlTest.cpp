@@ -7,7 +7,7 @@ namespace {
 
 TEST(SqlTest, itLives)
 {
-    Sql("", "", "", "");
+    Sql();
 }
 
 TEST(SqlTest, wrongCredentialsShouldThrowException)
@@ -16,11 +16,35 @@ TEST(SqlTest, wrongCredentialsShouldThrowException)
     {
         try
         {
-            Sql("", "", "", "");
+            Sql();
         }
         catch(const std::runtime_error& e)
         {
             EXPECT_STREQ("Database connection failed!", e.what());
+            throw;
+        }
+        
+    }, std::runtime_error);
+}
+
+TEST(SqlTest, tableEmptyGetAllProductsShouldReturnEmptyVector)
+{
+    Sql sql; //TODO Insert correct credentials
+    EXPECT_EQ(sql.getAllProducts().size(), 0);
+}
+
+TEST(SqlTest, productDoesntExistGetProductShouldThrowException)
+{
+    EXPECT_THROW(
+    {
+        try
+        {
+            Sql sql; //TODO Insert correct credentials
+            sql.getProduct(1000000);
+        }
+        catch(const std::runtime_error& e)
+        {
+            EXPECT_STREQ("Product doesn't exist!", e.what());
             throw;
         }
         
