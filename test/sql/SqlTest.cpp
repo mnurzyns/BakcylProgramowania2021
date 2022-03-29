@@ -1,9 +1,12 @@
 #include <gtest/gtest.h>
 #include <stdexcept>
 #include "sql/Sql.hpp"
+#include "sql/SqlTestFixture.hpp"
 
 namespace bakcyl::sql::test {
 namespace {
+
+//Tests for connection
 
 TEST(SqlTest, itLives)
 {
@@ -27,19 +30,34 @@ TEST(SqlTest, wrongCredentialsShouldThrowException)
     }, std::runtime_error);
 }
 
-TEST(SqlTest, tableEmptyGetAllProductsShouldReturnEmptyVector)
+//Tests for queries
+
+TEST_F(SqlTestFixture, tableEmptyGetAllProductsShouldReturnEmptyVector)
 {
-    Sql sql; //TODO Insert correct credentials
-    EXPECT_EQ(sql.getAllProducts().size(), 0);
+    EXPECT_TRUE(sql.getAllProducts().empty());
 }
 
-TEST(SqlTest, productDoesntExistGetProductShouldThrowException)
+TEST_F(SqlTestFixture, productsDontExistGetProductsBeginningWithShouldReturnEmptyVector)
+{
+    EXPECT_TRUE(sql.getProductsBeginningWith("test").empty());
+}
+
+TEST_F(SqlTestFixture, productsDontExistGetProductsEndingWithShouldReturnEmptyVector)
+{
+    EXPECT_TRUE(sql.getProductsEndingWith("test").empty());
+}
+
+TEST_F(SqlTestFixture, productsDontExistGetProductsContainingShouldReturnEmptyVector)
+{
+    EXPECT_TRUE(sql.getProductsContaining("test").empty());
+}
+
+TEST_F(SqlTestFixture, productDoesntExistGetProductShouldThrowException)
 {
     EXPECT_THROW(
     {
         try
         {
-            Sql sql; //TODO Insert correct credentials
             sql.getProduct(1000000);
         }
         catch(const std::runtime_error& e)
