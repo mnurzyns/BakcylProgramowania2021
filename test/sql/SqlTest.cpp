@@ -33,6 +33,24 @@ TEST(SqlTest, tableEmptyGetAllProductsShouldReturnEmptyVector)
     EXPECT_EQ(sql.getAllProducts().size(), 0);
 }
 
+TEST(SqlTest, productsDontExistGetProductsBeginningWithShouldReturnEmptyVector)
+{
+    Sql sql;
+    EXPECT_EQ(sql.getProductsBeginningWith("test").size(), 0);
+}
+
+TEST(SqlTest, productsDontExistGetProductsEndingWithShouldReturnEmptyVector)
+{
+    Sql sql;
+    EXPECT_EQ(sql.getProductsEndingWith("test").size(), 0);
+}
+
+TEST(SqlTest, productsDontExistGetProductsContainingShouldReturnEmptyVector)
+{
+    Sql sql;
+    EXPECT_EQ(sql.getProductsContaining("test").size(), 0);
+}
+
 TEST(SqlTest, productDoesntExistGetProductShouldThrowException)
 {
     EXPECT_THROW(
