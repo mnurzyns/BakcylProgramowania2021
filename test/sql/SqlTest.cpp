@@ -29,7 +29,7 @@ TEST(SqlTest, wrongCredentialsShouldThrowException)
 
 TEST(SqlTest, tableEmptyGetAllProductsShouldReturnEmptyVector)
 {
-    Sql sql; //TODO Insert correct credentials
+    Sql sql;
     EXPECT_EQ(sql.getAllProducts().size(), 0);
 }
 
@@ -39,7 +39,7 @@ TEST(SqlTest, productDoesntExistGetProductShouldThrowException)
     {
         try
         {
-            Sql sql; //TODO Insert correct credentials
+            Sql sql;
             sql.getProduct(1000000);
         }
         catch(const std::runtime_error& e)
