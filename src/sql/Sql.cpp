@@ -42,6 +42,16 @@ namespace bakcyl::sql
 
         return contents;
     }
+
+    std::string Sql::getSelectSyntax(const std::string& sequence) const
+    {
+        return "SELECT * FROM Products WHERE Name LIKE " + sequence;
+    }
+
+    std::string Sql::getSelectSyntax(const std::uint64_t& productId) const
+    {
+        return "SELECT * FROM Products WHERE Id = " + std::to_string(productId);
+    }
     
     std::vector<Product> Sql::getAllProducts() const 
     {
@@ -70,7 +80,7 @@ namespace bakcyl::sql
     Product Sql::getProduct(const uint64_t& productId) const
     {
         QSqlQuery query;
-        std::string syntax = "SELECT * FROM Products WHERE Id=" + std::to_string(productId);
+        std::string syntax = getSelectSyntax(productId);
         query.exec(syntax.c_str());
 
         if (query.size() < 1)
@@ -96,7 +106,7 @@ namespace bakcyl::sql
         std::vector<Product> products;
         
         QSqlQuery query;
-        std::string syntax = "SELECT * FROM Products WHERE Name Like '" + sequence + "*'";
+        std::string syntax = getSelectSyntax(sequence + "%");
         query.exec(syntax.c_str());
 
         while (query.next()) 
@@ -121,7 +131,7 @@ namespace bakcyl::sql
         std::vector<Product> products;
         
         QSqlQuery query;
-        std::string syntax = "SELECT * FROM Products WHERE Name Like '*" + sequence + "*'";
+        std::string syntax = getSelectSyntax("%" + sequence + "%");
         query.exec(syntax.c_str());
 
         while (query.next()) 
@@ -146,7 +156,7 @@ namespace bakcyl::sql
         std::vector<Product> products;
         
         QSqlQuery query;
-        std::string syntax = "SELECT * FROM Products WHERE Name Like '*" + sequence + "'";
+        std::string syntax = getSelectSyntax("%" + sequence);
         query.exec(syntax.c_str());
 
         while (query.next()) 

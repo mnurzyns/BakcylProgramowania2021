@@ -12,6 +12,8 @@ namespace bakcyl::sql
             QSqlDatabase database;
             QString connectionName;
             QString loadCredentials() const;
+            std::string getSelectSyntax(const std::string& sequence) const;
+            std::string getSelectSyntax(const std::uint64_t& productId) const;
 
         public:
             Sql();

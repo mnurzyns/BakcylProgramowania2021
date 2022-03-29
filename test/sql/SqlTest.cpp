@@ -1,9 +1,12 @@
 #include <gtest/gtest.h>
 #include <stdexcept>
 #include "sql/Sql.hpp"
+#include "sql/SqlTestFixture.hpp"
 
 namespace bakcyl::sql::test {
 namespace {
+
+//Tests for connection
 
 TEST(SqlTest, itLives)
 {
@@ -27,37 +30,34 @@ TEST(SqlTest, wrongCredentialsShouldThrowException)
     }, std::runtime_error);
 }
 
-TEST(SqlTest, tableEmptyGetAllProductsShouldReturnEmptyVector)
+//Tests for queries
+
+TEST_F(SqlTestFixture, tableEmptyGetAllProductsShouldReturnEmptyVector)
 {
-    Sql sql;
-    EXPECT_EQ(sql.getAllProducts().size(), 0);
+    EXPECT_TRUE(sql.getAllProducts().empty());
 }
 
-TEST(SqlTest, productsDontExistGetProductsBeginningWithShouldReturnEmptyVector)
+TEST_F(SqlTestFixture, productsDontExistGetProductsBeginningWithShouldReturnEmptyVector)
 {
-    Sql sql;
-    EXPECT_EQ(sql.getProductsBeginningWith("test").size(), 0);
+    EXPECT_TRUE(sql.getProductsBeginningWith("test").empty());
 }
 
-TEST(SqlTest, productsDontExistGetProductsEndingWithShouldReturnEmptyVector)
+TEST_F(SqlTestFixture, productsDontExistGetProductsEndingWithShouldReturnEmptyVector)
 {
-    Sql sql;
-    EXPECT_EQ(sql.getProductsEndingWith("test").size(), 0);
+    EXPECT_TRUE(sql.getProductsEndingWith("test").empty());
 }
 
-TEST(SqlTest, productsDontExistGetProductsContainingShouldReturnEmptyVector)
+TEST_F(SqlTestFixture, productsDontExistGetProductsContainingShouldReturnEmptyVector)
 {
-    Sql sql;
-    EXPECT_EQ(sql.getProductsContaining("test").size(), 0);
+    EXPECT_TRUE(sql.getProductsContaining("test").empty());
 }
 
-TEST(SqlTest, productDoesntExistGetProductShouldThrowException)
+TEST_F(SqlTestFixture, productDoesntExistGetProductShouldThrowException)
 {
     EXPECT_THROW(
     {
         try
         {
-            Sql sql;
             sql.getProduct(1000000);
         }
         catch(const std::runtime_error& e)
