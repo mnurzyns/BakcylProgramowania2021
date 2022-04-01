@@ -9,6 +9,11 @@ class ProductInstanceModel : public QAbstractListModel
 public:
     explicit ProductInstanceModel(QObject *parent = nullptr);
 
+    enum {
+        IdRole,
+        LocationRole
+    };
+
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
