@@ -89,5 +89,7 @@ Window {
                 }
             }
         }
+
+        ProductInstanceList { }
     }
 }
