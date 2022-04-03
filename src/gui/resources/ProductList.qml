@@ -23,6 +23,7 @@ Frame {
             width: parent.width
 
             Text {
+                id: idField
                 Layout.alignment: Qt.AlignLeft
                 Layout.minimumWidth: parent.width * 0.07
 
@@ -30,6 +31,19 @@ Frame {
                 horizontalAlignment: Text.AlignHCenter
                 font.bold: true
                 font.pointSize: 12
+
+                MouseArea{
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    hoverEnabled: true
+
+                    onClicked: {
+                        productPageLoader.source = ""
+
+                        productPageLoader.productId = model.ID
+                        productPageLoader.source = "ProductWindow.qml"
+                    }
+                }
             }
 
             Text {
