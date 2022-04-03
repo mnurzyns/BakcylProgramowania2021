@@ -46,17 +46,6 @@ Frame {
                 color: "#383737"
                 font.pointSize: 9
             }
-
-            Button {
-                text: "inspect"
-
-                onClicked: {
-                    productPageLoader.source = ""
-
-                    productPageLoader.productId = model.ID
-                    productPageLoader.source = "ProductWindow.qml"
-                }
-            }
         }
     }
 }
