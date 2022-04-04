@@ -9,7 +9,12 @@ Core::Core()
 
     std::uint8_t Core::calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date)
     {
-        return 0;
+        // The demand indicator returns in how many days the product will be out of stock
+        std::uint16_t demandFactor;
+        std::time_t nowTime;
+        time(&nowTime);
+        demandFactor = quality/(difftime(nowTime, date)/86400); //How much of the product will disappear in a day
+        return quality/demandFactor;
     }
 
     void Core::getEmailDataToServer(EmailData &data)
