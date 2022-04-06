@@ -7,20 +7,19 @@ Core::Core()
 
 }
 
-    std::uint8_t Core::calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date)
+    std::uint8_t Core::calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date, const std::uint32_t &productID)
     {
         // The demand indicator returns in how many days the product will be out of stock
         std::uint16_t demandFactor;
         std::time_t nowTime;
         time(&nowTime);
         demandFactor = quality/(difftime(nowTime, date)/86400); //How much of the product will disappear in a day
-        return quality/demandFactor;
+        return getProductMinQuantity(productID)/demandFactor;
     }
 
     void Core::getEmailDataToServer(EmailData &data)
     {
-        // data.productName = ;
-        data.message = "An order for the product " + data.productName + " is needed.";
+        data.message = "An order for the product " + data.productName + " is needed. Product inventory will be exhausted less than 7 days.";
     }
 
     Core::EmailData Core::sendEmailDataToServer(const EmailData &data)
@@ -28,23 +27,29 @@ Core::Core()
         return data;
     }
 
-    std::uint32_t Core::getProductCurrentQuantity() const
+    std::uint32_t Core::getProductCurrentQuantity(const std::uint32_t &productID)
     {
-        return currentQuantity;
+        common::Product product;
+        product = getProduct(productID);
+        return product.getCurrentQuantity();
     }
-    std::uint32_t Core::getProductMinQuantity() const
+    std::uint32_t Core::getProductMinQuantity(const std::uint32_t &productID)
     {
-        return minQuantity;
+        common::Product product;
+        product = getProduct(productID);
+        return product.getMinQuantity();
     }
-    std::uint32_t Core::getProductMaxQuantity() const
+    std::uint32_t Core::getProductMaxQuantity(const std::uint32_t &productID)
     {
-        return maxQuantity;
+        common::Product product;
+        product = getProduct(productID);
+        return product.getMaxQuantity();
     }
-    Core::MethodResult Core::changeProductQuantity(const std::string &option, const std::uint32_t quantity)
+    Core::MethodResult Core::changeProductQuantity(const std::string &option, const std::uint32_t quantity, const std::uint32_t &productID)
     {
-        currentQuantity = getProductCurrentQuantity();
-        minQuantity = getProductMinQuantity();
-        maxQuantity = getProductMaxQuantity();
+        currentQuantity = getProductCurrentQuantity(productID);
+        minQuantity = getProductMinQuantity(productID);
+        maxQuantity = getProductMaxQuantity(productID);
         if(option == "increase")
         {
             if(currentQuantity+quantity > maxQuantity)
@@ -53,7 +58,21 @@ Core::Core()
             }
             else
             {
-                return MethodResult::SUCCESS;
+                common::Product product;
+                product = getProduct(productID);
+                product.setCurrentQuantity(currentQuantity+quantity);
+                if(calculateDemandIndicator(quantity,product.getLastBuy(),productID)<5)
+                {
+                    EmailData data;
+                    data.productName = product.getName();
+                    getEmailDataToServer(data);
+                }
+                std::time_t timer;
+                time(&timer);
+                product.setLastBuy(timer);
+                MethodResult value = updateProduct(productID,product);
+                if(value == MethodResult::SUCCESS) return MethodResult::SUCCESS;
+                else return MethodResult::ERROR;
             }
         }
         else if(option == "decrease")
@@ -64,13 +83,30 @@ Core::Core()
             }
             else
             {
-                return MethodResult::SUCCESS;
+                common::Product product;
+                product = getProduct(productID);
+                product.setCurrentQuantity(currentQuantity-quantity);
+                if(calculateDemandIndicator(quantity,product.getLastBuy(),productID)<5)
+                {
+                    EmailData data;
+                    data.productName = product.getName();
+                    getEmailDataToServer(data);
+                }
+                std::time_t timer;
+                time(&timer);
+                product.setLastBuy(timer);
+                MethodResult value = updateProduct(productID,product);
+                if(value == MethodResult::SUCCESS) return MethodResult::SUCCESS;
+                else return MethodResult::ERROR;
             }
         }
         else
         {
             return MethodResult::WRONG_PARAM;
         }
+
+
+
     }
 
     Core::MethodResult Core::createProduct(common::Product &product)
@@ -80,9 +116,9 @@ Core::Core()
         return result;
 
     }
-    common::ProductInstance Core::getProduct(const std::uint32_t &productID)
+    common::Product Core::getProduct(const std::uint32_t &productID)
     {
-        common::ProductInstance product;
+        common::Product product;
         //A call to a proxy
         return product;
     }

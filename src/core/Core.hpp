@@ -16,7 +16,7 @@ public:
             std::string message;
     };
 
-    std::uint8_t calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date);
+    std::uint8_t calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date, const std::uint32_t &productID);
     void getEmailDataToServer(EmailData &data);
     EmailData sendEmailDataToServer(const EmailData &data);
 
@@ -31,13 +31,13 @@ public:
     std::uint32_t minQuantity;
     std::uint32_t maxQuantity;
 
-    std::uint32_t getProductCurrentQuantity() const;
-    std::uint32_t getProductMinQuantity() const;
-    std::uint32_t getProductMaxQuantity() const;
-    MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity);
+    std::uint32_t getProductCurrentQuantity(const std::uint32_t &productID);
+    std::uint32_t getProductMinQuantity(const std::uint32_t &productID);
+    std::uint32_t getProductMaxQuantity(const std::uint32_t &productID);
+    MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity, const std::uint32_t &productID);
 
     MethodResult createProduct(common::Product &product);
-    common::ProductInstance getProduct(const std::uint32_t &productID);
+    common::Product getProduct(const std::uint32_t &productID);
     MethodResult updateProduct(const std::uint32_t &productID, common::Product &updatedProduct);
     MethodResult deleteProduct(const std::uint32_t &productID);
 
