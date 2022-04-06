@@ -32,11 +32,11 @@ Frame {
                 font.bold: true
                 font.pointSize: 12
 
-                color: inspecctProductlink.containsMouse ? "blue" : "black"
-                font.underline: inspecctProductlink.containsMouse
+                color: inspectProductlink.containsMouse ? "blue" : "black"
+                font.underline: inspectProductlink.containsMouse
 
                 MouseArea {
-                    id: inspecctProductlink
+                    id: inspectProductlink
                     anchors.fill: parent
                     cursorShape: Qt.PointingHandCursor
                     hoverEnabled: true
