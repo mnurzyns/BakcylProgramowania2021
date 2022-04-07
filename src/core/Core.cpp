@@ -61,15 +61,6 @@ Core::Core()
                 common::Product product;
                 product = getProduct(productID);
                 product.setCurrentQuantity(currentQuantity+quantity);
-                if(calculateDemandIndicator(quantity,product.getLastBuy(),productID)<5)
-                {
-                    EmailData data;
-                    data.productName = product.getName();
-                    getEmailDataToServer(data);
-                }
-                std::time_t timer;
-                time(&timer);
-                product.setLastBuy(timer);
                 MethodResult value = updateProduct(productID,product);
                 if(value == MethodResult::SUCCESS) return MethodResult::SUCCESS;
                 else return MethodResult::ERROR;
@@ -86,7 +77,7 @@ Core::Core()
                 common::Product product;
                 product = getProduct(productID);
                 product.setCurrentQuantity(currentQuantity-quantity);
-                if(calculateDemandIndicator(quantity,product.getLastBuy(),productID)<5)
+                if(calculateDemandIndicator(quantity,product.getLastBuy(),productID)<5 || currentQuantity-1 == minQuantity)
                 {
                     EmailData data;
                     data.productName = product.getName();
