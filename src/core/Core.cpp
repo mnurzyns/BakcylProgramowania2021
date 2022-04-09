@@ -141,5 +141,34 @@ Core::Core()
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
+    std::vector<std::string> Core::getLocations()
+    {
+        std::vector<std::string> result;
+        //result = A call to a proxy
+        return result;
+    }
+    std::vector<common::Product> Core::searchProducts(const auto &value, const std::string &searchType)
+    {
+        std::vector<common::Product> result;
+        switch(searchType)
+        {
+        case "BeginningWith":
+            //push_back(); //A call to proxy
+            break;
+        case "Containing":
+            //push_back(); //A call to proxy
+            break;
+        case "EndingWith":
+            //push_back(); //A call to proxy
+            break;
+        case "ByName":
+            //push_back(); //A call to proxy
+            break;
+        case "ById":
+            push_back(getProduct(value));
+            break;
+        }
+        return result;
+    }
 
 }

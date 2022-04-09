@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <ctime>
+#include <vector>
 #include "common/product.hpp"
 #include "common/productInstance.hpp"
 
@@ -50,6 +51,9 @@ public:
     MethodResult createLocation(const std::string &locationID);
     MethodResult updateLocation(const std::string &locationID, const std::string &updatedLocation);
     MethodResult deleteLocation(const std::string &locationID);
+    std::vector<std::string> getLocations();
+    std::vector<common::Product> searchProducts(const auto &value, const std::string &searchType);
+
 };
 
 }
