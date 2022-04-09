@@ -102,6 +102,13 @@ Core::Core()
 
     }
 
+    std::uint8_t Core::getDemandIndicator(const std::uint32_t &productID)
+    {
+        common::Product product;
+        product = getProduct(productID);
+        return calculateDemandIndicator(getProductCurrentQuantity(productID),product.getLastBuy(),productID);
+    }
+
     Core::MethodResult Core::createProduct(common::Product &product)
     {
         MethodResult result;

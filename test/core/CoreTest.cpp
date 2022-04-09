@@ -23,6 +23,11 @@ TEST_F(CoreTest, demandIndicatorShouldReturnValue)
     EXPECT_EQ(core.calculateDemandIndicator(65535,1649411285,0),0);
 }
 
+TEST_F(CoreTest, getDemandIndicatorShouldReturnValue)
+{
+    EXPECT_EQ(core.getDemandIndicator(0), 0);
+}
+
 TEST_F(CoreTest, changeProductQuantityShouldReturnWrongParam)
 {
     EXPECT_EQ(core.changeProductQuantity("",1,0), Core::MethodResult::WRONG_PARAM);

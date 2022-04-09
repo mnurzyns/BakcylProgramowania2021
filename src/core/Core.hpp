@@ -35,6 +35,7 @@ public:
     std::uint32_t getProductMinQuantity(const std::uint32_t &productID);
     std::uint32_t getProductMaxQuantity(const std::uint32_t &productID);
     MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity, const std::uint32_t &productID);
+    std::uint8_t getDemandIndicator(const std::uint32_t &productID);
 
     MethodResult createProduct(common::Product &product);
     common::Product getProduct(const std::uint32_t &productID);
