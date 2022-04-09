@@ -1,4 +1,4 @@
-#include "Core.hpp"
+#include "core/Core.hpp"
 
 namespace bakcyl::core {
 
@@ -75,9 +75,9 @@ Core::Core()
         return result;
 
     }
-    common::ProductInstance Core::getProduct(const std::uint32_t &productID)
+    common::Product Core::getProduct(const std::uint32_t &productID)
     {
-        common::ProductInstance product;
+        common::Product product;
         //A call to a proxy
         return product;
     }
