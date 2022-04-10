@@ -24,6 +24,17 @@ Window {
         TextField {
             id: productNamefield
             Layout.fillWidth: true
+
+            Text {
+                anchors.fill: parent
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 8
+
+                text: "Enter product ID or name"
+                color: "#aaaaaa"
+                font.pixelSize: 25
+                visible: !productNamefield.text && !productNamefield.activeFocus
+            }
         }
 
         Button {
