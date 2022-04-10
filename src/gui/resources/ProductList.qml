@@ -24,10 +24,10 @@ Frame {
             Text {
                 id: idField
                 Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: parent.width * 0.07
+                Layout.preferredWidth: 40
 
                 text: "ID: " + model.ID
-                horizontalAlignment: Text.AlignHCenter
+                horizontalAlignment: Text.AlignLeft
                 font.bold: true
                 font.pointSize: 12
 
