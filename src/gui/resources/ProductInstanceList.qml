@@ -17,10 +17,10 @@ Frame {
 
             Text {
                 Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: parent.width * 0.07
+                Layout.preferredWidth: 40
 
                 text: "ID: " + model.ID
-                horizontalAlignment: Text.AlignHCenter
+                horizontalAlignment: Text.AlignLeft
                 font.bold: true
                 font.pointSize: 11
             }
@@ -29,7 +29,7 @@ Frame {
                 Layout.alignment: Qt.AlignRight
 
                 text: model.Location
-                horizontalAlignment: Text.AlignHCenter
+                horizontalAlignment: Text.AlignRight
                 color: "#383737"
                 font.pointSize: 9
             }
