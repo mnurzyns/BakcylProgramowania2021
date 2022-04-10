@@ -21,18 +21,9 @@ Window {
         rowSpacing: 5
         flow: GridLayout.TopToBottom
 
-        Rectangle {
-            id: searchBoxFrame
+        TextField {
+            id: productNamefield
             Layout.fillWidth: true
-            height: 25
-            border.color: 'gray'
-            border.width: 1
-
-            TextInput {
-                id: inputProductName
-                anchors.fill: parent
-                anchors.margins: 4
-            }
         }
 
         Button {
@@ -40,7 +31,7 @@ Window {
             text: "search"
 
             onClicked: searchController.setSearchboxText(
-                           inputProductName.text
+                           productNamefield.text
                             )
         }
 
