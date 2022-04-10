@@ -44,6 +44,7 @@ Window {
             flow: GridLayout.LeftToRight
 
             GroupBox {
+                Layout.maximumWidth: parent.width / 2
                 Layout.fillWidth: true
 
                 GridLayout {
@@ -83,6 +84,7 @@ Window {
             }
 
             GroupBox {
+                implicitHeight: parent.height
                 Layout.fillWidth: true
 
                 Text {
