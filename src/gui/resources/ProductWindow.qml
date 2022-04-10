@@ -41,10 +41,11 @@ Window {
             id: productDataSection
             Layout.fillWidth: true
 
-            Column {
-                width: parent.width
-                spacing: 7
-                leftPadding: 5
+            GridLayout {
+                Layout.fillWidth: true
+                anchors.margins: 5
+                rowSpacing: 7
+                flow: GridLayout.TopToBottom
 
                 Text {
                     id: productIdField
