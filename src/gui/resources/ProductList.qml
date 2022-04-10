@@ -27,7 +27,6 @@ Frame {
                 Layout.preferredWidth: 40
 
                 text: "ID: " + model.ID
-                horizontalAlignment: Text.AlignLeft
                 font.bold: true
                 font.pointSize: 12
 
@@ -51,7 +50,6 @@ Frame {
 
             Text {
                 text: model.Name
-                horizontalAlignment: Text.AlignHCenter
                 font.pointSize: 11
             }
 
@@ -59,7 +57,6 @@ Frame {
                 Layout.alignment: Qt.AlignRight
 
                 text: model.Description
-                horizontalAlignment: Text.AlignHCenter
                 color: "#383737"
                 font.pointSize: 9
             }
