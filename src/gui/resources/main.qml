@@ -45,10 +45,8 @@ Window {
             id: testSearchText
             text: searchController.searchboxText
         }
-    }
 
-    ProductList {
-        anchors.centerIn: parent
+        ProductList { }
     }
 }
 
