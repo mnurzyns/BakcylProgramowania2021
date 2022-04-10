@@ -31,19 +31,15 @@ Window {
         productData.getProductData(productId)
     }
 
-    Column {
+    GridLayout {
         anchors.fill: parent
         anchors.margins: 10
-        spacing: 5
+        rowSpacing: 5
+        flow: GridLayout.TopToBottom
 
-        Rectangle {
+        GroupBox {
             id: productDataSection
-            width: parent.width
-            height: 250
-            color: "#f1f1f1"
-
-            border.color: "#6b6b6b"
-            border.width: 2
+            Layout.fillWidth: true
 
             Column {
                 width: parent.width
