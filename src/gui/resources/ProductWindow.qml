@@ -86,6 +86,9 @@ Window {
             }
         }
 
-        ProductInstanceList { }
+        ProductInstanceList {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
     }
 }
