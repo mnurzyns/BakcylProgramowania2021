@@ -45,37 +45,41 @@ Window {
                 Layout.fillWidth: true
                 anchors.margins: 5
                 rowSpacing: 7
-                flow: GridLayout.TopToBottom
+                flow: GridLayout.LeftToRight
 
-                Text {
-                    id: productIdField
-                    text: "Ex ID"
-                    font.pointSize: 15
-                    font.bold: true
-                }
+                GridLayout {
+                    flow: Grid.TopToBottom
 
-                Text {
-                    id: productNameField
-                    text: "Ex Name"
-                    font.pointSize: 15
-                }
+                    Text {
+                        id: productIdField
+                        text: "Ex ID"
+                        font.pointSize: 15
+                        font.bold: true
+                    }
 
-                Text {
-                    id: productCategoryField
-                    text: "Ex Category"
-                    font.pointSize: 15
-                }
+                    Text {
+                        id: productNameField
+                        text: "Ex Name"
+                        font.pointSize: 15
+                    }
 
-                Text {
-                    id: productQuantityField
-                    text: "Quantity: Na"
-                    font.pointSize: 15
-                }
+                    Text {
+                        id: productCategoryField
+                        text: "Ex Category"
+                        font.pointSize: 15
+                    }
 
-                Text {
-                    id: productlocationField
-                    text: "Ex location"
-                    font.pointSize: 12
+                    Text {
+                        id: productQuantityField
+                        text: "Quantity: Na"
+                        font.pointSize: 15
+                    }
+
+                    Text {
+                        id: productlocationField
+                        text: "Ex location"
+                        font.pointSize: 12
+                    }
                 }
 
                 Text {
