@@ -5,8 +5,8 @@ import QtQuick.Layouts 1.3
 import Searchbox 1.0
 
 Window {
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     visible: true
     title: qsTr("Hello World")
 
