@@ -44,8 +44,7 @@ Window {
             flow: GridLayout.LeftToRight
 
             GroupBox {
-                Layout.maximumWidth: parent.width / 2
-                Layout.fillWidth: true
+                implicitWidth: parent.width / 2
 
                 GridLayout {
                     flow: Grid.TopToBottom
@@ -88,10 +87,13 @@ Window {
                 Layout.fillWidth: true
 
                 Text {
+                    width: parent.width
+
                     id: productDescriptionField
                     color: "#737373"
                     text: "Ex description"
                     font.pointSize: 10
+                    wrapMode: Text.WordWrap
                 }
             }
         }
