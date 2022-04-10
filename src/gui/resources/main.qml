@@ -17,10 +17,13 @@ Window {
     GridLayout {
         id: baseGrid
         anchors.fill: parent
+        anchors.margins: 10
+        rowSpacing: 5
+        flow: GridLayout.TopToBottom
 
         Rectangle {
-            id: frame
-            width: parent.width
+            id: searchBoxFrame
+            Layout.fillWidth: true
             height: 25
             border.color: 'gray'
             border.width: 1
@@ -38,7 +41,7 @@ Window {
 
             onClicked: searchController.setSearchboxText(
                            inputProductName.text
-                           )
+                            )
         }
 
         Text {
@@ -46,7 +49,10 @@ Window {
             text: searchController.searchboxText
         }
 
-        ProductList { }
+        ProductList {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
     }
 }
 
