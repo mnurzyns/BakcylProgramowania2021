@@ -7,8 +7,7 @@ import Product 1.0
 
 Frame {
     ListView {
-        implicitHeight: 250
-        implicitWidth: Window.width * 0.95
+        anchors.fill: parent
         clip: true
         spacing: 1
 
