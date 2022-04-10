@@ -14,11 +14,9 @@ Window {
         id: searchController
     }
 
-    Column {
-        id: testCol
+    GridLayout {
+        id: baseGrid
         anchors.fill: parent
-        anchors.margins: 5
-        spacing: 3
 
         Rectangle {
             id: frame
@@ -51,7 +49,6 @@ Window {
 
     ProductList {
         anchors.centerIn: parent
-
     }
 }
 
