@@ -31,6 +31,10 @@ Window {
                 id: productNamefield
                 Layout.fillWidth: true
 
+                onAccepted: searchController.setSearchboxText(
+                                productNamefield.text
+                            )
+
                 Text {
                     anchors.fill: parent
                     verticalAlignment: Text.AlignVCenter
@@ -49,7 +53,7 @@ Window {
 
                 onClicked: searchController.setSearchboxText(
                                productNamefield.text
-                                )
+                            )
             }
         }
 
