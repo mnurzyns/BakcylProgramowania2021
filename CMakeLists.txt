@@ -25,6 +25,13 @@ set(QtSqlLib Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Sql)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/e2239ee6043f73722e7aa812a459f54a28552929.zip
+)
+FetchContent_MakeAvailable(googletest)
+
 add_subdirectory(src)
 include(CTest)
 enable_testing()
