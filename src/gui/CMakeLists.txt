@@ -8,7 +8,9 @@ set(GUI_SOURCES
     ProductModel.hpp
     ProductModel.cpp
     ProductDataHandler.hpp
-    ProductDataHandler.cpp)
+    ProductDataHandler.cpp
+    ProductInstanceModel.hpp
+    ProductInstanceModel.cpp)
 
 add_library(GuiLib ${GUI_SOURCES})
 target_link_libraries(GuiLib PRIVATE

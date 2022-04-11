@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>ProductList.qml</file>
         <file>ProductWindow.qml</file>
+        <file>ProductInstanceList.qml</file>
     </qresource>
 </RCC>
