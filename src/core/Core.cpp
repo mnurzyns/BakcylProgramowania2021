@@ -7,15 +7,21 @@ Core::Core()
 
 }
 
-    std::uint8_t Core::calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date)
+    std::uint8_t Core::calculateDemandIndicator(const std::uint16_t quality, const std::time_t &date, const std::uint32_t productID)
     {
-        return 0;
+        // The demand indicator returns in how many days the product will be out of stock
+        float demandFactor;
+        std::time_t nowTime;
+        time(&nowTime);
+        demandFactor = quality/(difftime(nowTime, date)/86400); //How much of the product will disappear in a day
+        float result = getProductMinQuantity(productID)/demandFactor;
+        std::uint8_t answer = result;
+        return answer;
     }
 
     void Core::getEmailDataToServer(EmailData &data)
     {
-        // data.productName = ;
-        data.message = "An order for the product " + data.productName + " is needed.";
+        data.message = "An order for the product " + data.productName + " is needed. Product inventory will be exhausted less than 7 days.";
     }
 
     Core::EmailData Core::sendEmailDataToServer(const EmailData &data)
@@ -23,33 +29,30 @@ Core::Core()
         return data;
     }
 
-    std::uint32_t Core::getProductCurrentQuantity() const
+    std::uint32_t Core::getProductCurrentQuantity(const std::uint32_t productID)
     {
-        return currentQuantity;
+        common::Product product;
+        product = getProduct(productID);
+        return product.getCurrentQuantity();
     }
-    std::uint32_t Core::getProductMinQuantity() const
+    std::uint32_t Core::getProductMinQuantity(const std::uint32_t productID)
     {
-        return minQuantity;
+        common::Product product;
+        product = getProduct(productID);
+        return product.getMinQuantity();
     }
-    std::uint32_t Core::getProductMaxQuantity() const
+    std::uint32_t Core::getProductMaxQuantity(const std::uint32_t productID)
     {
-        return maxQuantity;
+        common::Product product;
+        product = getProduct(productID);
+        return product.getMaxQuantity();
     }
-    Core::MethodResult Core::changeProductQuantity(const std::string &option, const std::uint32_t quantity)
+    Core::MethodResult Core::changeProductQuantity(const std::string &option, const std::uint32_t quantity, const std::uint32_t productID)
     {
-        currentQuantity = getProductCurrentQuantity();
-        minQuantity = getProductMinQuantity();
-        maxQuantity = getProductMaxQuantity();
+
         if(option == "increase")
         {
-            if(currentQuantity+quantity > maxQuantity)
-            {
-                return MethodResult::ERROR;
-            }
-            else
-            {
-                return MethodResult::SUCCESS;
-            }
+            return handleIncreaseOperation(quantity, productID);
         }
         else if(option == "decrease")
         {
@@ -59,13 +62,74 @@ Core::Core()
             }
             else
             {
-                return MethodResult::SUCCESS;
+                return handleDecreaseOperation(quantity, productID);
             }
         }
         else
         {
             return MethodResult::WRONG_PARAM;
         }
+    }
+
+    Core::MethodResult Core::handleIncreaseOperation(const std::uint32_t quantity, const std::uint32_t productID)
+    {
+        currentQuantity = getProductCurrentQuantity(productID);
+        minQuantity = getProductMinQuantity(productID);
+        maxQuantity = getProductMaxQuantity(productID);
+        if(currentQuantity+quantity > maxQuantity)
+            {
+                return MethodResult::ERROR;
+            }
+            else
+            {
+                common::Product product;
+                product = getProduct(productID);
+                product.setCurrentQuantity(currentQuantity+quantity);
+                MethodResult value = updateProduct(productID,product);
+                if(value == MethodResult::SUCCESS)
+                {
+                    return MethodResult::SUCCESS;
+                }
+                else
+                {
+                    return MethodResult::ERROR;
+                }
+            }
+    }
+
+    Core::MethodResult Core::handleDecreaseOperation(const std::uint32_t quantity, const std::uint32_t productID)
+    {
+        currentQuantity = getProductCurrentQuantity(productID);
+        minQuantity = getProductMinQuantity(productID);
+        maxQuantity = getProductMaxQuantity(productID);
+        common::Product product;
+        product = getProduct(productID);
+        product.setCurrentQuantity(currentQuantity-quantity);
+        if(calculateDemandIndicator(quantity,product.getLastBuy(),productID)<5 || currentQuantity-1 == minQuantity)
+        {
+            EmailData data;
+            data.productName = product.getName();
+            getEmailDataToServer(data);
+        }
+        std::time_t timer;
+        time(&timer);
+        product.setLastBuy(timer);
+        MethodResult value = updateProduct(productID,product);
+        if(value == MethodResult::SUCCESS)
+        {
+            return MethodResult::SUCCESS;
+        }
+        else
+        {
+            return MethodResult::ERROR;
+        }
+    }
+
+    std::uint8_t Core::getDemandIndicator(const std::uint32_t productID)
+    {
+        common::Product product;
+        product = getProduct(productID);
+        return calculateDemandIndicator(getProductCurrentQuantity(productID),product.getLastBuy(),productID);
     }
 
     Core::MethodResult Core::createProduct(common::Product &product)
@@ -75,19 +139,20 @@ Core::Core()
         return result;
 
     }
-    common::Product Core::getProduct(const std::uint32_t &productID)
+
+    common::Product Core::getProduct(const std::uint32_t productID)
     {
         common::Product product;
         //A call to a proxy
         return product;
     }
-    Core::MethodResult Core::updateProduct(const std::uint32_t &productID, common::Product &updatedProduct)
+    Core::MethodResult Core::updateProduct(const std::uint32_t productID, common::Product &updatedProduct)
     {
         MethodResult result;
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
-    Core::MethodResult Core::deleteProduct(const std::uint32_t &productID)
+    Core::MethodResult Core::deleteProduct(const std::uint32_t productID)
     {
         MethodResult result;
         result = MethodResult::SUCCESS; //A call to a proxy
@@ -99,25 +164,25 @@ Core::Core()
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
-    common::ProductInstance getProductInstanceByLocationID(const std::string &locationID)
+    common::ProductInstance Core::getProductInstanceByLocationID(const std::string &locationID)
     {
         common::ProductInstance product;
         //A call to a proxy
         return product;
     }
-    common::ProductInstance Core::getProductInstance(const std::uint32_t &instanceID)
+    common::ProductInstance Core::getProductInstance(const std::uint32_t instanceID)
     {
         common::ProductInstance product;
         //A call to a proxy
         return product;
     }
-    Core::MethodResult Core::updateProductInstance(const std::uint32_t &instanceID, common::ProductInstance &updatedInstance)
+    Core::MethodResult Core::updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance)
     {
         MethodResult result;
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
-    Core::MethodResult Core::deleteProductInstance(const std::uint32_t &instanceID)
+    Core::MethodResult Core::deleteProductInstance(const std::uint32_t instanceID)
     {
         MethodResult result;
         result = MethodResult::SUCCESS; //A call to a proxy
@@ -139,6 +204,35 @@ Core::Core()
     {
         MethodResult result;
         result = MethodResult::SUCCESS; //A call to a proxy
+        return result;
+    }
+    std::vector<std::string> Core::getLocations()
+    {
+        std::vector<std::string> result;
+        //result = A call to a proxy
+        return result;
+    }
+    std::vector<common::Product> Core::searchProducts(const auto &value, const std::string &searchType)
+    {
+        std::vector<common::Product> result;
+        switch(searchType)
+        {
+        case "BeginningWith":
+            //push_back(); //A call to proxy
+            break;
+        case "Containing":
+            //push_back(); //A call to proxy
+            break;
+        case "EndingWith":
+            //push_back(); //A call to proxy
+            break;
+        case "ByName":
+            //push_back(); //A call to proxy
+            break;
+        case "ById":
+            push_back(getProduct(value));
+            break;
+        }
         return result;
     }
 

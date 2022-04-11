@@ -37,6 +37,11 @@ namespace bakcyl::common
 		return maxQuantity;
 	}
 
+	std::time_t Product::getLastBuy() const
+	{
+		return lastBuy;
+	}
+
 	void Product::setId(const std::uint64_t & value)
 	{
 		id = value;
@@ -70,5 +75,10 @@ namespace bakcyl::common
 	void Product::setMaxQuantity(const std::uint32_t & value)
 	{
 		maxQuantity = value;
+	}
+
+	void Product::setLastBuy(const std::time_t & value)
+	{
+		lastBuy = value;
 	}
 }

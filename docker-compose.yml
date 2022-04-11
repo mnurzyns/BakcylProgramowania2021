@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: bakcyl
+  bakcyl:
+    depends_on:
+      - db
+    build: .
+    environment:
+      - WAIT_HOSTS=db:3306
