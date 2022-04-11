@@ -139,6 +139,7 @@ Core::Core()
         return result;
 
     }
+
     common::Product Core::getProduct(const std::uint32_t productID)
     {
         common::Product product;

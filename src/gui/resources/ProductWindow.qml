@@ -5,8 +5,8 @@ import QtQuick.Layouts 1.3
 import ProductDataHandler 1.0
 
 Window {
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     visible: true
     title: qsTr("Product view")
 
@@ -31,24 +31,21 @@ Window {
         productData.getProductData(productId)
     }
 
-    Column {
+    GridLayout {
         anchors.fill: parent
         anchors.margins: 10
-        spacing: 5
+        rowSpacing: 5
+        flow: GridLayout.TopToBottom
 
-        Rectangle {
+        GroupBox {
             id: productDataSection
-            width: parent.width
-            height: 250
-            color: "#f1f1f1"
+            Layout.fillWidth: true
 
-            border.color: "#6b6b6b"
-            border.width: 2
-
-            Column {
-                width: parent.width
-                spacing: 7
-                leftPadding: 5
+            GridLayout {
+                Layout.fillWidth: true
+                anchors.margins: 5
+                rowSpacing: 7
+                flow: GridLayout.TopToBottom
 
                 Text {
                     id: productIdField
@@ -90,6 +87,9 @@ Window {
             }
         }
 
-        ProductInstanceList { }
+        ProductInstanceList {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
     }
 }
