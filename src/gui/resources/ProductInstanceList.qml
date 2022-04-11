@@ -5,11 +5,8 @@ import QtQuick.Layouts 1.3
 import ProductInstance 1.0
 
 Frame {
-    width: parent.width
-
     ListView {
-        implicitHeight: 180
-        implicitWidth: parent.width
+        anchors.fill: parent
         clip: true
         spacing: 1
 
@@ -20,10 +17,9 @@ Frame {
 
             Text {
                 Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: parent.width * 0.07
+                Layout.preferredWidth: 40
 
                 text: "ID: " + model.ID
-                horizontalAlignment: Text.AlignHCenter
                 font.bold: true
                 font.pointSize: 11
             }
@@ -32,7 +28,6 @@ Frame {
                 Layout.alignment: Qt.AlignRight
 
                 text: model.Location
-                horizontalAlignment: Text.AlignHCenter
                 color: "#383737"
                 font.pointSize: 9
             }

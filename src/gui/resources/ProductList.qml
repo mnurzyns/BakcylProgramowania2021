@@ -7,8 +7,7 @@ import Product 1.0
 
 Frame {
     ListView {
-        implicitHeight: 250
-        implicitWidth: Window.width * 0.95
+        anchors.fill: parent
         clip: true
         spacing: 1
 
@@ -25,10 +24,9 @@ Frame {
             Text {
                 id: idField
                 Layout.alignment: Qt.AlignLeft
-                Layout.minimumWidth: parent.width * 0.07
+                Layout.preferredWidth: 40
 
                 text: "ID: " + model.ID
-                horizontalAlignment: Text.AlignHCenter
                 font.bold: true
                 font.pointSize: 12
 
@@ -52,7 +50,6 @@ Frame {
 
             Text {
                 text: model.Name
-                horizontalAlignment: Text.AlignHCenter
                 font.pointSize: 11
             }
 
@@ -60,7 +57,6 @@ Frame {
                 Layout.alignment: Qt.AlignRight
 
                 text: model.Description
-                horizontalAlignment: Text.AlignHCenter
                 color: "#383737"
                 font.pointSize: 9
             }

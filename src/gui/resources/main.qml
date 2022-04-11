@@ -5,8 +5,8 @@ import QtQuick.Layouts 1.3
 import Searchbox 1.0
 
 Window {
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     visible: true
     title: qsTr("Hello World")
 
@@ -14,15 +14,16 @@ Window {
         id: searchController
     }
 
-    Column {
-        id: testCol
+    GridLayout {
+        id: baseGrid
         anchors.fill: parent
-        anchors.margins: 5
-        spacing: 3
+        anchors.margins: 10
+        rowSpacing: 5
+        flow: GridLayout.TopToBottom
 
         Rectangle {
-            id: frame
-            width: parent.width
+            id: searchBoxFrame
+            Layout.fillWidth: true
             height: 25
             border.color: 'gray'
             border.width: 1
@@ -40,18 +41,18 @@ Window {
 
             onClicked: searchController.setSearchboxText(
                            inputProductName.text
-                           )
+                            )
         }
 
         Text {
             id: testSearchText
             text: searchController.searchboxText
         }
-    }
 
-    ProductList {
-        anchors.centerIn: parent
-
+        ProductList {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
     }
 }
 
