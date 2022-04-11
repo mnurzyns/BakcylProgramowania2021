@@ -35,6 +35,7 @@ public:
     std::uint32_t getProductCurrentQuantity(const std::uint32_t productID);
     std::uint32_t getProductMinQuantity(const std::uint32_t productID);
     std::uint32_t getProductMaxQuantity(const std::uint32_t productID);
+  
     MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity, const std::uint32_t productID);
     MethodResult handleIncreaseOperation(const std::uint32_t quantity, const std::uint32_t productID);
     MethodResult handleDecreaseOperation(const std::uint32_t quantity, const std::uint32_t productID);
