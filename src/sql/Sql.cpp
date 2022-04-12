@@ -175,4 +175,26 @@ namespace bakcyl::sql
         query.clear();
         return products;
     }
+
+    std::vector<ProductInstance> Sql::getAllInstances() const
+    {
+        std::vector<ProductInstance> instances;
+
+        QSqlQuery query;
+        query.exec("SELECT * FROM productsInstances");
+
+        while (query.next()) 
+        {
+            const std::uint32_t id = query.value(0).toInt();
+            const std::string locationId = query.value(1).toString().toUtf8().constData();
+            const std::uint64_t productId = query.value(2).toULongLong();
+            const std::uint32_t quantity = query.value(3).toInt();
+
+            ProductInstance instance(id, locationId, productId, quantity);
+            instances.emplace_back(instance);
+        }
+
+        query.clear();
+        return instances;
+    }
 };
