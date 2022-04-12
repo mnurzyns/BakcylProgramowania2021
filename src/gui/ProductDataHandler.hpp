@@ -12,7 +12,6 @@ class ProductDataHandler : public QObject
     Q_PROPERTY(QString productName MEMBER m_productName)
     Q_PROPERTY(QString productCategory MEMBER m_productCategory)
     Q_PROPERTY(QString productQuantity MEMBER m_productQuantity)
-    Q_PROPERTY(QString productLocation MEMBER m_productLocation)
     Q_PROPERTY(QString productDescription MEMBER m_productDescription)
 
 public:
@@ -29,6 +28,5 @@ private:
     QString m_productName;
     QString m_productCategory;
     QString m_productQuantity;
-    QString m_productLocation;
     QString m_productDescription;
 };

@@ -16,7 +16,6 @@ void ProductDataHandler::getProductData(int productId)
     m_productName = QString("Ex name");
     m_productCategory = QString("Ex category");
     m_productQuantity = QString("Ex Quantity");
-    m_productLocation = QString("Ex location");
     m_productDescription = QString("Description");
 
     emit productDataChanged();

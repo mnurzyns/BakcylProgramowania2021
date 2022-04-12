@@ -22,7 +22,6 @@ Window {
             productNameField.text = productData.productName
             productCategoryField.text = productData.productCategory
             productQuantityField.text = productData.productQuantity
-            productlocationField.text = productData.productLocation
             productDescriptionField.text = productData.productDescription
         }
     }
@@ -81,12 +80,6 @@ Window {
                         id: productQuantityField
                         text: "Quantity: Na"
                         font.pointSize: 15
-                    }
-
-                    Text {
-                        id: productlocationField
-                        text: "Ex location"
-                        font.pointSize: 12
                     }
                 }
             }
