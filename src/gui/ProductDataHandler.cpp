@@ -10,7 +10,7 @@ void ProductDataHandler::getProductData(int productId)
 {
     realProductId = productId;
 
-    // TODO: Gather data from database through core
+    bakcyl::common::Product product = bakcyl::core::Core().getProduct(realProductId);
 
     m_productId = QString::number(realProductId);
     m_productName = QString("Ex name");
