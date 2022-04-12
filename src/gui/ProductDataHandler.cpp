@@ -13,10 +13,10 @@ void ProductDataHandler::getProductData(int productId)
     bakcyl::common::Product product = bakcyl::core::Core().getProduct(realProductId);
 
     m_productId = QString::number(realProductId);
-    m_productName = QString("Ex name");
-    m_productCategory = QString("Ex category");
-    m_productQuantity = QString("Ex Quantity");
-    m_productDescription = QString("Description");
+    m_productName = QString::fromStdString(product.getName());
+    m_productCategory = QString::fromStdString(product.getCategories());
+    m_productQuantity = QString::number(product.getCurrentQuantity());
+    m_productDescription = QString::fromStdString(product.getDescription());
 
     emit productDataChanged();
 }
