@@ -202,11 +202,16 @@ namespace bakcyl::sql
     {
         QSqlQuery query;
         query.prepare("INSERT INTO productsInstances (id, locationId, productId, quantity) VALUES(:id, :locationId, :productId, :quantity)");
-        query.addBindValue(":id", instance.id);
-        query.addBindValue(":locationId", instance.locationId);
-        query.addBindValue(":productId", instance.productId);
-        query.addBindValue(":quantity", instance.quantity);
+        
+        qint32 id = instance.id;
+        QString locationId = instance.locationId.c_str();
+        qlonglong productId = instance.productId;
+        qint32 quantity = instance.quantity;
 
+        query.bindValue(":id", id);
+        query.bindValue(":locationId", locationId);
+        query.bindValue(":productId", productId);
+        query.bindValue(":quantity", quantity);
         query.exec();
     }
 };
