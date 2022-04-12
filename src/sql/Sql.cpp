@@ -214,4 +214,21 @@ namespace bakcyl::sql
         query.bindValue(":quantity", quantity);
         query.exec();
     }
+
+    void Sql::updateInstance(const ProductInstance& newData)
+    {
+        QSqlQuery query;
+        query.prepare("UPDATE productsInstances SET id = :id, locationId = :locationId, productId = :productId, quantity = :quantity");
+        
+        qint32 id = newData.id;
+        QString locationId = newData.locationId.c_str();
+        qlonglong productId = newData.productId;
+        qint32 quantity = newData.quantity;
+
+        query.bindValue(":id", id);
+        query.bindValue(":locationId", locationId);
+        query.bindValue(":productId", productId);
+        query.bindValue(":quantity", quantity);
+        query.exec();
+    }
 };
