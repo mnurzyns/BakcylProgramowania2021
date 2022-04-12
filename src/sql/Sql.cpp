@@ -197,4 +197,16 @@ namespace bakcyl::sql
         query.clear();
         return instances;
     }
+
+    void Sql::insertInstance(const ProductInstance& instance)
+    {
+        QSqlQuery query;
+        query.prepare("INSERT INTO productsInstances (id, locationId, productId, quantity) VALUES(:id, :locationId, :productId, :quantity)");
+        query.addBindValue(":id", instance.id);
+        query.addBindValue(":locationId", instance.locationId);
+        query.addBindValue(":productId", instance.productId);
+        query.addBindValue(":quantity", instance.quantity);
+
+        query.exec();
+    }
 };
