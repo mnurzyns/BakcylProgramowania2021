@@ -2,6 +2,9 @@
 
 #include <QObject>
 
+#include <core/Core.hpp>
+#include <common/product.hpp>
+
 class ProductDataHandler : public QObject
 {
     Q_OBJECT
