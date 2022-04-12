@@ -21,27 +21,40 @@ Window {
         rowSpacing: 5
         flow: GridLayout.TopToBottom
 
-        Rectangle {
-            id: searchBoxFrame
+        GridLayout {
+            id: searchboxGrid
             Layout.fillWidth: true
-            height: 25
-            border.color: 'gray'
-            border.width: 1
+            flow: GridLayout.LeftToRight
+            columnSpacing: 5
 
-            TextInput {
-                id: inputProductName
-                anchors.fill: parent
-                anchors.margins: 4
-            }
-        }
+            TextField {
+                id: productNamefield
+                Layout.fillWidth: true
 
-        Button {
-            id: searchButton
-            text: "search"
-
-            onClicked: searchController.setSearchboxText(
-                           inputProductName.text
+                onAccepted: searchController.setSearchboxText(
+                                productNamefield.text
                             )
+
+                Text {
+                    anchors.fill: parent
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.leftMargin: 8
+
+                    text: "Enter product ID or name"
+                    color: "#aaaaaa"
+                    font.pixelSize: 25
+                    visible: !productNamefield.text && !productNamefield.activeFocus
+                }
+            }
+
+            Button {
+                id: searchButton
+                text: "search"
+
+                onClicked: searchController.setSearchboxText(
+                               productNamefield.text
+                            )
+            }
         }
 
         Text {
