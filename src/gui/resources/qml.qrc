@@ -4,5 +4,6 @@
         <file>ProductList.qml</file>
         <file>ProductWindow.qml</file>
         <file>ProductInstanceList.qml</file>
+        <file>AddProductWindow.qml</file>
     </qresource>
 </RCC>
