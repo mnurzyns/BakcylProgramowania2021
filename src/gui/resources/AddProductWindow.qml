@@ -10,4 +10,37 @@ Window {
     visible: true
     title: qsTr("Add new Product")
 
+    GridLayout {
+        id: baseGrid
+        anchors.fill: parent
+        anchors.margins: 10
+        rowSpacing: 5
+        flow: GridLayout.TopToBottom
+
+        GroupBox {
+            id: windowTitle
+            Layout.fillWidth: true
+
+        }
+
+        GridLayout {
+            Layout.fillWidth: true
+            flow: GridLayout.LeftToRight
+            columnSpacing: 10
+
+            GridLayout {
+                id: descriptionGroup
+            }
+
+            GridLayout {
+                id: textFieldGroup
+            }
+        }
+
+        GridLayout {
+            id: buttonGroup
+            flow: GridLayout.LeftToRight
+
+        }
+    }
 }
