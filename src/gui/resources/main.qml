@@ -59,6 +59,16 @@ Window {
                                productNamefield.text
                             )
             }
+
+            Button {
+                id: addProductButton
+                text: "add Product"
+
+                onClicked: {
+                    addProductPageLoader.source = ""
+                    addProductPageLoader.source = "AddProductWindow.qml"
+                }
+            }
         }
 
         Text {
