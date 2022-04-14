@@ -14,6 +14,10 @@ Window {
         id: searchController
     }
 
+    Loader {
+        id: addProductPageLoader
+    }
+
     GridLayout {
         id: baseGrid
         anchors.fill: parent
