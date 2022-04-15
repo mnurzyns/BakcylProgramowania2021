@@ -15,6 +15,9 @@ namespace bakcyl::common {
 		std::time_t lastBuy;
 
 	public:
+		Product();
+		Product(const std::uint64_t id, const std::string name, const std::string description, const std::string categories, const std::uint32_t currentQuantity, const std::uint32_t minQuantity, const std::uint32_t maxQuantity, const std::time_t lastBuy);
+
 		std::uint64_t getId() const;
 		std::string getName() const;
 		std::string getDescription() const;

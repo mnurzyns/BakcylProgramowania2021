@@ -11,6 +11,9 @@ namespace bakcyl::common {
 		std::uint32_t quantity;
 
 	public:
+		ProductInstance();
+		ProductInstance(const std::uint32_t id, const std::string locationId, const std::uint64_t productId, const std::uint32_t quantity);
+
 		std::uint32_t getId() const;
 		std::string getLocationId() const;
 		std::uint64_t getProductId() const;

@@ -2,6 +2,18 @@
 
 namespace bakcyl::common
 {
+	Product::Product()
+	: id(0), name(0), description(0), categories(0), currentQuantity(0),  minQuantity(0), maxQuantity(0), lastBuy(0)
+	{
+
+	}
+
+	Product::Product(const std::uint64_t id, const std::string name, const std::string description, const std::string categories, const std::uint32_t currentQuantity, const std::uint32_t minQuantity, const std::uint32_t maxQuantity, const std::time_t lastBuy) 
+	: id(id), name(name), description(description), categories(categories), currentQuantity(currentQuantity), minQuantity(minQuantity), maxQuantity(maxQuantity)
+    {
+
+    }
+
 	std::uint64_t Product::getId() const
 	{
 		return id;
