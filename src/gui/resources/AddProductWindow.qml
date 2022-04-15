@@ -21,20 +21,94 @@ Window {
             id: windowTitle
             Layout.fillWidth: true
 
+            background: Rectangle {
+                color: "#dbdbdb"
+            }
+
+            Text {
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+
+                text: "Enter product details below"
+                font.pointSize: 14
+            }
         }
 
         GridLayout {
             Layout.fillWidth: true
-            flow: GridLayout.LeftToRight
-            columnSpacing: 10
+            flow: GridLayout.TopToBottom
+            rowSpacing: 10
 
             GridLayout {
-                id: descriptionGroup
+                Layout.fillHeight: true
+                Layout.leftMargin: 25; Layout.rightMargin: 25
+                flow: GridLayout.LeftToRight
+
+                Text {
+                    Layout.fillWidth: true
+                    text: "Product ID:"
+                    font.pointSize: 11
+                }
+                TextField {
+                    Layout.fillWidth: true
+                    id: productIdField
+                }
             }
 
             GridLayout {
-                id: textFieldGroup
+                Layout.fillHeight: true
+                Layout.leftMargin: 25; Layout.rightMargin: 25
+                flow: GridLayout.LeftToRight
+
+                Text {
+                    Layout.fillWidth: true
+                    text: "Product ID:"
+                    font.pointSize: 11
+                }
+                TextField {
+                    Layout.fillWidth: true
+                    id: productNameField
+                }
             }
+
+            GridLayout {
+                Layout.fillHeight: true
+                Layout.leftMargin: 25; Layout.rightMargin: 25
+                flow: GridLayout.LeftToRight
+
+                Text {
+                    Layout.fillWidth: true
+                    text: "Product ID:"
+                    font.pointSize: 11
+                }
+                TextField {
+                    Layout.fillWidth: true
+                    id: productCategoriesField
+                }
+            }
+
+            GridLayout {
+                Layout.fillHeight: true
+                Layout.leftMargin: 25; Layout.rightMargin: 25
+                flow: GridLayout.LeftToRight
+
+                Text {
+                    Layout.fillWidth: true
+                    text: "Product ID:"
+                    font.pointSize: 11
+                }
+                TextArea {
+                    Layout.fillWidth: true
+                    id: productDescriptionArea
+                    placeholderText: qsTr("Enter description")
+
+                    background: Rectangle {
+                        border.color: "#6f6f6f"
+                        border.width: 2
+                    }
+                }
+            }
+
         }
 
         GridLayout {
