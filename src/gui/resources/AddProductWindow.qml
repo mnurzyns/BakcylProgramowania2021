@@ -123,6 +123,23 @@ Window {
         GridLayout {
             id: buttonGroup
             flow: GridLayout.LeftToRight
+            Layout.margins: 25
+            columnSpacing: 25
+
+            Rectangle {
+                id: spacerObject
+                Layout.fillWidth: true
+            }
+
+            Button {
+                id: cancelButton
+                text: "Cancel"
+            }
+
+            Button {
+                id: confirmButton
+                text: "Confirm"
+            }
         }
     }
 }
