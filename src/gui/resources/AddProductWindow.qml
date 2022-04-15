@@ -6,7 +6,7 @@ import Searchbox 1.0
 
 Window {
     width: 640
-    height: 360
+    height: 400
     visible: true
     title: qsTr("Add new Product")
 
@@ -41,6 +41,7 @@ Window {
 
             GridLayout {
                 Layout.fillHeight: true
+                Layout.fillWidth: true
                 Layout.leftMargin: 25; Layout.rightMargin: 25
                 flow: GridLayout.LeftToRight
 
@@ -50,62 +51,70 @@ Window {
                     font.pointSize: 11
                 }
                 TextField {
-                    Layout.fillWidth: true
+                    implicitWidth: parent.width / 2
                     id: productIdField
                 }
             }
 
             GridLayout {
                 Layout.fillHeight: true
+                Layout.fillWidth: true
                 Layout.leftMargin: 25; Layout.rightMargin: 25
                 flow: GridLayout.LeftToRight
 
                 Text {
                     Layout.fillWidth: true
-                    text: "Product ID:"
+                    text: "Product Name:"
                     font.pointSize: 11
                 }
                 TextField {
-                    Layout.fillWidth: true
+                    implicitWidth: parent.width / 2
                     id: productNameField
                 }
             }
 
             GridLayout {
                 Layout.fillHeight: true
+                Layout.fillWidth: true
                 Layout.leftMargin: 25; Layout.rightMargin: 25
                 flow: GridLayout.LeftToRight
 
                 Text {
                     Layout.fillWidth: true
-                    text: "Product ID:"
+                    text: "Product Categories:"
                     font.pointSize: 11
                 }
                 TextField {
-                    Layout.fillWidth: true
+                    implicitWidth: parent.width / 2
                     id: productCategoriesField
                 }
             }
 
             GridLayout {
                 Layout.fillHeight: true
+                Layout.fillWidth: true
                 Layout.leftMargin: 25; Layout.rightMargin: 25
                 flow: GridLayout.LeftToRight
 
                 Text {
                     Layout.fillWidth: true
-                    text: "Product ID:"
+                    text: "Product Description:"
                     font.pointSize: 11
                 }
-                TextArea {
-                    Layout.fillWidth: true
-                    id: productDescriptionArea
-                    placeholderText: qsTr("Enter description")
+                Flickable {
+                    implicitWidth: parent.width / 2
+                    Layout.fillHeight: true
 
-                    background: Rectangle {
-                        border.color: "#6f6f6f"
-                        border.width: 2
+                    TextArea.flickable: TextArea{
+                        id: productDescriptionArea
+                        wrapMode: TextArea.Wrap
+
+                        background: Rectangle {
+                            border.width: 2
+                            border.color: "#aaaaaa"
+                        }
                     }
+                    ScrollBar.vertical: ScrollBar { }
                 }
             }
 
@@ -114,7 +123,6 @@ Window {
         GridLayout {
             id: buttonGroup
             flow: GridLayout.LeftToRight
-
         }
     }
 }
