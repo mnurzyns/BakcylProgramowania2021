@@ -18,7 +18,7 @@ Window {
         target: productData
 
         function onProductDataChanged() {
-            productIdField.text = productData.productId
+            productIdField.text = "ID: " + productData.productId
             productNameField.text = productData.productName
             productCategoryField.text = productData.productCategory
             productQuantityField.text = productData.productQuantity
@@ -37,52 +37,77 @@ Window {
         rowSpacing: 5
         flow: GridLayout.TopToBottom
 
-        GroupBox {
-            id: productDataSection
+        GridLayout {
             Layout.fillWidth: true
+            anchors.margins: 5
+            rowSpacing: 7
+            flow: GridLayout.LeftToRight
 
-            GridLayout {
+            GroupBox {
+                implicitWidth: parent.width / 2
+
+                GridLayout {
+                    width: parent.width
+                    flow: Grid.TopToBottom
+
+                    GroupBox {
+                        Layout.fillWidth: true
+                        background: Rectangle {
+                            Layout.fillWidth: true
+                            color: "#dddddd"
+                        }
+
+                        Text {
+                            id: productIdField
+                            text: "Ex ID"
+                            font.pointSize: 15
+                            font.bold: true
+                        }
+                    }
+
+                    Text {
+                        id: productNameField
+                        text: "Ex Name"
+                        font.pointSize: 15
+                    }
+
+                    Text {
+                        id: productCategoryField
+                        text: "Ex Category"
+                        font.pointSize: 15
+                    }
+
+                    Text {
+                        id: productQuantityField
+                        text: "Quantity: Na"
+                        font.pointSize: 15
+                    }
+
+                    Text {
+                        id: productlocationField
+                        text: "Ex location"
+                        font.pointSize: 12
+                    }
+                }
+            }
+
+            GroupBox {
+                implicitHeight: parent.height
                 Layout.fillWidth: true
-                anchors.margins: 5
-                rowSpacing: 7
-                flow: GridLayout.TopToBottom
 
-                Text {
-                    id: productIdField
-                    text: "Ex ID"
-                    font.pointSize: 15
-                    font.bold: true
+                background: Rectangle {
+                    anchors.fill: parent
+                    color: "#2f2f2f"
                 }
 
                 Text {
-                    id: productNameField
-                    text: "Ex Name"
-                    font.pointSize: 15
-                }
+                    width: parent.width
 
-                Text {
-                    id: productCategoryField
-                    text: "Ex Category"
-                    font.pointSize: 15
-                }
-
-                Text {
-                    id: productQuantityField
-                    text: "Quantity: Na"
-                    font.pointSize: 15
-                }
-
-                Text {
-                    id: productlocationField
-                    text: "Ex location"
-                    font.pointSize: 12
-                }
-
-                Text {
                     id: productDescriptionField
-                    color: "#737373"
+                    color: "#ffffff"
                     text: "Ex description"
-                    font.pointSize: 10
+                    font.pointSize: 13
+                    wrapMode: Text.WordWrap
                 }
             }
         }
