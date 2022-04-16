@@ -58,6 +58,8 @@ Window {
                 TextField {
                     implicitWidth: parent.width / 2
                     id: productIdField
+
+                    validator: IntValidator { }
                 }
             }
 
