@@ -11,7 +11,7 @@ class DatabaseManager : public QObject
 public:
     explicit DatabaseManager(QObject *parent = nullptr);
 
-    bool createNewProduct(int pId, QString pName, QString pCategories, QString pDescription);
+    Q_INVOKABLE bool createNewProduct(int pId, QString pName, QString pCategories, QString pDescription);
 
 signals:
 
