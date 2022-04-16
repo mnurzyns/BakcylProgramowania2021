@@ -5,3 +5,8 @@ DatabaseManager::DatabaseManager(QObject *parent)
 {
 
 }
+
+bool DatabaseManager::createNewProduct(int pId, QString pName, QString pCategories, QString pDescription)
+{
+
+}
