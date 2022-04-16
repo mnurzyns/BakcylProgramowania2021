@@ -3,12 +3,17 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.3
 import Searchbox 1.0
+import DatabaseManager 1.0
 
 Window {
     width: 640
     height: 400
     visible: true
     title: qsTr("Add new Product")
+
+    DatabaseManager {
+        id: databaseManager
+    }
 
     GridLayout {
         id: baseGrid
@@ -134,11 +139,23 @@ Window {
             Button {
                 id: cancelButton
                 text: "Cancel"
+
+                onClicked: close()
             }
 
             Button {
                 id: confirmButton
                 text: "Confirm"
+
+                onClicked: {
+                    databaseManager.createNewProduct(
+                        parseInt(productIdField.text),
+                        productNameField.text,
+                        productCategoriesField.text,
+                        productDescriptionArea.text
+                    )
+                    close()
+                }
             }
         }
     }
