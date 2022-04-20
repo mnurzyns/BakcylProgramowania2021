@@ -15,9 +15,6 @@ namespace bakcyl::proxy
             sql::Sql db;
 
         public:
-            Proxy();
-            ~Proxy();
-
             std::vector<common::Product> getAllProducts();
             common::Product getProduct(const std::uint64_t& productId);
             std::vector<common::Product> getProductsBeginningWith(const std::string& sequence);
