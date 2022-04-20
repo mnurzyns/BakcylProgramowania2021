@@ -7,7 +7,7 @@
 #include <gui/ProductModel.hpp>
 #include <gui/ProductInstanceModel.hpp>
 #include <gui/ProductDataHandler.hpp>
-#include <gui/DatabaseManager.hpp>
+#include "gui/DatabaseManager.hpp"
 
 int main(int argc, char *argv[])
 {
