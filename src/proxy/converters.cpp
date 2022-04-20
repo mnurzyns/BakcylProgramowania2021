@@ -25,8 +25,8 @@ namespace bakcyl::proxy::convert
     std::vector<sql::Product> convertVector(const std::vector<common::Product>& PV)
     {
         std::vector<sql::Product> vecOut;
-        for(std::size_t i = 0; i < PV.size(); i++) {
-            vecOut.push_back(convert(PV[i]));
+        for(const auto& product : PV) {
+            vecOut.push_back(convert(product));
         }
         return vecOut;
     }
@@ -34,8 +34,8 @@ namespace bakcyl::proxy::convert
     std::vector<common::Product> convertVector(const std::vector<sql::Product>& PV)
     {
         std::vector<common::Product> vecOut;
-        for(std::size_t i = 0; i < PV.size(); i++) {
-            vecOut.push_back(convert(PV[i]));
+        for(const auto& product : PV) {
+            vecOut.push_back(convert(product));
         }
         return vecOut;
     }
@@ -43,8 +43,8 @@ namespace bakcyl::proxy::convert
     std::vector<sql::ProductInstance> convertVector(const std::vector<common::ProductInstance>& PIV)
     {
         std::vector<sql::ProductInstance> vecOut;
-        for(std::size_t i = 0; i < PIV.size(); i++) {
-            vecOut.push_back(convert(PIV[i]));
+        for(const auto& productInstance : PIV) {
+            vecOut.push_back(convert(productInstance));
         }
         return vecOut;
     }
@@ -52,8 +52,8 @@ namespace bakcyl::proxy::convert
     std::vector<common::ProductInstance> convertVector(const std::vector<sql::ProductInstance>& PIV)
     {
         std::vector<common::ProductInstance> vecOut;
-        for(std::size_t i = 0; i < PIV.size(); i++) {
-            vecOut.push_back(convert(PIV[i]));
+        for(const auto& productInstance : PIV) {
+            vecOut.push_back(convert(productInstance));
         }
         return vecOut;
     }
