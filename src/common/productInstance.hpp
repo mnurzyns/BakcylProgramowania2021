@@ -5,13 +5,13 @@ namespace bakcyl::common {
 	class ProductInstance {
 	private:
 
-		std::uint32_t id;
-		std::string locationId;
-		std::uint64_t productId;
-		std::uint32_t quantity;
+		std::uint32_t id{0};
+		std::string locationId{0};
+		std::uint64_t productId{0};
+		std::uint32_t quantity{0};
 
 	public:
-		ProductInstance();
+		ProductInstance() = default;
 		ProductInstance(const std::uint32_t id, const std::string locationId, const std::uint64_t productId, const std::uint32_t quantity);
 
 		std::uint32_t getId() const;

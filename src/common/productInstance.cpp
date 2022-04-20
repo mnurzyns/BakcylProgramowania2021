@@ -2,12 +2,6 @@
 
 namespace bakcyl::common
 {
-	ProductInstance::ProductInstance()
-	: id(0), locationId(0), productId(0), quantity(0)
-	{
-
-	}
-
 	ProductInstance::ProductInstance(const std::uint32_t id, const std::string locationId, const std::uint64_t productId, const std::uint32_t quantity) 
 	: id(id), locationId(locationId), productId(productId), quantity(quantity)
     {
