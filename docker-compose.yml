@@ -10,5 +10,8 @@ services:
     depends_on:
       - db
     build: .
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - WAIT_HOSTS=db:3306
+      - DISPLAY=${DISPLAY}
