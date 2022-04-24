@@ -14,6 +14,10 @@ Window {
         id: searchController
     }
 
+    Loader {
+        id: addProductPageLoader
+    }
+
     GridLayout {
         id: baseGrid
         anchors.fill: parent
@@ -54,6 +58,16 @@ Window {
                 onClicked: searchController.setSearchboxText(
                                productNamefield.text
                             )
+            }
+
+            Button {
+                id: addProductButton
+                text: "add Product"
+
+                onClicked: {
+                    addProductPageLoader.source = ""
+                    addProductPageLoader.source = "AddProductWindow.qml"
+                }
             }
         }
 

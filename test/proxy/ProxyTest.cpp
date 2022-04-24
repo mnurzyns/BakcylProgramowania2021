@@ -6,7 +6,8 @@ namespace {
 
 TEST(ProxyTest, itLives)
 {
-    Proxy();
+    Proxy<sql::Sql> proxy;
+    proxy.getAllProducts();
 }
 
 }

@@ -5,16 +5,19 @@
 namespace bakcyl::common {
 	class Product {
 	private:
-		std::uint64_t id;
-		std::string name;
-		std::string description;
-		std::string categories;
-		std::uint32_t currentQuantity;
-		std::uint32_t minQuantity;
-		std::uint32_t maxQuantity;
-		std::time_t lastBuy;
+		std::uint64_t id{0};
+		std::string name{0};
+		std::string description{0};
+		std::string categories{0};
+		std::uint32_t currentQuantity{0};
+		std::uint32_t minQuantity{0};
+		std::uint32_t maxQuantity{0};
+		std::time_t lastBuy{0};
 
 	public:
+		Product() = default;
+		Product(const std::uint64_t id, const std::string name, const std::string description, const std::string categories, const std::uint32_t currentQuantity, const std::uint32_t minQuantity, const std::uint32_t maxQuantity, const std::time_t lastBuy);
+
 		std::uint64_t getId() const;
 		std::string getName() const;
 		std::string getDescription() const;

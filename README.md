@@ -11,16 +11,16 @@ docker-compose build
 ## Run steps
 In project dir: 
 ```
-xhost +local:$USER:root
+xhost +local:
 docker-compose up -d
-docker-compose run -it --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/dri/card0:/dev/dri/card0 bakcyl
+docker-compose run -it --rm bakcyl
 ```
 
 ## Clean project steps
 In project dir:
 ```
 docker-compose down
-xhost -local:$USER:root
+xhost -local:
 docker system prune -f
 docker volume prune -f
 docker image rm -f bakcylprogramowania2021_bakcyl:latest mysql:5.7
