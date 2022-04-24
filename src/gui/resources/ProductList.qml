@@ -67,47 +67,68 @@ Frame {
 
             delegate: RowLayout {
                 width: parent.width
+                spacing: 5
 
-                Text {
-                    id: idField
-                    Layout.alignment: Qt.AlignLeft
-                    Layout.preferredWidth: 40
+                GroupBox {
+                    Layout.preferredWidth: parent.width / 10
 
-                    text: "ID: " + model.ID
-                    font.bold: true
-                    font.pointSize: 12
+                    Text {
+                        id: idField
+                        width: parent.width
 
-                    color: inspectProductlink.containsMouse ? "blue" : "black"
-                    font.underline: inspectProductlink.containsMouse
+                        text: "ID: " + model.ID
+                        font.bold: true
+                        font.pointSize: 12
 
-                    MouseArea {
-                        id: inspectProductlink
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
-                        hoverEnabled: true
+                        color: inspectProductlink.containsMouse ? "blue" : "black"
+                        font.underline: inspectProductlink.containsMouse
 
-                        onClicked: {
-                            productPageLoader.source = ""
+                        MouseArea {
+                            id: inspectProductlink
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
 
-                            productPageLoader.productId = model.ID
-                            productPageLoader.source = "ProductWindow.qml"
+                            onClicked: {
+                                productPageLoader.source = ""
+
+                                productPageLoader.productId = model.ID
+                                productPageLoader.source = "ProductWindow.qml"
+                            }
                         }
+                    }
+
+                    background: Rectangle {
+                        color: "#efefef"
                     }
                 }
 
-                Text {
-                    text: model.Name
-                    font.pointSize: 11
+                GroupBox {
+                    Layout.preferredWidth: parent.width / 5
+
+                    Text {
+                        width: parent.width
+                        text: model.Name
+                        font.pointSize: 11
+                    }
+
+                    background: Rectangle { }
                 }
 
-                Text {
-                    id: description
-                    Layout.alignment: Qt.AlignRight
+                GroupBox {
+                    Layout.fillWidth: true
 
-                    text: model.Description
-                    color: "#383737"
-                    font.pointSize: 9
+                    Text {
+                        width: parent.width
+                        text: model.Description
+                        horizontalAlignment: Text.AlignRight
+                        color: "#383737"
+                        font.pointSize: 9
+                    }
+
+                    background: Rectangle { }
                 }
+
             }
         }
     }
