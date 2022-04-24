@@ -10,6 +10,48 @@ Frame {
         anchors.fill: parent
         flow: GridLayout.TopToBottom
 
+        RowLayout {
+            width: parent.width
+            spacing: 5
+
+            GroupBox {
+                Text {
+                    text: "ID"
+                    font.bold: true
+                    font.pointSize: 12
+                }
+
+                background: Rectangle {
+                    color: "#dddddd"
+                }
+            }
+
+            GroupBox {
+                Layout.fillWidth: true
+                Text {
+                    text: "Name"
+                    font.bold: true
+                    font.pointSize: 12
+                }
+
+                background: Rectangle {
+                    color: "#dddddd"
+                }
+            }
+
+            GroupBox {
+                Text {
+                    text: "Description"
+                    font.bold: true
+                    font.pointSize: 12
+                }
+
+                background: Rectangle {
+                    color: "#dddddd"
+                }
+            }
+        }
+
         ListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -59,6 +101,7 @@ Frame {
                 }
 
                 Text {
+                    id: description
                     Layout.alignment: Qt.AlignRight
 
                     text: model.Description
