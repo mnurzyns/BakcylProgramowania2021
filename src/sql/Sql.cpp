@@ -24,7 +24,7 @@ namespace bakcyl::sql
         {
             throw std::runtime_error("Database connection failed!");
         }
-    };
+    }
 
     Sql::~Sql()
     {
@@ -175,4 +175,30 @@ namespace bakcyl::sql
         query.clear();
         return products;
     }
+
+    void Sql::insertProducts(const std::vector<Product>& products)
+    {
+        return;
+    }
+
+    void Sql::updateProducts(const std::vector<Product>& newData)
+    {
+        return;
+    }
+
+    std::vector<ProductInstance> Sql::getAllInstances() const
+    {
+        return std::vector<ProductInstance>();
+    }
+
+    void Sql::insertInstance(const ProductInstance& instance)
+    {
+        return;
+    }
+
+    void Sql::updateInstance(const ProductInstance& newData)
+    {
+        return;
+    }
+
 };

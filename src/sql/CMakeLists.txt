@@ -12,6 +12,6 @@ set(SQL_SOURCES
 )
 
 add_library(SqlLib ${SQL_SOURCES})
-target_link_libraries(SqlLib PRIVATE Threads::Threads ${QtSqlLib})
+target_link_libraries(SqlLib Threads::Threads ${QtSqlLib})
 
 target_include_directories(SqlLib PRIVATE ${INCLUDE_DIR})
