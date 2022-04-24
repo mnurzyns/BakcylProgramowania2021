@@ -7,6 +7,7 @@
 #include <gui/ProductModel.hpp>
 #include <gui/ProductInstanceModel.hpp>
 #include <gui/ProductDataHandler.hpp>
+#include "gui/DatabaseManager.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ProductModel>("Product", 1, 0, "ProductModel");
     qmlRegisterType<ProductInstanceModel>("ProductInstance", 1, 0, "ProductInstanceModel");
     qmlRegisterType<ProductDataHandler>("ProductDataHandler", 1, 0, "ProductDataHandler");
+    qmlRegisterType<DatabaseManager>("DatabaseManager", 1, 0, "DatabaseManager");
 
     engine.load(QUrl(QString("qrc:/main.qml")));
 
