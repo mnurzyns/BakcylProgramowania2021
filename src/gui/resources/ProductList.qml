@@ -6,59 +6,65 @@ import Searchbox 1.0
 import Product 1.0
 
 Frame {
-    ListView {
+    GridLayout {
         anchors.fill: parent
-        clip: true
-        spacing: 1
+        flow: GridLayout.TopToBottom
 
-        model: ProductModel { }
+        ListView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            clip: true
+            spacing: 1
 
-        Loader {
-            id: productPageLoader
-            property int productId : 0
-        }
+            model: ProductModel { }
 
-        delegate: RowLayout {
-            width: parent.width
+            Loader {
+                id: productPageLoader
+                property int productId : 0
+            }
 
-            Text {
-                id: idField
-                Layout.alignment: Qt.AlignLeft
-                Layout.preferredWidth: 40
+            delegate: RowLayout {
+                width: parent.width
 
-                text: "ID: " + model.ID
-                font.bold: true
-                font.pointSize: 12
+                Text {
+                    id: idField
+                    Layout.alignment: Qt.AlignLeft
+                    Layout.preferredWidth: 40
 
-                color: inspectProductlink.containsMouse ? "blue" : "black"
-                font.underline: inspectProductlink.containsMouse
+                    text: "ID: " + model.ID
+                    font.bold: true
+                    font.pointSize: 12
 
-                MouseArea {
-                    id: inspectProductlink
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    hoverEnabled: true
+                    color: inspectProductlink.containsMouse ? "blue" : "black"
+                    font.underline: inspectProductlink.containsMouse
 
-                    onClicked: {
-                        productPageLoader.source = ""
+                    MouseArea {
+                        id: inspectProductlink
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        hoverEnabled: true
 
-                        productPageLoader.productId = model.ID
-                        productPageLoader.source = "ProductWindow.qml"
+                        onClicked: {
+                            productPageLoader.source = ""
+
+                            productPageLoader.productId = model.ID
+                            productPageLoader.source = "ProductWindow.qml"
+                        }
                     }
                 }
-            }
 
-            Text {
-                text: model.Name
-                font.pointSize: 11
-            }
+                Text {
+                    text: model.Name
+                    font.pointSize: 11
+                }
 
-            Text {
-                Layout.alignment: Qt.AlignRight
+                Text {
+                    Layout.alignment: Qt.AlignRight
 
-                text: model.Description
-                color: "#383737"
-                font.pointSize: 9
+                    text: model.Description
+                    color: "#383737"
+                    font.pointSize: 9
+                }
             }
         }
     }
