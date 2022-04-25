@@ -89,6 +89,10 @@ Frame {
 
                         color: inspectProductlink.containsMouse ? "blue" : "black"
                         font.underline: inspectProductlink.containsMouse
+                    }
+
+                    background: Rectangle {
+                        color: "#efefef"
 
                         MouseArea {
                             id: inspectProductlink
@@ -103,10 +107,6 @@ Frame {
                                 productPageLoader.source = "ProductWindow.qml"
                             }
                         }
-                    }
-
-                    background: Rectangle {
-                        color: "#efefef"
                     }
                 }
 
