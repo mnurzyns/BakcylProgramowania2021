@@ -15,6 +15,8 @@ Frame {
             spacing: 5
 
             GroupBox {
+                Layout.preferredWidth: parent.width / 10
+
                 Text {
                     text: "ID"
                     font.bold: true
@@ -27,7 +29,8 @@ Frame {
             }
 
             GroupBox {
-                Layout.fillWidth: true
+                Layout.preferredWidth: parent.width / 5
+
                 Text {
                     text: "Name"
                     font.bold: true
@@ -40,6 +43,8 @@ Frame {
             }
 
             GroupBox {
+                Layout.fillWidth: true
+
                 Text {
                     text: "Description"
                     font.bold: true
@@ -70,7 +75,9 @@ Frame {
                 spacing: 5
 
                 GroupBox {
+                    id: idGroupBox
                     Layout.preferredWidth: parent.width / 10
+                    clip: true
 
                     Text {
                         id: idField
@@ -104,7 +111,9 @@ Frame {
                 }
 
                 GroupBox {
+                    id: nameGroupBox
                     Layout.preferredWidth: parent.width / 5
+                    clip: true
 
                     Text {
                         width: parent.width
@@ -116,7 +125,9 @@ Frame {
                 }
 
                 GroupBox {
+                    id: descriptionGroupBox
                     Layout.fillWidth: true
+                    clip: true
 
                     Text {
                         width: parent.width
