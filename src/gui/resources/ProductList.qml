@@ -11,7 +11,7 @@ Frame {
         flow: GridLayout.TopToBottom
 
         RowLayout {
-            width: parent.width
+            id: headerRow
             spacing: 5
 
             GroupBox {
