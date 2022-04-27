@@ -19,6 +19,12 @@ Frame {
 
                 Text {
                     text: "ID"
+                    font.bold: true
+                    font.pointSize: 12
+                }
+
+                background: Rectangle {
+                    color: "#dddddd"
                 }
             }
 
@@ -27,6 +33,12 @@ Frame {
 
                 Text {
                     text: "Location"
+                    font.bold: true
+                    font.pointSize: 12
+                }
+
+                background: Rectangle {
+                    color: "#dddddd"
                 }
             }
         }
