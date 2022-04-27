@@ -5,31 +5,37 @@ import QtQuick.Layouts 1.3
 import ProductInstance 1.0
 
 Frame {
-    ListView {
+    GridLayout {
+        id: productInstanceBaseGrid
         anchors.fill: parent
-        clip: true
-        spacing: 1
+        flow: GridLayout.TopToBottom
 
-        model: ProductInstanceModel { }
+        ListView {
+            anchors.fill: parent
+            clip: true
+            spacing: 1
 
-        delegate: RowLayout {
-            width: parent.width
+            model: ProductInstanceModel { }
 
-            Text {
-                Layout.alignment: Qt.AlignLeft
-                Layout.preferredWidth: 40
+            delegate: RowLayout {
+                width: parent.width
 
-                text: "ID: " + model.ID
-                font.bold: true
-                font.pointSize: 11
-            }
+                Text {
+                    Layout.alignment: Qt.AlignLeft
+                    Layout.preferredWidth: 40
 
-            Text {
-                Layout.alignment: Qt.AlignRight
+                    text: "ID: " + model.ID
+                    font.bold: true
+                    font.pointSize: 11
+                }
 
-                text: model.Location
-                color: "#383737"
-                font.pointSize: 9
+                Text {
+                    Layout.alignment: Qt.AlignRight
+
+                    text: model.Location
+                    color: "#383737"
+                    font.pointSize: 9
+                }
             }
         }
     }
