@@ -7,6 +7,7 @@ import Product 1.0
 
 Frame {
     GridLayout {
+        id: productListBaseGrid
         anchors.fill: parent
         flow: GridLayout.TopToBottom
 
@@ -58,6 +59,7 @@ Frame {
         }
 
         ListView {
+            id: listOfProducts
             Layout.fillWidth: true
             Layout.fillHeight: true
             clip: true
@@ -139,7 +141,6 @@ Frame {
 
                     background: Rectangle { }
                 }
-
             }
         }
     }
