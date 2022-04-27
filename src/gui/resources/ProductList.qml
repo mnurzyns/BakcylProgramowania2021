@@ -63,7 +63,7 @@ Frame {
             Layout.fillWidth: true
             Layout.fillHeight: true
             clip: true
-            spacing: 1
+            spacing: 3
 
             model: ProductModel { }
 
