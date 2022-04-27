@@ -10,6 +10,27 @@ Frame {
         anchors.fill: parent
         flow: GridLayout.TopToBottom
 
+        RowLayout {
+            id: headerRow
+            spacing: 5
+
+            GroupBox {
+                Layout.preferredWidth: parent.width / 10
+
+                Text {
+                    text: "ID"
+                }
+            }
+
+            GroupBox {
+                Layout.fillWidth: true
+
+                Text {
+                    text: "Location"
+                }
+            }
+        }
+
         ListView {
             anchors.fill: parent
             clip: true
