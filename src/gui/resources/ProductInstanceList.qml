@@ -48,12 +48,13 @@ Frame {
             Layout.fillWidth: true
             Layout.fillHeight: true
             clip: true
-            spacing: 1
+            spacing: 3
 
             model: ProductInstanceModel { }
 
             delegate: RowLayout {
                 width: parent.width
+                spacing: 5
 
                 GroupBox {
                     id: idGroupBox
@@ -61,14 +62,16 @@ Frame {
                     clip: true
 
                     Text {
-                        Layout.preferredWidth: 40
+                        width: parent.width
 
                         text: "ID: " + model.ID
                         font.bold: true
-                        font.pointSize: 11
+                        font.pointSize: 12
                     }
 
-                    background: Rectangle { }
+                    background: Rectangle {
+                        color: "#efefef"
+                    }
                 }
 
                 GroupBox {
@@ -81,10 +84,12 @@ Frame {
                         text: model.Location
                         horizontalAlignment: Text.AlignRight
                         color: "#383737"
-                        font.pointSize: 9
+                        font.pointSize: 11
                     }
 
-                    background: Rectangle { }
+                    background: Rectangle {
+                        color: "#fafafa"
+                    }
                 }
             }
         }
