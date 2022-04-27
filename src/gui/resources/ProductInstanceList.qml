@@ -43,21 +43,36 @@ Frame {
             delegate: RowLayout {
                 width: parent.width
 
-                Text {
-                    Layout.alignment: Qt.AlignLeft
-                    Layout.preferredWidth: 40
+                GroupBox {
+                    id: idGroupBox
+                    Layout.preferredWidth: parent.width / 10
+                    clip: true
 
-                    text: "ID: " + model.ID
-                    font.bold: true
-                    font.pointSize: 11
+                    Text {
+                        Layout.preferredWidth: 40
+
+                        text: "ID: " + model.ID
+                        font.bold: true
+                        font.pointSize: 11
+                    }
+
+                    background: Rectangle { }
                 }
 
-                Text {
-                    Layout.alignment: Qt.AlignRight
+                GroupBox {
+                    id: locationGroupBox
+                    Layout.fillWidth: true
+                    clip: true
 
-                    text: model.Location
-                    color: "#383737"
-                    font.pointSize: 9
+                    Text {
+                        width: parent.width
+                        text: model.Location
+                        horizontalAlignment: Text.AlignRight
+                        color: "#383737"
+                        font.pointSize: 9
+                    }
+
+                    background: Rectangle { }
                 }
             }
         }
