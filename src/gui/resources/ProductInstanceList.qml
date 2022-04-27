@@ -32,7 +32,9 @@ Frame {
         }
 
         ListView {
-            anchors.fill: parent
+            id: listOfProductInstances
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             clip: true
             spacing: 1
 
