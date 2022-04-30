@@ -27,11 +27,11 @@ QVariant ProductInstanceModel::data(const QModelIndex &index, int role) const
     // Return placeholder data
     if(role == IdRole)
     {
-        return QVariant(index.row());
+        return QVariant(productInstances[index.row()].getId());
     }
     if(role == LocationRole)
     {
-        return QVariant("Example Location");
+        return QVariant(QString::fromStdString(productInstances[index.row()].getLocationId()));
     }
 
     return QVariant();
