@@ -5,31 +5,92 @@ import QtQuick.Layouts 1.3
 import ProductInstance 1.0
 
 Frame {
-    ListView {
+    GridLayout {
+        id: productInstanceBaseGrid
         anchors.fill: parent
-        clip: true
-        spacing: 1
+        flow: GridLayout.TopToBottom
 
-        model: ProductInstanceModel { }
+        RowLayout {
+            id: headerRow
+            spacing: 5
 
-        delegate: RowLayout {
-            width: parent.width
+            GroupBox {
+                Layout.preferredWidth: parent.width / 10
 
-            Text {
-                Layout.alignment: Qt.AlignLeft
-                Layout.preferredWidth: 40
+                Text {
+                    text: "ID"
+                    font.bold: true
+                    font.pointSize: 12
+                }
 
-                text: "ID: " + model.ID
-                font.bold: true
-                font.pointSize: 11
+                background: Rectangle {
+                    color: "#dddddd"
+                }
             }
 
-            Text {
-                Layout.alignment: Qt.AlignRight
+            GroupBox {
+                Layout.fillWidth: true
 
-                text: model.Location
-                color: "#383737"
-                font.pointSize: 9
+                Text {
+                    text: "Location"
+                    font.bold: true
+                    font.pointSize: 12
+                }
+
+                background: Rectangle {
+                    color: "#dddddd"
+                }
+            }
+        }
+
+        ListView {
+            id: listOfProductInstances
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            clip: true
+            spacing: 3
+
+            model: ProductInstanceModel { }
+
+            delegate: RowLayout {
+                width: parent.width
+                spacing: 5
+
+                GroupBox {
+                    id: idGroupBox
+                    Layout.preferredWidth: parent.width / 10
+                    clip: true
+
+                    Text {
+                        width: parent.width
+
+                        text: "ID: " + model.ID
+                        font.bold: true
+                        font.pointSize: 12
+                    }
+
+                    background: Rectangle {
+                        color: "#efefef"
+                    }
+                }
+
+                GroupBox {
+                    id: locationGroupBox
+                    Layout.fillWidth: true
+                    clip: true
+
+                    Text {
+                        width: parent.width
+                        text: model.Location
+                        horizontalAlignment: Text.AlignRight
+                        color: "#383737"
+                        font.pointSize: 11
+                    }
+
+                    background: Rectangle {
+                        color: "#fafafa"
+                    }
+                }
             }
         }
     }
