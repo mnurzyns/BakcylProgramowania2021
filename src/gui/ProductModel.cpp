@@ -14,8 +14,7 @@ int ProductModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    constexpr auto hardocedNumOfElements = 10u;
-    return hardocedNumOfElements;
+    return products.size();
 }
 
 QVariant ProductModel::data(const QModelIndex &index, int role) const
