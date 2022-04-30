@@ -22,18 +22,17 @@ QVariant ProductModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    // Return placeholder data
     if(role == IdRole)
     {
-        return QVariant(index.row());
+        return QVariant(QString::number(products[index.row()].getId()));
     }
     if(role == NameRole)
     {
-        return QVariant(QStringLiteral("Test name"));
+        return QVariant(QString::fromStdString(products[index.row()].getName()));
     }
     if(role == DescriptionRole)
     {
-        return QVariant(QStringLiteral("Example description of product"));
+        return QVariant(QString::fromStdString(products[index.row()].getDescription()));
     }
 
     return QVariant();
