@@ -3,7 +3,7 @@
 ProductInstanceModel::ProductInstanceModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-
+    // TODO: Get productInstances from core throug getProductInstanceByProductId [not available now]
 }
 
 int ProductInstanceModel::rowCount(const QModelIndex &parent) const
@@ -23,7 +23,6 @@ QVariant ProductInstanceModel::data(const QModelIndex &index, int role) const
     if(!index.isValid())
         return QVariant();
 
-    // Return placeholder data
     if(role == IdRole)
     {
         return QVariant(productInstances[index.row()].getId());
