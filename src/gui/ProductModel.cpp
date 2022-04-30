@@ -18,22 +18,6 @@ int ProductModel::rowCount(const QModelIndex &parent) const
     return hardocedNumOfElements;
 }
 
-bool ProductModel::hasChildren(const QModelIndex &parent) const
-{
-    // FIXME: Implement me!
-}
-
-bool ProductModel::canFetchMore(const QModelIndex &parent) const
-{
-    // FIXME: Implement me!
-    return false;
-}
-
-void ProductModel::fetchMore(const QModelIndex &parent)
-{
-    // FIXME: Implement me!
-}
-
 QVariant ProductModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
