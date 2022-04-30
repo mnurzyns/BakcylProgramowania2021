@@ -2,6 +2,11 @@
 
 #include <QAbstractListModel>
 
+#include <vector>
+
+#include "core/Core.hpp"
+#include "common/product.hpp"
+
 class ProductModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -20,4 +25,8 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     virtual QHash<int, QByteArray> roleNames() const override;
+
+private:
+    std::vector<bakcyl::common::Product> products;
+
 };
