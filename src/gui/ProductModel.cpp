@@ -3,6 +3,7 @@
 ProductModel::ProductModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    // TODO: Get products from core through getAllProducts [currently not available]
 }
 
 int ProductModel::rowCount(const QModelIndex &parent) const
