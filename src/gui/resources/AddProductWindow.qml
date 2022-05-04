@@ -25,6 +25,8 @@ Window {
         anchors.centerIn: Overlay.overlay
         padding: 30
 
+        onClosed: addProductWindow.close()
+
         GridLayout {
             anchors.fill: parent
             flow: GridLayout.TopToBottom
@@ -42,7 +44,7 @@ Window {
                 Layout.alignment: Qt.AlignCenter
                 text: "OK"
 
-                onClicked: addProductWindow.close()
+                onClicked: close()
             }
         }
     }
@@ -182,13 +184,12 @@ Window {
                 text: "Confirm"
 
                 onClicked: {
-                    databaseManager.createNewProduct(
+                   databaseManager.createNewProduct(
                         parseInt(productIdField.text),
                         productNameField.text,
                         productCategoriesField.text,
                         productDescriptionArea.text
                     )
-                    close()
                 }
             }
         }
