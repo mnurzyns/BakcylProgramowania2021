@@ -234,7 +234,7 @@ Window {
                         productNameField.text,
                         productCategoriesField.text,
                         productDescriptionArea.text
-                    )
+                    ) ? successBox.open() : failBox.open()
                 }
             }
         }
