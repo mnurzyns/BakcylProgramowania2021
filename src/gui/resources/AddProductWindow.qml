@@ -38,7 +38,6 @@ Window {
                 text: "Product succesfully added"
                 font.pointSize: 14
             }
-
             Button {
                 id: closeSuccessBoxButton
                 Layout.alignment: Qt.AlignCenter
@@ -68,14 +67,12 @@ Window {
                 text: "Query failed"
                 font.pointSize: 14
             }
-
             Text {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: databaseManager.failMessage
                 font.pointSize: 11
             }
-
             Text {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
@@ -83,7 +80,6 @@ Window {
                 font.pointSize: 10
                 color: "#333333"
             }
-
             Button {
                 id: closeFailBoxPopup
                 Layout.alignment: Qt.AlignCenter
@@ -108,7 +104,6 @@ Window {
             background: Rectangle {
                 color: "#dbdbdb"
             }
-
             Text {
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
@@ -203,7 +198,6 @@ Window {
                     ScrollBar.vertical: ScrollBar { }
                 }
             }
-
         }
 
         GridLayout {
@@ -216,20 +210,18 @@ Window {
                 id: spacerObject
                 Layout.fillWidth: true
             }
-
             Button {
                 id: cancelButton
                 text: "Cancel"
 
                 onClicked: close()
             }
-
             Button {
                 id: confirmButton
                 text: "Confirm"
 
                 onClicked: {
-                   databaseManager.createNewProduct(
+                    databaseManager.createNewProduct(
                         parseInt(productIdField.text),
                         productNameField.text,
                         productCategoriesField.text,
