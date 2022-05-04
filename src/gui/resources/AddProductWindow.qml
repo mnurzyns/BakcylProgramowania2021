@@ -6,6 +6,7 @@ import Searchbox 1.0
 import DatabaseManager 1.0
 
 Window {
+    id: addProductWindow
     width: 640
     height: 400
     visible: true
@@ -13,6 +14,37 @@ Window {
 
     DatabaseManager {
         id: databaseManager
+    }
+
+    Popup {
+        id: successBox
+        width: 300
+        height: 150
+        modal: true
+        focus: true
+        anchors.centerIn: Overlay.overlay
+        padding: 30
+
+        GridLayout {
+            anchors.fill: parent
+            flow: GridLayout.TopToBottom
+            columnSpacing: 20
+
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Product succesfully added"
+                font.pointSize: 14
+            }
+
+            Button {
+                id: closeSuccessBoxButton
+                Layout.alignment: Qt.AlignCenter
+                text: "OK"
+
+                onClicked: addProductWindow.close()
+            }
+        }
     }
 
     GridLayout {
