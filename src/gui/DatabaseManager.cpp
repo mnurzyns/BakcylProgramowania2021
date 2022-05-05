@@ -10,7 +10,7 @@ bool DatabaseManager::createNewProduct(int pId, QString pName, QString pCategori
 {
     bakcyl::common::Product newProduct;
 
-    newProduct.setId(pId);
+    newProduct.setId(std::uint64_t(pId));
     newProduct.setName(pName.toStdString());
     newProduct.setCategories(pCategories.toStdString());
     newProduct.setDescription(pDescription.toStdString());
