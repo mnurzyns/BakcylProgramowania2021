@@ -16,6 +16,7 @@ Window {
 
     Loader {
         id: addProductInstancePageLoader
+        property int productId
     }
 
     Connections {
@@ -83,6 +84,7 @@ Window {
 
                             onClicked: {
                                 addProductInstancePageLoader.source = ""
+                                addProductInstancePageLoader.productId = productId
                                 addProductInstancePageLoader.source = "AddProductInstanceWindow.qml"
                             }
                         }
