@@ -2,8 +2,9 @@
 
 #include <QObject>
 
-#include <core/Core.hpp>
-#include <common/product.hpp>
+#include "core/Core.hpp"
+#include "common/product.hpp"
+#include "common/productInstance.hpp"
 
 class DatabaseManager : public QObject
 {
@@ -13,6 +14,6 @@ public:
 
     Q_INVOKABLE bool createNewProduct(int pId, QString pName, QString pCategories, QString pDescription);
 
-signals:
+    Q_INVOKABLE bool createNewProductInstance(int pId, int pInstId, QString pInstlocation, int pInstQuantity);
 
 };
