@@ -15,7 +15,7 @@ Window {
     }
 
     Loader {
-        id: addProductInstancePageLoader
+        id: addProductInstanceWindowLoader
         property int productId
     }
 
@@ -83,9 +83,9 @@ Window {
                             font.bold: true
 
                             onClicked: {
-                                addProductInstancePageLoader.source = ""
-                                addProductInstancePageLoader.productId = productId
-                                addProductInstancePageLoader.source = "AddProductInstanceWindow.qml"
+                                addProductInstanceWindowLoader.source = ""
+                                addProductInstanceWindowLoader.productId = productId
+                                addProductInstanceWindowLoader.source = "AddProductInstanceWindow.qml"
                             }
                         }
                     }
