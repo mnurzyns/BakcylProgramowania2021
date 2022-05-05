@@ -14,6 +14,10 @@ Window {
         id: productData
     }
 
+    Loader {
+        id: addProductInstancePageLoader
+    }
+
     Connections {
         target: productData
 
@@ -76,6 +80,11 @@ Window {
                             text: "add Instance"
                             font.pointSize: 13
                             font.bold: true
+
+                            onClicked: {
+                                addProductInstancePageLoader.source = ""
+                                addProductInstancePageLoader.source = "AddProductInstanceWindow.qml"
+                            }
                         }
                     }
 
