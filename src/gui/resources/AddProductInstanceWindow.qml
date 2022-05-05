@@ -133,11 +133,23 @@ Window {
             Button {
                 id: cancelButton
                 text: "Cancel"
+
+                onClicked: close()
             }
 
             Button {
                 id: confirmButton
                 text: "Confirm"
+
+                onClicked: {
+                    databaseManager.createNewProductInstance(
+                        parseInt(productIdField.text),
+                        parseInt(productInstanceIdField.text),
+                        productInstanceLocationField.text,
+                        parseInt(productInstanceQuantityField.text)
+                    )
+                    close()
+                }
             }
         }
     }
