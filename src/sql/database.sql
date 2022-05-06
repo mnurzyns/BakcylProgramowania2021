@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `bakcyl` DEFAULT CHARACTER SET utf8mb4 COLLATE utf
 USE `bakcyl`;
 
 CREATE TABLE IF NOT EXISTS `locations` (
-  `id` text COLLATE utf8mb4_bin NOT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `categories` longtext COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 CREATE TABLE IF NOT EXISTS `productsInstances` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `locationId` text COLLATE utf8mb4_bin NOT NULL,
+  `locationId` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `productId` bigint(20) unsigned NOT NULL,
   `quantity` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),

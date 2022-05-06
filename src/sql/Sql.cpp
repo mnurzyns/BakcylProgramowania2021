@@ -24,7 +24,7 @@ namespace bakcyl::sql
         {
             throw std::runtime_error("Database connection failed!");
         }
-    };
+    }
 
     Sql::~Sql()
     {

@@ -12,6 +12,8 @@ add_subdirectory(proxy)
 add_subdirectory(sap)
 add_subdirectory(sql)
 
+add_subdirectory(common)
+
 add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
 
 target_compile_definitions(${CMAKE_PROJECT_NAME}
@@ -27,6 +29,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     ProxyLib
     SapLib
     SqlLib
+    CommonLib
 )
 
 add_custom_target(${CMAKE_PROJECT_NAME}-run
