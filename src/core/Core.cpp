@@ -236,4 +236,9 @@ Core::Core()
         return result;
     }
 
+    std::vector<common::Product> getAllProducts()
+    {
+        return Proxy::getAllProducts();
+    }
+
 }

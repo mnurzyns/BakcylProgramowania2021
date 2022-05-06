@@ -4,6 +4,7 @@
 #include <vector>
 #include "common/product.hpp"
 #include "common/productInstance.hpp"
+#include "proxy/sqlProxy.hpp"
 
 namespace bakcyl::core {
 
@@ -35,7 +36,7 @@ public:
     std::uint32_t getProductCurrentQuantity(const std::uint32_t productID);
     std::uint32_t getProductMinQuantity(const std::uint32_t productID);
     std::uint32_t getProductMaxQuantity(const std::uint32_t productID);
-  
+
     MethodResult changeProductQuantity(const std::string &option, const std::uint32_t quantity, const std::uint32_t productID);
     MethodResult handleIncreaseOperation(const std::uint32_t quantity, const std::uint32_t productID);
     MethodResult handleDecreaseOperation(const std::uint32_t quantity, const std::uint32_t productID);
@@ -57,6 +58,8 @@ public:
     MethodResult deleteLocation(const std::string &locationID);
     std::vector<std::string> getLocations();
     std::vector<common::Product> searchProducts(const auto &value, const std::string &searchType);
+
+    std::vector<common::Product> getAllProducts();
 
 };
 
