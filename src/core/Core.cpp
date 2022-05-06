@@ -241,4 +241,25 @@ Core::Core()
         return Proxy::getAllProducts();
     }
 
+    std::vector<common::ProductInstance> getAllProductsInstances()
+    {
+        return Proxy::getAllInstances();
+    }
+
+    std::vector<common::ProductInstance> getProductInstancesByProductID(const std::uint32_t productID)
+    {
+        std::vector<common::ProductInstance> Instances = Proxy::getAllInstances();
+        std::vector<common::ProductInstance> Result;
+        for(auto it = Instances.begin(); it != Instances.end(); it++)
+        {
+            common::ProductInstance item = *it;
+            if(item.getId() == productID)
+            {
+                Result.push_back(*it);
+            }
+        }
+        Instances.clear();
+        return Result;
+    }
+
 }

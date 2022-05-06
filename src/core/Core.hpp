@@ -60,6 +60,8 @@ public:
     std::vector<common::Product> searchProducts(const auto &value, const std::string &searchType);
 
     std::vector<common::Product> getAllProducts();
+    std::vector<common::Product> getAllProductsInstances();
+    std::vector<common::ProductInstance> getProductInstancesByProductID(const std::uint32_t productID);
 
 };
 
