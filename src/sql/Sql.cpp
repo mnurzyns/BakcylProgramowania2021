@@ -264,11 +264,21 @@ namespace bakcyl::sql
         query.bindValue(":id", id);
         query.bindValue(":locationId", locationId);
         query.bindValue(":productId", productId);
-        query.bindValue(":quantity", quantity);
+        query.bindValue(":quantity", quantity);             
         
         if (!query.exec())
         {
             throw std::runtime_error("Instance doesn't exist!");
         }
+    }
+
+    void Sql::insertProducts(const std::vector<Product>& products)
+    {
+        return;
+    }
+
+    void Sql::updateProducts(const std::vector<Product>& newData)
+    {
+        return;
     }
 };
