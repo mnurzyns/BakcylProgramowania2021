@@ -69,8 +69,7 @@ namespace bakcyl::sql
             const uint32_t minQuantity = query.value(4).toInt();
             const uint32_t maxQuantity = query.value(5).toInt();
 
-            Product product(id, name, description, categories, minQuantity, maxQuantity);
-            products.emplace_back(product);
+            products.emplace_back(id, name, description, categories, minQuantity, maxQuantity);
         }
 
         query.clear();
@@ -118,8 +117,7 @@ namespace bakcyl::sql
             const uint32_t minQuantity = query.value(4).toInt();
             const uint32_t maxQuantity = query.value(5).toInt();
 
-            Product product(id, name, description, categories, minQuantity, maxQuantity);
-            products.emplace_back(product);
+            products.emplace_back(id, name, description, categories, minQuantity, maxQuantity);
         }
 
         query.clear();
@@ -143,8 +141,7 @@ namespace bakcyl::sql
             const uint32_t minQuantity = query.value(4).toInt();
             const uint32_t maxQuantity = query.value(5).toInt();
 
-            Product product(id, name, description, categories, minQuantity, maxQuantity);
-            products.emplace_back(product);
+            products.emplace_back(id, name, description, categories, minQuantity, maxQuantity);
         }
 
         query.clear();
@@ -168,8 +165,7 @@ namespace bakcyl::sql
             const uint32_t minQuantity = query.value(4).toInt();
             const uint32_t maxQuantity = query.value(5).toInt();
 
-            Product product(id, name, description, categories, minQuantity, maxQuantity);
-            products.emplace_back(product);
+            products.emplace_back(id, name, description, categories, minQuantity, maxQuantity);
         }
 
         query.clear();
@@ -190,12 +186,52 @@ namespace bakcyl::sql
             const std::uint64_t productId = query.value(2).toULongLong();
             const std::uint32_t quantity = query.value(3).toInt();
 
-            ProductInstance instance(id, locationId, productId, quantity);
-            instances.emplace_back(instance);
+            instances.emplace_back(id, locationId, productId, quantity);
         }
 
         query.clear();
         return instances;
+    }
+
+    ProductInstance Sql::getInstance(const std::uint32_t& id) const
+    {
+        QSqlQuery query;
+        std::string syntax = "SELECT * FROM productsInstances WHERE id = " + std::to_string(id);
+        query.exec(syntax.c_str());
+
+        if (query.size() < 1)
+        {
+            throw std::runtime_error("ProductInstance doesn't exist!");
+        }
+
+        const std::string locationId = query.value(1).toString().toUtf8().constData();
+        const std::uint64_t productId = query.value(2).toULongLong();
+        const std::uint32_t quantity = query.value(3).toInt();
+
+        ProductInstance instance(id, locationId, productId, quantity);
+
+        query.clear();
+        return instance;
+    }
+
+    ProductInstance Sql::getInstance(const std::uint64_t& productId) const
+    {
+        QSqlQuery query;
+        std::string syntax = "SELECT * FROM productsInstances WHERE productId = " + std::to_string(productId);
+        
+        if (query.size() < 1)
+        {
+            throw std::runtime_error("ProductInstance doesn't exist!");
+        }
+
+        const std::uint32_t id = query.value(0).toInt();
+        const std::string locationId = query.value(1).toString().toUtf8().constData();
+        const std::uint32_t quantity = query.value(3).toInt();
+
+        ProductInstance instance(id, locationId, productId, quantity);
+
+        query.clear();
+        return instance;
     }
 
     void Sql::insertInstance(const ProductInstance& instance)
@@ -229,6 +265,10 @@ namespace bakcyl::sql
         query.bindValue(":locationId", locationId);
         query.bindValue(":productId", productId);
         query.bindValue(":quantity", quantity);
-        query.exec();
+        
+        if (!query.exec())
+        {
+            throw std::runtime_error("Instance doesn't exist!");
+        }
     }
 };
