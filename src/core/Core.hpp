@@ -44,20 +44,20 @@ public:
 
     MethodResult createProduct(common::Product &product);
     common::Product getProduct(const std::uint32_t productID);
-    MethodResult updateProduct(const std::uint32_t productID, common::Product &updatedProduct);
+    MethodResult updateProduct(common::Product &updatedProduct);
     MethodResult deleteProduct(const std::uint32_t productID);
 
     MethodResult createProductInstance(common::ProductInstance &instance);
     common::ProductInstance getProductInstanceByLocationID(const std::string &locationID);
     common::ProductInstance getProductInstance(const std::uint32_t instanceID);
-    MethodResult updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance);
+    MethodResult updateProductInstance(common::ProductInstance &updatedInstance);
     MethodResult deleteProductInstance(const std::uint32_t instanceID);
 
     MethodResult createLocation(const std::string &locationID);
     MethodResult updateLocation(const std::string &locationID, const std::string &updatedLocation);
     MethodResult deleteLocation(const std::string &locationID);
     std::vector<std::string> getLocations();
-    std::vector<common::Product> searchProducts(const auto &value, const std::string &searchType);
+    std::vector<std::vector<common::Product>> searchProducts(const auto &value, const std::string &searchType);
 
     std::vector<common::Product> getAllProducts();
     std::vector<common::Product> getAllProductsInstances();

@@ -85,7 +85,7 @@ Core::Core()
                 common::Product product;
                 product = getProduct(productID);
                 product.setCurrentQuantity(currentQuantity+quantity);
-                MethodResult value = updateProduct(productID,product);
+                MethodResult value = updateProduct(product);
                 if(value == MethodResult::SUCCESS)
                 {
                     return MethodResult::SUCCESS;
@@ -114,7 +114,7 @@ Core::Core()
         std::time_t timer;
         time(&timer);
         product.setLastBuy(timer);
-        MethodResult value = updateProduct(productID,product);
+        MethodResult value = updateProduct(product);
         if(value == MethodResult::SUCCESS)
         {
             return MethodResult::SUCCESS;
@@ -134,103 +134,124 @@ Core::Core()
 
     Core::MethodResult Core::createProduct(common::Product &product)
     {
+        proxy::Proxy<sql::Sql> proxy;
         MethodResult result;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        std::vector<common::Product> productVector;
+        productVector.push_back(product);
+        proxy.insertProducts(productVector);
+        result = MethodResult::SUCCESS;
         return result;
-
     }
 
     common::Product Core::getProduct(const std::uint32_t productID)
     {
         common::Product product;
-        //A call to a proxy
+        proxy::Proxy<sql::Sql> proxy;
+        proxy.getProduct(productID);
         return product;
     }
-    Core::MethodResult Core::updateProduct(const std::uint32_t productID, common::Product &updatedProduct)
+    Core::MethodResult Core::updateProduct(common::Product &updatedProduct)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        proxy::Proxy<sql::Sql> proxy;
+        std::vector<common::Product> productVector;
+        productVector.push_back(updatedProduct);
+        proxy.updateProducts(productVector);
+        result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::deleteProduct(const std::uint32_t productID)
     {
         MethodResult result;
+        proxy::Proxy<sql::Sql> proxy;
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::createProductInstance(common::ProductInstance &instance)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        proxy::Proxy<sql::Sql> proxy;
+        proxy.insertInstance(instance);
+        result = MethodResult::SUCCESS;
         return result;
     }
     common::ProductInstance Core::getProductInstanceByLocationID(const std::string &locationID)
     {
         common::ProductInstance product;
+        proxy::Proxy<sql::Sql> proxy;
         //A call to a proxy
         return product;
     }
     common::ProductInstance Core::getProductInstance(const std::uint32_t instanceID)
     {
         common::ProductInstance product;
+        proxy::Proxy<sql::Sql> proxy;
         //A call to a proxy
         return product;
     }
-    Core::MethodResult Core::updateProductInstance(const std::uint32_t instanceID, common::ProductInstance &updatedInstance)
+    Core::MethodResult Core::updateProductInstance(common::ProductInstance &updatedInstance)
     {
         MethodResult result;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        proxy::Proxy<sql::Sql> proxy;
+        proxy.updateInstance(updatedInstance);
+        result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::deleteProductInstance(const std::uint32_t instanceID)
     {
         MethodResult result;
+        proxy::Proxy<sql::Sql> proxy;
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::createLocation(const std::string &locationID)
     {
         MethodResult result;
+        proxy::Proxy<sql::Sql> proxy;
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::updateLocation(const std::string &locationID, const std::string &updatedLocation)
     {
         MethodResult result;
+        proxy::Proxy<sql::Sql> proxy;
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     Core::MethodResult Core::deleteLocation(const std::string &locationID)
     {
         MethodResult result;
+        proxy::Proxy<sql::Sql> proxy;
         result = MethodResult::SUCCESS; //A call to a proxy
         return result;
     }
     std::vector<std::string> Core::getLocations()
     {
         std::vector<std::string> result;
+        proxy::Proxy<sql::Sql> proxy;
         //result = A call to a proxy
         return result;
     }
-    std::vector<common::Product> Core::searchProducts(const auto &value, const std::string &searchType)
+    std::vector<std::vector<common::Product>> Core::searchProducts(const auto &value, const std::string &searchType)
     {
-        std::vector<common::Product> result;
+        std::vector<std::vector<common::Product>> result;
+        proxy::Proxy<sql::Sql> proxy;
         switch(searchType)
         {
         case "BeginningWith":
-            //push_back(); //A call to proxy
+            result.push_back(proxy.getProductsBeginningWith(value));
             break;
         case "Containing":
-            //push_back(); //A call to proxy
+            result.push_back(proxy.getProductsContaining(value));
             break;
         case "EndingWith":
-            //push_back(); //A call to proxy
+            result.push_back(proxy.getProductsEndingWith(value));
             break;
         case "ByName":
-            //push_back(); //A call to proxy
+            result.push_back(proxy.getProductsContaining(value));
             break;
         case "ById":
-            push_back(getProduct(value));
+            result.push_back(getProduct(value));
             break;
         }
         return result;
@@ -238,17 +259,20 @@ Core::Core()
 
     std::vector<common::Product> getAllProducts()
     {
-        return Proxy::getAllProducts();
+        proxy::Proxy<sql::Sql> proxy;
+        return proxy.getAllProducts();
     }
 
     std::vector<common::ProductInstance> getAllProductsInstances()
     {
-        return Proxy::getAllInstances();
+        proxy::Proxy<sql::Sql> proxy;
+        return proxy.getAllInstances();
     }
 
     std::vector<common::ProductInstance> getProductInstancesByProductID(const std::uint32_t productID)
     {
-        std::vector<common::ProductInstance> Instances = Proxy::getAllInstances();
+        proxy::Proxy<sql::Sql> proxy;
+        std::vector<common::ProductInstance> Instances = proxy.getAllInstances();
         std::vector<common::ProductInstance> Result;
         for(auto it = Instances.begin(); it != Instances.end(); it++)
         {
