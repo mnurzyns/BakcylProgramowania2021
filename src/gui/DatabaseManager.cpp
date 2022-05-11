@@ -15,7 +15,7 @@ bool DatabaseManager::createNewProduct(int pId, QString pName, QString pCategori
     newProduct.setCategories(pCategories.toStdString());
     newProduct.setDescription(pDescription.toStdString());
 
-    bakcyl::core::Core::MethodResult queryResult = bakcyl::core::Core().createProduct(newProduct);
+    const auto queryResult = bakcyl::core::Core().createProduct(newProduct);
 
     // TODO: Tell the user what happened
     if(queryResult == bakcyl::core::Core::MethodResult::SUCCESS)
