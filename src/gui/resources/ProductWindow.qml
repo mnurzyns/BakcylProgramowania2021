@@ -14,6 +14,11 @@ Window {
         id: productData
     }
 
+    Loader {
+        id: addProductInstanceWindowLoader
+        property int productId
+    }
+
     Connections {
         target: productData
 
@@ -49,18 +54,39 @@ Window {
                     width: parent.width
                     flow: Grid.TopToBottom
 
-                    GroupBox {
+                    GridLayout {
                         Layout.fillWidth: true
-                        background: Rectangle {
+                        flow: Grid.LeftToRight
+
+                        GroupBox {
+                            id: idRowBox
                             Layout.fillWidth: true
-                            color: "#dddddd"
+
+                            Text {
+                                id: productIdField
+                                text: "Ex ID"
+                                font.pointSize: 15
+                                font.bold: true
+                            }
+
+                            background: Rectangle {
+                                color: "#dddddd"
+                            }
                         }
 
-                        Text {
-                            id: productIdField
-                            text: "Ex ID"
-                            font.pointSize: 15
+                        Button {
+                            id: addProductInstanceButton
+                            implicitHeight: idRowBox.height
+                            Layout.alignment: Qt.AlignRight
+                            text: "add Instance"
+                            font.pointSize: 13
                             font.bold: true
+
+                            onClicked: {
+                                addProductInstanceWindowLoader.source = ""
+                                addProductInstanceWindowLoader.productId = productId
+                                addProductInstanceWindowLoader.source = "AddProductInstanceWindow.qml"
+                            }
                         }
                     }
 

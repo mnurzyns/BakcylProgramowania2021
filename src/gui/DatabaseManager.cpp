@@ -15,7 +15,27 @@ bool DatabaseManager::createNewProduct(int pId, QString pName, QString pCategori
     newProduct.setCategories(pCategories.toStdString());
     newProduct.setDescription(pDescription.toStdString());
 
-    bakcyl::core::Core::MethodResult queryResult = bakcyl::core::Core().createProduct(newProduct);
+    const auto queryResult = bakcyl::core::Core().createProduct(newProduct);
+
+    // TODO: Tell the user what happened
+    if(queryResult == bakcyl::core::Core::MethodResult::SUCCESS)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool DatabaseManager::createNewProductInstance(int pId, int pInstId, QString pInstlocation, int pInstQuantity)
+{
+    bakcyl::common::ProductInstance newProductInstance;
+
+    newProductInstance.setProductId(std::uint64_t(pId));
+    newProductInstance.setId(std::uint32_t(pInstId));
+    newProductInstance.setLocationId(pInstlocation.toStdString());
+    newProductInstance.setQuantity(std::uint32_t(pInstQuantity));
+
+    const auto queryResult = bakcyl::core::Core().createProductInstance(newProductInstance);
 
     if(queryResult == bakcyl::core::Core::MethodResult::SUCCESS)
     {
