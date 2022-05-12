@@ -3,7 +3,7 @@
 ProductInstanceModel::ProductInstanceModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-
+    // TODO: Get productInstances from core throug getProductInstanceByProductId [not available now]
 }
 
 int ProductInstanceModel::rowCount(const QModelIndex &parent) const
@@ -15,8 +15,7 @@ int ProductInstanceModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    constexpr auto hardocedNumOfElements = 10u;
-    return hardocedNumOfElements;
+    return productInstances.size();
 }
 
 QVariant ProductInstanceModel::data(const QModelIndex &index, int role) const
@@ -24,14 +23,13 @@ QVariant ProductInstanceModel::data(const QModelIndex &index, int role) const
     if(!index.isValid())
         return QVariant();
 
-    // Return placeholder data
     if(role == IdRole)
     {
-        return QVariant(index.row());
+        return QVariant(productInstances[index.row()].getId());
     }
     if(role == LocationRole)
     {
-        return QVariant("Example Location");
+        return QVariant(QString::fromStdString(productInstances[index.row()].getLocationId()));
     }
 
     return QVariant();
