@@ -24,12 +24,12 @@ bool DatabaseManager::createNewProduct(int pId, QString pName, QString pCategori
 
     if(queryResult == bakcyl::core::Core::MethodResult::WRONG_PARAM)
     {
-        m_failMessage = WRONG_PARAM_MESSAGE;
+        m_failMessageForProduct = WRONG_PARAM_MESSAGE;
     }
 
     if(queryResult == bakcyl::core::Core::MethodResult::ERROR)
     {
-        m_failMessage = ERROR_MESSAGE;
+        m_failMessageForProduct = ERROR_MESSAGE;
     }
 
     emit failMessageChanged();
@@ -54,12 +54,12 @@ bool DatabaseManager::createNewProductInstance(int pId, int pInstId, QString pIn
 
     if(queryResult == bakcyl::core::Core::MethodResult::WRONG_PARAM)
     {
-        m_failMessage = WRONG_PARAM_MESSAGE;
+        m_failMessageForProductInst = WRONG_PARAM_MESSAGE;
     }
 
     if(queryResult == bakcyl::core::Core::MethodResult::ERROR)
     {
-        m_failMessage = ERROR_MESSAGE;
+        m_failMessageForProductInst = ERROR_MESSAGE;
     }
 
     emit failMessageChanged();
