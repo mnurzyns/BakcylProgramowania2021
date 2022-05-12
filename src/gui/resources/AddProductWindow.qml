@@ -6,6 +6,7 @@ import Searchbox 1.0
 import DatabaseManager 1.0
 
 Window {
+    id: addProductWindow
     width: 640
     height: 400
     visible: true
@@ -13,6 +14,80 @@ Window {
 
     DatabaseManager {
         id: databaseManager
+    }
+
+    Popup {
+        id: successBox
+        width: 300
+        height: 150
+        modal: true
+        focus: true
+        anchors.centerIn: Overlay.overlay
+        padding: 30
+
+        onClosed: addProductWindow.close()
+
+        GridLayout {
+            anchors.fill: parent
+            flow: GridLayout.TopToBottom
+            columnSpacing: 20
+
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Product succesfully added"
+                font.pointSize: 14
+            }
+            Button {
+                id: closeSuccessBoxButton
+                Layout.alignment: Qt.AlignCenter
+                text: "OK"
+
+                onClicked: close()
+            }
+        }
+    }
+
+    Popup {
+        id: failBox
+        width: 350
+        height: 200
+        modal: true
+        focus: true
+        anchors.centerIn: Overlay.overlay
+        padding: 30
+
+        GridLayout {
+            anchors.fill: parent
+            flow: GridLayout.TopToBottom
+
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Query failed"
+                font.pointSize: 14
+            }
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: databaseManager.failMessage
+                font.pointSize: 11
+            }
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Pleas try again"
+                font.pointSize: 10
+                color: "#333333"
+            }
+            Button {
+                id: closeFailBoxPopup
+                Layout.alignment: Qt.AlignCenter
+                text: "OK"
+
+                onClicked: close()
+            }
+        }
     }
 
     GridLayout {
@@ -29,7 +104,6 @@ Window {
             background: Rectangle {
                 color: "#dbdbdb"
             }
-
             Text {
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
@@ -124,7 +198,6 @@ Window {
                     ScrollBar.vertical: ScrollBar { }
                 }
             }
-
         }
 
         GridLayout {
@@ -137,14 +210,12 @@ Window {
                 id: spacerObject
                 Layout.fillWidth: true
             }
-
             Button {
                 id: cancelButton
                 text: "Cancel"
 
                 onClicked: close()
             }
-
             Button {
                 id: confirmButton
                 text: "Confirm"
@@ -155,8 +226,7 @@ Window {
                         productNameField.text,
                         productCategoriesField.text,
                         productDescriptionArea.text
-                    )
-                    close()
+                    ) ? successBox.open() : failBox.open()
                 }
             }
         }
