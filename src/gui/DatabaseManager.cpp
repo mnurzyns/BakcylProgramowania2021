@@ -35,7 +35,7 @@ bool DatabaseManager::createNewProductInstance(int pId, int pInstId, QString pIn
     newProductInstance.setLocationId(pInstlocation.toStdString());
     newProductInstance.setQuantity(std::uint32_t(pInstQuantity));
 
-    bakcyl::core::Core::MethodResult queryResult = bakcyl::core::Core().createProductInstance(newProductInstance);
+    const auto queryResult = bakcyl::core::Core().createProductInstance(newProductInstance);
 
     // TODO: Tell the user what happened
     if(queryResult == bakcyl::core::Core::MethodResult::SUCCESS)
