@@ -10,7 +10,8 @@ class DatabaseManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString failMessage MEMBER m_failMessage NOTIFY failMessageChanged)
+    Q_PROPERTY(QString failMessageForProduct MEMBER m_failMessageForProduct NOTIFY failMessageChanged)
+    Q_PROPERTY(QString failMessageForProductInst MEMBER m_failMessageForProductInst NOTIFY failMessageChanged)
 
 public:
     explicit DatabaseManager(QObject *parent = nullptr);
@@ -25,6 +26,7 @@ private:
     const QString WRONG_PARAM_MESSAGE = "Provided parameters are invalid";
     const QString ERROR_MESSAGE = "Error occured when processing query";
 
-    QString m_failMessage;
+    QString m_failMessageForProduct;
+    QString m_failMessageForProductInst;
 
 };
