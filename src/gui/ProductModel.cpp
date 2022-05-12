@@ -3,6 +3,7 @@
 ProductModel::ProductModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    // TODO: Get products from core through getAllProducts [currently not available]
 }
 
 int ProductModel::rowCount(const QModelIndex &parent) const
@@ -14,24 +15,7 @@ int ProductModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    constexpr auto hardocedNumOfElements = 10u;
-    return hardocedNumOfElements;
-}
-
-bool ProductModel::hasChildren(const QModelIndex &parent) const
-{
-    // FIXME: Implement me!
-}
-
-bool ProductModel::canFetchMore(const QModelIndex &parent) const
-{
-    // FIXME: Implement me!
-    return false;
-}
-
-void ProductModel::fetchMore(const QModelIndex &parent)
-{
-    // FIXME: Implement me!
+    return products.size();
 }
 
 QVariant ProductModel::data(const QModelIndex &index, int role) const
@@ -39,18 +23,17 @@ QVariant ProductModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    // Return placeholder data
     if(role == IdRole)
     {
-        return QVariant(index.row());
+        return QVariant(QString::number(products[index.row()].getId()));
     }
     if(role == NameRole)
     {
-        return QVariant(QStringLiteral("Test name"));
+        return QVariant(QString::fromStdString(products[index.row()].getName()));
     }
     if(role == DescriptionRole)
     {
-        return QVariant(QStringLiteral("Example description of product"));
+        return QVariant(QString::fromStdString(products[index.row()].getDescription()));
     }
 
     return QVariant();

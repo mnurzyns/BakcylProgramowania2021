@@ -2,6 +2,11 @@
 
 #include <QAbstractListModel>
 
+#include <vector>
+
+#include "core/Core.hpp"
+#include "common/product.hpp"
+
 class ProductModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -17,12 +22,11 @@ public:
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
-
-    bool canFetchMore(const QModelIndex &parent) const override;
-    void fetchMore(const QModelIndex &parent) override;
-
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     virtual QHash<int, QByteArray> roleNames() const override;
+
+private:
+    std::vector<bakcyl::common::Product> products;
+
 };
