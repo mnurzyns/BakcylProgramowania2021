@@ -15,7 +15,7 @@ Window {
     }
 
     Loader {
-        id: addProductPageLoader
+        id: addProductWindowLoader
     }
 
     GridLayout {
@@ -65,8 +65,8 @@ Window {
                 text: "add Product"
 
                 onClicked: {
-                    addProductPageLoader.source = ""
-                    addProductPageLoader.source = "AddProductWindow.qml"
+                    addProductWindowLoader.source = ""
+                    addProductWindowLoader.source = "AddProductWindow.qml"
                 }
             }
         }
