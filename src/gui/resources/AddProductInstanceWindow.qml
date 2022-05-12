@@ -69,6 +69,12 @@ Window {
             Text {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
+                text: databaseManager.failMessage
+                font.pointSize: 11
+            }
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
                 text: "Pleas try again"
                 font.pointSize: 10
                 color: "#333333"
@@ -78,7 +84,7 @@ Window {
                 Layout.alignment: Qt.AlignCenter
                 text: "OK"
 
-                onClicked: close()
+                onClicked: failBox.close()
             }
         }
     }
