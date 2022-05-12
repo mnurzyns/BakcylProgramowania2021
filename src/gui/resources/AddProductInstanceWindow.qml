@@ -69,7 +69,7 @@ Window {
             Text {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
-                text: databaseManager.failMessage
+                text: databaseManager.failMessageForProductInst
                 font.pointSize: 11
             }
             Text {
