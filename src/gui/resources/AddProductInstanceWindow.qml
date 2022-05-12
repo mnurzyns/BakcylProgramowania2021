@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.3
 import DatabaseManager 1.0
 
 Window {
+    id: addProductInstanceWindow
     width: 640
     height: 400
     visible: true
@@ -12,6 +13,38 @@ Window {
 
     DatabaseManager {
         id: databaseManager
+    }
+
+    Popup {
+        id: successBox
+        width: 400
+        height: 150
+        modal: true
+        focus: true
+        anchors.centerIn: Overlay.overlay
+        padding: 30
+
+        onClosed: addProductInstanceWindow.close()
+
+        GridLayout {
+            anchors.fill: parent
+            flow: GridLayout.TopToBottom
+            columnSpacing: 20
+
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Product instance succesfully added"
+                font.pointSize: 14
+            }
+            Button {
+                id: closeSuccessBoxButton
+                Layout.alignment: Qt.AlignCenter
+                text: "OK"
+
+                onClicked: close()
+            }
+        }
     }
 
     GridLayout {
@@ -150,7 +183,8 @@ Window {
                         productInstanceLocationField.text,
                         parseInt(productInstanceQuantityField.text)
                     )
-                    close()
+
+                    successBox.open()
                 }
             }
         }
