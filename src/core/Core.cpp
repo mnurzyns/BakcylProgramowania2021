@@ -134,11 +134,19 @@ Core::Core()
 
     Core::MethodResult Core::createProduct(common::Product &product)
     {
-        proxy::Proxy<sql::Sql> proxy;
         MethodResult result;
-        std::vector<common::Product> productVector;
-        productVector.push_back(product);
-        proxy.insertProducts(productVector);
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+            std::vector<common::Product> productVector;
+            productVector.push_back(product);
+            proxy.insertProducts(productVector);
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
         result = MethodResult::SUCCESS;
         return result;
     }
@@ -147,31 +155,55 @@ Core::Core()
     {
         common::Product product;
         proxy::Proxy<sql::Sql> proxy;
-        proxy.getProduct(productID);
+        product = proxy.getProduct(productID);
         return product;
     }
     Core::MethodResult Core::updateProduct(common::Product &updatedProduct)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        std::vector<common::Product> productVector;
-        productVector.push_back(updatedProduct);
-        proxy.updateProducts(productVector);
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+            std::vector<common::Product> productVector;
+            productVector.push_back(updatedProduct);
+            proxy.updateProducts(productVector);
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
         result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::deleteProduct(const std::uint32_t productID)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
+        result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::createProductInstance(common::ProductInstance &instance)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        proxy.insertInstance(instance);
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+            proxy.insertInstance(instance);
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
         result = MethodResult::SUCCESS;
         return result;
     }
@@ -192,37 +224,77 @@ Core::Core()
     Core::MethodResult Core::updateProductInstance(common::ProductInstance &updatedInstance)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        proxy.updateInstance(updatedInstance);
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+            proxy.updateInstance(updatedInstance);
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
         result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::deleteProductInstance(const std::uint32_t instanceID)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
+        result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::createLocation(const std::string &locationID)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
+        result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::updateLocation(const std::string &locationID, const std::string &updatedLocation)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
+        result = MethodResult::SUCCESS;
         return result;
     }
     Core::MethodResult Core::deleteLocation(const std::string &locationID)
     {
         MethodResult result;
-        proxy::Proxy<sql::Sql> proxy;
-        result = MethodResult::SUCCESS; //A call to a proxy
+        try
+        {
+            proxy::Proxy<sql::Sql> proxy;
+        }
+        catch(...)
+        {
+            result = MethodResult::ERROR;
+            return result;
+        }
+        result = MethodResult::SUCCESS;
         return result;
     }
     std::vector<std::string> Core::getLocations()
