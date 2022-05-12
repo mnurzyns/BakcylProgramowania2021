@@ -17,12 +17,22 @@ bool DatabaseManager::createNewProduct(int pId, QString pName, QString pCategori
 
     const auto queryResult = bakcyl::core::Core().createProduct(newProduct);
 
-    // TODO: Tell the user what happened
     if(queryResult == bakcyl::core::Core::MethodResult::SUCCESS)
     {
         return true;
     }
 
+    if(queryResult == bakcyl::core::Core::MethodResult::WRONG_PARAM)
+    {
+        m_failMessage = WRONG_PARAM_MESSAGE;
+    }
+
+    if(queryResult == bakcyl::core::Core::MethodResult::ERROR)
+    {
+        m_failMessage = ERROR_MESSAGE;
+    }
+
+    emit failMessageChanged();
     return false;
 }
 
