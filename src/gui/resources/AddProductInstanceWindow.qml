@@ -47,6 +47,42 @@ Window {
         }
     }
 
+    Popup {
+        id: failBox
+        width: 350
+        height: 200
+        modal: true
+        focus: true
+        anchors.centerIn: Overlay.overlay
+        padding: 30
+
+        GridLayout {
+            anchors.fill: parent
+            flow: GridLayout.TopToBottom
+
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Query failed"
+                font.pointSize: 14
+            }
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Pleas try again"
+                font.pointSize: 10
+                color: "#333333"
+            }
+            Button {
+                id: closeFailBoxPopup
+                Layout.alignment: Qt.AlignCenter
+                text: "OK"
+
+                onClicked: close()
+            }
+        }
+    }
+
     GridLayout {
         id: baseGrid
         anchors.fill: parent
@@ -182,9 +218,7 @@ Window {
                         parseInt(productInstanceIdField.text),
                         productInstanceLocationField.text,
                         parseInt(productInstanceQuantityField.text)
-                    )
-
-                    successBox.open()
+                    ) ? successBox.open() : failBox.open()
                 }
             }
         }
