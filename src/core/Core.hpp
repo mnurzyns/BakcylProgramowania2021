@@ -12,6 +12,7 @@ class Core{
 public:
     Core();
 
+    proxy::Proxy<sql::Sql> proxy;
     struct EmailData
     {
             std::string productName;

@@ -137,7 +137,6 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
             std::vector<common::Product> productVector;
             productVector.push_back(product);
             proxy.insertProducts(productVector);
@@ -154,7 +153,6 @@ Core::Core()
     common::Product Core::getProduct(const std::uint32_t productID)
     {
         common::Product product;
-        proxy::Proxy<sql::Sql> proxy;
         product = proxy.getProduct(productID);
         return product;
     }
@@ -163,7 +161,6 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
             std::vector<common::Product> productVector;
             productVector.push_back(updatedProduct);
             proxy.updateProducts(productVector);
@@ -181,7 +178,7 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
+            //A call to proxy
         }
         catch(...)
         {
@@ -196,7 +193,6 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
             proxy.insertInstance(instance);
         }
         catch(...)
@@ -210,14 +206,12 @@ Core::Core()
     common::ProductInstance Core::getProductInstanceByLocationID(const std::string &locationID)
     {
         common::ProductInstance product;
-        proxy::Proxy<sql::Sql> proxy;
         //A call to a proxy
         return product;
     }
     common::ProductInstance Core::getProductInstance(const std::uint32_t instanceID)
     {
         common::ProductInstance product;
-        proxy::Proxy<sql::Sql> proxy;
         //A call to a proxy
         return product;
     }
@@ -226,7 +220,6 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
             proxy.updateInstance(updatedInstance);
         }
         catch(...)
@@ -242,7 +235,7 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
+            //A call to proxy
         }
         catch(...)
         {
@@ -257,7 +250,7 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
+            //A call to proxy
         }
         catch(...)
         {
@@ -272,7 +265,7 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
+            //A call to proxy
         }
         catch(...)
         {
@@ -287,7 +280,7 @@ Core::Core()
         MethodResult result;
         try
         {
-            proxy::Proxy<sql::Sql> proxy;
+            //A call to proxy
         }
         catch(...)
         {
@@ -300,14 +293,12 @@ Core::Core()
     std::vector<std::string> Core::getLocations()
     {
         std::vector<std::string> result;
-        proxy::Proxy<sql::Sql> proxy;
         //result = A call to a proxy
         return result;
     }
     std::vector<std::vector<common::Product>> Core::searchProducts(const auto &value, const std::string &searchType)
     {
         std::vector<std::vector<common::Product>> result;
-        proxy::Proxy<sql::Sql> proxy;
         switch(searchType)
         {
         case "BeginningWith":
