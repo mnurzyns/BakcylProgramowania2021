@@ -137,8 +137,7 @@ Core::Core()
         MethodResult result;
         try
         {
-            std::vector<common::Product> productVector;
-            productVector.push_back(product);
+            std::vector<common::Product> productVector = {product};
             proxy.insertProducts(productVector);
         }
         catch(...)
@@ -161,8 +160,7 @@ Core::Core()
         MethodResult result;
         try
         {
-            std::vector<common::Product> productVector;
-            productVector.push_back(updatedProduct);
+            std::vector<common::Product> productVector = {updatedProduct};
             proxy.updateProducts(productVector);
         }
         catch(...)
