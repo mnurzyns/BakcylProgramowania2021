@@ -66,10 +66,7 @@ TEST_F(CoreTestProduct, createProductShouldReturnSuccess)
 
 TEST_F(CoreTestProduct, updateProductShouldReturnSuccess)
 {
-    EXPECT_EQ(core.updateProduct(0,product), Core::MethodResult::SUCCESS);
-    EXPECT_EQ(core.updateProduct(9755765,product), Core::MethodResult::SUCCESS);
-    EXPECT_EQ(core.updateProduct(2147483647,product), Core::MethodResult::SUCCESS);
-    EXPECT_EQ(core.updateProduct(4294967295,product), Core::MethodResult::SUCCESS);
+    EXPECT_EQ(core.updateProduct(product), Core::MethodResult::SUCCESS);
 }
 
 TEST_F(CoreTestProductInstance, createProductInstanceShouldReturnSuccess)
@@ -79,10 +76,7 @@ TEST_F(CoreTestProductInstance, createProductInstanceShouldReturnSuccess)
 
 TEST_F(CoreTestProductInstance, updateProductInstanceShouldReturnSuccess)
 {
-    EXPECT_EQ(core.updateProductInstance(0, product), Core::MethodResult::SUCCESS);
-    EXPECT_EQ(core.updateProductInstance(9755765, product), Core::MethodResult::SUCCESS);
-    EXPECT_EQ(core.updateProductInstance(2147483647, product), Core::MethodResult::SUCCESS);
-    EXPECT_EQ(core.updateProductInstance(4294967295, product), Core::MethodResult::SUCCESS);
+    EXPECT_EQ(core.updateProductInstance(product), Core::MethodResult::SUCCESS);
 }
 
 TEST_F(CoreTest, updateLocationShouldReturnSuccess)
