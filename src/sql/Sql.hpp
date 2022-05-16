@@ -28,6 +28,8 @@ namespace bakcyl::sql
             void updateProducts(const std::vector<Product>& newData);
 
             std::vector<ProductInstance> getAllInstances() const;
+            ProductInstance getInstance(const std::uint32_t& id) const;
+            ProductInstance getInstance(const std::uint64_t& productId) const;
             void insertInstance(const ProductInstance& instance);
             void updateInstance(const ProductInstance& newData);
     };
