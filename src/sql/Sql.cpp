@@ -14,7 +14,8 @@ namespace bakcyl::sql
         QJsonDocument document = QJsonDocument::fromJson(contents.toUtf8());
         
         connectionName = document["database"].toString();
-        database = QSqlDatabase::addDatabase(document["database"].toString());
+
+        database = QSqlDatabase::addDatabase("QMYSQL");
         database.setHostName(document["host"].toString());
         database.setDatabaseName(document["database"].toString());
         database.setUserName(document["user"].toString());
@@ -35,7 +36,7 @@ namespace bakcyl::sql
     QString Sql::loadCredentials() const
     {
         QFile file;
-        file.setFileName("credentials.json");
+        file.setFileName("/etc/credentials.json");
         file.open(QIODevice::ReadOnly | QIODevice::Text);
         QString contents = file.readAll();
         file.close();

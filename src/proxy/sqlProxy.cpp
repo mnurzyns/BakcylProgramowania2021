@@ -1,5 +1,7 @@
 #include "sqlProxy.hpp"
 
+#include <iostream>
+
 namespace bakcyl::proxy
 {
     std::vector<common::Product> Proxy<sql::Sql>::getAllProducts()
@@ -29,6 +31,7 @@ namespace bakcyl::proxy
 
     void Proxy<sql::Sql>::insertProducts(const std::vector<common::Product> &products)
     {
+        std::cerr << "Called";
         db.insertProducts(convert::convertVector(products));
     }
 

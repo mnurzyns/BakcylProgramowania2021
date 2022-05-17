@@ -11,11 +11,12 @@ RUN apt-get update -y && DEBIAN_FRONTEND=noninteractive apt-get install -y \
       && rm -rf /var/lib/apt/lists/*
 
 COPY . BakcylProgramowania2021/
+COPY src/sql/credentials.json /etc/credentials.json
 RUN cmake -Bbakcyl-build -HBakcylProgramowania2021
 RUN cmake --build bakcyl-build -j $(cat /proc/cpuinfo | grep processor | wc -l)
 
 ENV DISPLAY :0
 
 CMD /wait && \
-    mysql -h db -u root < BakcylProgramowania2021/src/sql/database.sql && \
+    mysql -h db -u root -p bakcyl < BakcylProgramowania2021/src/sql/database.sql && \
     cmake --build bakcyl-build --target BakcylProgramowania2021-run

@@ -4,7 +4,8 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: helloworld
       MYSQL_DATABASE: bakcyl
   bakcyl:
     depends_on:
@@ -15,3 +16,7 @@ services:
     environment:
       - WAIT_HOSTS=db:3306
       - DISPLAY=${DISPLAY}
+  admin:
+      image: adminer
+      ports:
+        - "8080:8080"
