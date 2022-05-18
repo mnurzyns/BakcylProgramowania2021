@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.3
 import DatabaseManager 1.0
 
 Window {
+    id: addProductInstanceWindow
     width: 640
     height: 400
     visible: true
@@ -12,6 +13,80 @@ Window {
 
     DatabaseManager {
         id: databaseManager
+    }
+
+    Popup {
+        id: successBox
+        width: 400
+        height: 150
+        modal: true
+        focus: true
+        anchors.centerIn: Overlay.overlay
+        padding: 30
+
+        onClosed: addProductInstanceWindow.close()
+
+        GridLayout {
+            anchors.fill: parent
+            flow: GridLayout.TopToBottom
+            columnSpacing: 20
+
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Product instance succesfully added"
+                font.pointSize: 14
+            }
+            Button {
+                id: closeSuccessBoxButton
+                Layout.alignment: Qt.AlignCenter
+                text: "OK"
+
+                onClicked: close()
+            }
+        }
+    }
+
+    Popup {
+        id: failBox
+        width: 350
+        height: 200
+        modal: true
+        focus: true
+        anchors.centerIn: Overlay.overlay
+        padding: 30
+
+        GridLayout {
+            anchors.fill: parent
+            flow: GridLayout.TopToBottom
+
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Query failed"
+                font.pointSize: 14
+            }
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: databaseManager.failMessageForProductInst
+                font.pointSize: 11
+            }
+            Text {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: "Pleas try again"
+                font.pointSize: 10
+                color: "#333333"
+            }
+            Button {
+                id: closeFailBoxPopup
+                Layout.alignment: Qt.AlignCenter
+                text: "OK"
+
+                onClicked: failBox.close()
+            }
+        }
     }
 
     GridLayout {
@@ -149,8 +224,7 @@ Window {
                         parseInt(productInstanceIdField.text),
                         productInstanceLocationField.text,
                         parseInt(productInstanceQuantityField.text)
-                    )
-                    close()
+                    ) ? successBox.open() : failBox.open()
                 }
             }
         }
