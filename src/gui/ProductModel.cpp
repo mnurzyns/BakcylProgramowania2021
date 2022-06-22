@@ -3,7 +3,7 @@
 ProductModel::ProductModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    // TODO: Get products from core through getAllProducts [currently not available]
+    loadAllProducts();
 }
 
 void ProductModel::loadAllProducts()
