@@ -6,6 +6,17 @@ ProductModel::ProductModel(QObject *parent)
     // TODO: Get products from core through getAllProducts [currently not available]
 }
 
+void ProductModel::loadAllProducts()
+{
+    beginResetModel();
+    products.clear();
+
+    bakcyl::core::Core core;
+    products = core.getAllProducts();
+
+    endResetModel();
+}
+
 int ProductModel::rowCount(const QModelIndex &parent) const
 {
     // For list models only the root node (an invalid parent) should return the list's size. For all
