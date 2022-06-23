@@ -12,8 +12,6 @@ Window {
     visible: true
     title: qsTr("Add new Product")
 
-    onClosing: productModel.loadAllProducts()
-
     DatabaseManager {
         id: databaseManager
     }
@@ -229,6 +227,8 @@ Window {
                         productCategoriesField.text,
                         productDescriptionArea.text
                     ) ? successBox.open() : failBox.open()
+
+                    productModel.loadAllProducts()
                 }
             }
         }
