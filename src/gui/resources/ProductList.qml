@@ -6,6 +6,7 @@ import Searchbox 1.0
 import Product 1.0
 
 Frame {
+    property var productModel: productModel
     GridLayout {
         id: productListBaseGrid
         anchors.fill: parent
@@ -65,8 +66,10 @@ Frame {
             clip: true
             spacing: 3
 
-            model: ProductModel { }
-
+            model: ProductModel { 
+                id: productModel 
+            }
+            
             Loader {
                 id: productPageLoader
                 property int productId : 0

@@ -3,7 +3,18 @@
 ProductModel::ProductModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    // TODO: Get products from core through getAllProducts [currently not available]
+    loadAllProducts();
+}
+
+void ProductModel::loadAllProducts()
+{
+    beginResetModel();
+    products.clear();
+
+    bakcyl::core::Core core;
+    products = core.getAllProducts();
+
+    endResetModel();
 }
 
 int ProductModel::rowCount(const QModelIndex &parent) const

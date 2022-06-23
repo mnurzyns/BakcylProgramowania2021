@@ -227,6 +227,8 @@ Window {
                         productCategoriesField.text,
                         productDescriptionArea.text
                     ) ? successBox.open() : failBox.open()
+
+                    productModel.loadAllProducts()
                 }
             }
         }
