@@ -16,6 +16,7 @@ Window {
 
     Loader {
         id: addProductWindowLoader
+        property var productModel: productList.productModel
     }
 
     GridLayout {
@@ -77,6 +78,7 @@ Window {
         }
 
         ProductList {
+            id: productList
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
