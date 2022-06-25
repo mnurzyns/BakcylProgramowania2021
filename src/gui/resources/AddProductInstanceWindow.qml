@@ -225,6 +225,8 @@ Window {
                         productInstanceLocationField.text,
                         parseInt(productInstanceQuantityField.text)
                     ) ? successBox.open() : failBox.open()
+
+                    productInstanceModel.loadAllProductInstances()
                 }
             }
         }

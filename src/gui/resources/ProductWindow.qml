@@ -17,6 +17,7 @@ Window {
     Loader {
         id: addProductInstanceWindowLoader
         property int productId
+        property var productInstanceModel: productInstanceList.productInstanceModel
     }
 
     Connections {
@@ -132,8 +133,10 @@ Window {
         }
 
         ProductInstanceList {
+            id: productInstanceList
             Layout.fillHeight: true
             Layout.fillWidth: true
+            property int parentProductId: baseProductId
         }
     }
 }
