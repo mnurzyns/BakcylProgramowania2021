@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION ${CMAKE_REQUIRED_VERSION})
 set(GUI_SOURCES
     Gui.hpp
     Gui.cpp
-    searchboxcontroller.hpp
-    searchboxcontroller.cpp
+    SearchboxController.hpp
+    SearchboxController.cpp
     ProductModel.hpp
     ProductModel.cpp
     ProductDataHandler.hpp

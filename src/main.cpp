@@ -1,9 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QtQuickControls2/QtQuickControls2>
 #include <QQmlContext>
 
-#include "gui/searchboxcontroller.hpp"
+#include "gui/SearchboxController.hpp"
 #include "gui/ProductModel.hpp"
 #include "gui/ProductInstanceModel.hpp"
 #include "gui/ProductDataHandler.hpp"
