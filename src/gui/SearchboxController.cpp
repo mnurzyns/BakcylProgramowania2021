@@ -1,4 +1,4 @@
-#include "gui/searchboxcontroller.hpp"
+#include "gui/SearchboxController.hpp"
 #include <QDebug>
 
 SearchboxController::SearchboxController(QObject *parent)
