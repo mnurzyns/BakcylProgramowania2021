@@ -3,7 +3,19 @@
 ProductInstanceModel::ProductInstanceModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-    // TODO: Get productInstances from core throug getProductInstanceByProductId [not available now]
+    // Base product ID is passed by QML, thus loadAllProductInstances() is not called at construction
+}
+
+void ProductInstanceModel::loadAllProductInstances(int baseProdcutId)
+{
+    beginResetModel();
+    productInstances.clear();
+
+    bakcyl::core::Core core;
+    uint32_t productId = static_cast<std::uint32_t>(baseProdcutId);
+    productInstances = core.getProductInstancesByProductID(productId);
+
+    endResetModel();
 }
 
 int ProductInstanceModel::rowCount(const QModelIndex &parent) const

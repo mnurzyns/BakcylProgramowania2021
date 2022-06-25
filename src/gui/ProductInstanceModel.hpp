@@ -25,6 +25,8 @@ public:
 
     virtual QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE void loadAllProductInstances(int baseProdcutId);
+
 private:
     std::vector<bakcyl::common::ProductInstance> productInstances;
 
