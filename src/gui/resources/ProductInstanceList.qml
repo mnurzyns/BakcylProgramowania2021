@@ -50,8 +50,11 @@ Frame {
             clip: true
             spacing: 3
 
-            model: ProductInstanceModel { }
-
+            model: ProductInstanceModel {
+                id: productInstanceModel
+            }
+            productInstanceModel.loadAllProductInstances(baseProductId)
+            
             delegate: RowLayout {
                 width: parent.width
                 spacing: 5

@@ -134,6 +134,7 @@ Window {
         ProductInstanceList {
             Layout.fillHeight: true
             Layout.fillWidth: true
+            property int parentProductId: baseProductId
         }
     }
 }
