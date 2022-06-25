@@ -1,6 +1,5 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QtQuickControls2/QtQuickControls2>
 #include <QQmlContext>
 
 #include "gui/searchboxcontroller.hpp"
